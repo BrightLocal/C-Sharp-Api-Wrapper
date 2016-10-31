@@ -96,6 +96,7 @@
   <ItemGroup>
     <Compile Include="api.cs" />
     <Compile Include="clientExamples.cs" />
+    <Compile Include="locationExamples.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <PropertyGroup>
