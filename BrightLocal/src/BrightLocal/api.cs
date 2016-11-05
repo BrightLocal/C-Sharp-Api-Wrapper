@@ -2,13 +2,13 @@
 using RestSharp;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Dynamic;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Threading.Tasks;
 using System.Web;
 
-namespace BrightLocalWrapper
+namespace BrightLocal
 {
     public class api
     {
@@ -47,10 +47,10 @@ namespace BrightLocalWrapper
             // create a new restsharp client
             RestClient client = new RestClient();
             // create sxpires variable
-            var expires = ConvertToUnixTimestamp();    
+            var expires = ConvertToUnixTimestamp();
             // set base url   
             client.BaseUrl = new System.Uri("https://tools.brightlocal.com/seo-tools/api/");
-           
+
             // Generate encoded signature
             var sig = CreateSig(this.api_key, this.api_secret, expires);
             // Generate the request
@@ -117,18 +117,18 @@ namespace BrightLocalWrapper
             {
                 request.AddParameter(prop.Key, prop.Value);
             }
-                        
+
             return request;
 
         }
 
-       // api class contructor
+        // api class contructor
         public api(string key, string secret)
         {
             api_key = key;
             api_secret = secret;
-            
-        } 
+
+        }
 
         public class Parameters : Dictionary<string, object>
         {

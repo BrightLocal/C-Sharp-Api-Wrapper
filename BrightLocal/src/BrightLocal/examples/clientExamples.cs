@@ -5,7 +5,7 @@ using System.Web;
 using RestSharp;
 using Newtonsoft.Json;
 
-namespace BrightLocalWrapper
+namespace BrightLocal
 {
     public class clientExamples
     {
