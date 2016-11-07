@@ -6,9 +6,9 @@ A c# wrapper class for consuming The Bright Local api. Automatically generates t
 
 ## Documentation
 
-1. [QuickStart](clients.md)
-2. [a relative link](clients.md)
-3. [a relative link](clients.md)
+1. [Installation](Installation.md)
+2. [Client Examples](clients.md)
+3. [Location Examples](clients.md)
 
 ##Dependencies
 

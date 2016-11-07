@@ -1,0 +1,19 @@
+##QuickStart
+
+It is recommended you install the BrightLocal wrapper via NuGet.
+```csharp
+   nuget Install-Package BrightLocal
+```
+
+##Manual Install
+
+1. Install the following dependencies
+
+    1. RestSHarp: nuget Install-Package RestSharp | Git: https://github.com/restsharp/RestSharp
+
+    2. Json.NET: nuget Install-Package Newtonsoft.Json -Version 9.0.1 | Git: https://github.com/JamesNK/Newtonsoft.Json
+
+
+2. Copy api.cs class to your project and reference the class in using statement.
+
+       
