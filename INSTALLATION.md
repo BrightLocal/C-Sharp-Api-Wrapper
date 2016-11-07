@@ -17,7 +17,7 @@ Manual Installation
     2. Json.NET: nuget Install-Package Newtonsoft.Json -Version 9.0.1 | Git: https://github.com/JamesNK/Newtonsoft.Json
 
 
-2. Copy api.cs class to your project and reference the class in using statement.
+2. Copy api.cs class from /BrightLocal/src/BrightLocal/ to your project and reference the class in using statement.
 
 
 
