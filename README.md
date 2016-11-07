@@ -6,10 +6,7 @@ A c# wrapper class for consuming The Bright Local api. Automatically generates t
 
 ## Documentation
 
- Markup : * Bullet list
-           * Nested bullet
-            * Sub-nested bullet etc
-          * Bullet list item 2
+*[a relative link](other_file.md)
 
 ##Dependencies
 
