@@ -16,8 +16,15 @@ namespace BrightLocal
         private string api_key;
         private string api_secret;
 
+        // Declare base url as readonly, (similar to constant)
+        private static readonly System.Uri baseUrl = new System.Uri("https://tools.brightlocal.com/seo-tools/api/");
+
+        // create an instance of restsharp client
+        RestClient client = new RestClient();
+       
+            
         // Create base 64 sha1 encrypted signature
-        public static string CreateSig(string apiKey, string secretKey, double expires)
+        private static string CreateSig(string apiKey, string secretKey, double expires)
         {
             var encoding = new System.Text.ASCIIEncoding();
             byte[] keyByte = encoding.GetBytes(secretKey);
@@ -33,7 +40,7 @@ namespace BrightLocal
         }
 
         // Create expires paramater for signature and api requests
-        public static double ConvertToUnixTimestamp()
+        private static double CreateExpiresParameter()
         {
             DateTime date = DateTime.Now;
             DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc); // The seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
@@ -42,15 +49,13 @@ namespace BrightLocal
         }
 
         // Function that creates and sends the actual request.
-        public IRestResponse Call(Method method, string endPoint, Dictionary<string, object> apiParameters)
+        private IRestResponse Call(Method method, string endPoint, Dictionary<string, object> apiParameters)
         {
-            // create a new restsharp client
-            RestClient client = new RestClient();
+                      
             // create sxpires variable
-            var expires = ConvertToUnixTimestamp();
+            var expires = CreateExpiresParameter();
             // set base url   
-            client.BaseUrl = new System.Uri("https://tools.brightlocal.com/seo-tools/api/");
-
+            client.BaseUrl = api.baseUrl;
             // Generate encoded signature
             var sig = CreateSig(this.api_key, this.api_secret, expires);
             // Generate the request
