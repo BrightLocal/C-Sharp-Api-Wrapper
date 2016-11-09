@@ -62,6 +62,11 @@ namespace BrightLocal
             var request = GetApiRequest(method, endPoint, this.api_key, sig, expires, apiParameters);
             // execure the request
             var response = client.Execute(request);
+            // check for a succesful response from server
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                throw new ApplicationException(response.ErrorMessage);
+            }
             // deserialize the response
             dynamic obj = JsonConvert.DeserializeObject(response.Content);
             return response;
