@@ -63,7 +63,7 @@ namespace BrightLocal
             // execure the request
             var response = client.Execute(request);
             // check for a succesful response from server
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (response.ResponseStatus != ResponseStatus.Completed)
             {
                 throw new ApplicationException(response.ErrorMessage);
             }
