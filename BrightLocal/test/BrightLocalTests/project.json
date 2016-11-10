@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0-*",
+  "testRunner": "mstest",
+
+  "dependencies": {
+    "BrightLocal": { "target": "project" },
+    "dotnet-test-mstest": "1.1.2-preview",
+   
+    "MSTest.TestFramework": "1.0.6-preview"
+  },
+
+  "frameworks": {
+   
+    "net451": {
+      "dependencies": {
+        "RestSharp": "105.2.3"
+      },
+      "frameworkAssemblies": {
+        "System.Web": "4.0.0.0"
+      }
+    }
+   
+    }
+  }
+
