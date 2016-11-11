@@ -11,6 +11,7 @@ A c# wrapper class for consuming The Bright Local api. Automatically generates t
 3. [Location Examples](LOCATIONS.md)
 4. [Local Search Rank Checker Examples](LSRC.md)
 5. [Local SEO Chek-up Examples](LSCU.md)
+6. [Citation Tracker Examples](CT.md)
 
 
 
