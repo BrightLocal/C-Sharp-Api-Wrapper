@@ -11,6 +11,9 @@ using System.Reflection;
 
 namespace BrightLocalTests
 {
+    // Simple test that tests the web request against BrightLocal api.
+    // TODO: Add a mocking framework to simulate server responses
+    
     [TestClass]
     public class ApiTests
     {
@@ -34,7 +37,5 @@ namespace BrightLocalTests
             Assert.IsTrue(obj.success == "true");
 
         }
-        
-
     }
 }
