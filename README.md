@@ -8,6 +8,9 @@ A c# wrapper class for consuming The Bright Local api. Automatically generates t
 
 1. [Installation](INSTALLATION.md)
 2. [Client Examples](CLIENTS.md)
-3. [Location Examples](clients.md)
+3. [Location Examples](LOCATIONS.md)
+4. [Local Search Rank Checker Examples](LSRC.md)
+5. [Local SEO Chek-up Examples](LSCU.md)
+
 
 
