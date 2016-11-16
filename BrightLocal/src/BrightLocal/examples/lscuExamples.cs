@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace BrightLocal.examples
             parameters.Add("business-category", "Restaurant");
             parameters.Add("primary-business-location", "NY, New York");
             parameters.Add("search-terms", "['restaurant manhattan', 'cafe new york']");
-
+          
             var success = request.Post("v4/lscu", parameters);
 
             return success;

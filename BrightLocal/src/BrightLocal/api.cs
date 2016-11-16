@@ -51,7 +51,7 @@ namespace BrightLocal
         }
 
         // Function that creates and sends the actual request.
-        private IRestResponse Call(Method method, string endPoint, Dictionary<string, object> apiParameters)
+        public IRestResponse Call(Method method, string endPoint, Dictionary<string, object> apiParameters)
         {
                       
             // create sxpires variable

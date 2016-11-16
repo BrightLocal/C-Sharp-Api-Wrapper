@@ -42,6 +42,17 @@ Locations
     var success = request.Put("v1/clients-and-locations/locations/" + locationId + "", parameters);
 ```
 
+### Delete a Location
+
+```csharp
+    api request = new api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+
+    var locationId = 1;
+    var parameters = new api.Parameters();
+
+    var success = request.Delete("v1/clients-and-locations/locations/" + locationId + "", parameters);
+```
+
 ### Get Location
 
 ```csharp
@@ -61,15 +72,4 @@ Locations
            parameters.Add("q", "My Sample Query");
 
     var success = request.Get("v1/clients-and-locations/locations/search", parameters);
-```
-
-### Delete a Location
-
-```csharp
-    api request = new api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
-
-    var locationId = 1;
-    var parameters = new api.Parameters();           
-
-    var success = request.Delete("v1/clients-and-locations/locations/" + locationId + "", parameters);
 ```
