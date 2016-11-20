@@ -8,7 +8,7 @@ namespace BrightLocal.Batches.examples
 {
     public class batchExamples
     {
-        public static IRestResponse addClient()
+        public static int addClient()
         {
             api Api = new api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
             batchApi batchRequest = new batchApi(Api);           

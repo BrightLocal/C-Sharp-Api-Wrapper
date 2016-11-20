@@ -69,8 +69,7 @@ namespace BrightLocal
             {
                 throw new ApplicationException(response.ErrorMessage);
             }
-            // deserialize the response
-            dynamic obj = JsonConvert.DeserializeObject(response.Content);
+            
             return response;
 
 
