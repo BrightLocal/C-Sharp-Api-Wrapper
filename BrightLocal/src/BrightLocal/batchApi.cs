@@ -14,6 +14,8 @@ namespace BrightLocal
         private api Api;
 
         // Methods for creating, commiting, getting, deleting, stopping a batch request
+
+        // On success reurns int
         public int Create()
         {
             Method method = Method.POST;
@@ -29,6 +31,7 @@ namespace BrightLocal
             return obj["batch-id"];
         }
 
+        // On success returns true
         public bool Commit(int batchId)
         {
             Method method = Method.PUT;
@@ -45,6 +48,7 @@ namespace BrightLocal
             return true;                
         }
 
+        //Returns json
         public IRestResponse GetResults(int batchId)
         {
             Method method = Method.GET;
