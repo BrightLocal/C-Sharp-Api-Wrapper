@@ -56,7 +56,7 @@ namespace BrightLocal
             parameters.Add("batch-id", batchId);
             var response =  this.Api.Call(method, "/v4/batch", parameters);
             dynamic obj = JsonConvert.DeserializeObject(response.Content);
-            return obj;
+            return response;
         }
 
         public IRestResponse Delete(string batchId)
@@ -81,7 +81,7 @@ namespace BrightLocal
             this.Api = Api;
         }
 
-        public api.Parameters convertListToParameters(LocalDirectory item)
+        public api.Parameters convertListToParameters(RankingsSearch item)
         {
             var parameters = new api.Parameters();
             foreach (var directoryinfo in item.GetType().GetProperties())
@@ -101,19 +101,21 @@ namespace BrightLocal
 
   
 
-    public class LocalDirectory 
+    public class RankingsSearch 
     {
-        public LocalDirectory()
+        public RankingsSearch()
         {
             urls = new List<string>();
         }
         [JsonProperty("search-engine")]
         public string search_engine { get; set; }
+        [JsonProperty("country")]
         public string country { get; set; }
         [JsonProperty("google-location")]
         public string google_location { get; set; }
         [JsonProperty("search-term")]
         public string search_term { get; set; }
+        [JsonProperty("urls")]
         public List<string> urls  { get; set; }
         [JsonProperty("business-names")]
         public List<string> business_names { get; set; }

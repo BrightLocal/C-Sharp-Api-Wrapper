@@ -13,21 +13,21 @@ namespace BrightLocal.Batches.examples
     {
         public static IRestResponse search()
         {
-            
-            List<LocalDirectory> searches = new List<LocalDirectory>();
-            searches.Add(new LocalDirectory()
+
+            List<RankingsSearch> searches = new List<RankingsSearch>();
+            searches.Add(new RankingsSearch()
             {
                 search_engine = "google",
-                country = "yes",
+                country = "USA",
                 google_location = "New York, NY",
                 search_term = "restaurant new york",
                 urls = new List<string>() { "le-bernardin.com" },
                 business_names = new List<string>() { "Le Bernardin" }
             });
-            searches.Add(new LocalDirectory()
+            searches.Add(new RankingsSearch()
             {
                 search_engine = "yahoo",
-                country = "yes",
+                country = "USA",
                 google_location = "New York, NY",
                 search_term = "restaurant new york",
                 urls = new List<string>() { "le-bernardin.com" },
@@ -37,11 +37,11 @@ namespace BrightLocal.Batches.examples
 
             api Api = new api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
             batchApi batchRequest = new batchApi(Api);
-            
+
             // Create a new batch
             int batchId = batchRequest.Create();
             var parameters = new api.Parameters();
-
+            
             // Add jobs to batch
             foreach (var item in searches)
             {
@@ -56,7 +56,9 @@ namespace BrightLocal.Batches.examples
                     dynamic job = JsonConvert.DeserializeObject(jobId.Content);
                     if (job.success != "true")
                     {
-                        return job;
+                        string message = job.errors;
+                        var batchException = new ApplicationException(message, job.ErrorException);
+                        throw batchException;
                     }
                 }
                 else
@@ -72,7 +74,7 @@ namespace BrightLocal.Batches.examples
 
             var results = batchRequest.GetResults(batchId);
             dynamic rankingResults = JsonConvert.DeserializeObject(results.Content);
-            
+
             if (rankingResults.success == "true")
             {
                 while (rankingResults.status != "Stopped" || rankingResults.status != "Finished")
@@ -89,7 +91,6 @@ namespace BrightLocal.Batches.examples
                 var batchException = new ApplicationException(message, results.ErrorException);
                 throw batchException;
             }
-
         }
     }
 }
