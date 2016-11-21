@@ -64,7 +64,15 @@ namespace BrightLocal
             Method method = Method.DELETE;
             var parameters = new api.Parameters();
             parameters.Add("batch-id", batchId);
-            return this.Api.Call(method, "/v4/batch", parameters);
+            var response =  this.Api.Call(method, "/v4/batch", parameters);
+            dynamic obj = JsonConvert.DeserializeObject(response.Content);
+            if (obj.success != "true")
+            {
+                const string message = "Error deleting Batch ";
+                var batchException = new ApplicationException(message, obj.ErrorException);
+                throw batchException;
+            }
+            return response;
         }
 
         public IRestResponse Stop(string batchId)
@@ -72,7 +80,15 @@ namespace BrightLocal
             Method method = Method.PUT;
             var parameters = new api.Parameters();
             parameters.Add("batch-id", batchId);
-            return this.Api.Call(method, "/v4/batch/stop", parameters);
+            var response = this.Api.Call(method, "/v4/batch/stop", parameters);
+            dynamic obj = JsonConvert.DeserializeObject(response.Content);
+            if (obj.success != "true")
+            {
+                const string message = "Error stoping Batch ";
+                var batchException = new ApplicationException(message, obj.ErrorException);
+                throw batchException;
+            }
+            return response;
         }
 
         //batchApi class contructor
