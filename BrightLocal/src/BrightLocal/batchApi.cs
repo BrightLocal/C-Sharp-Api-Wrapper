@@ -24,8 +24,8 @@ namespace BrightLocal
             dynamic obj = JsonConvert.DeserializeObject(response.Content);
             if (obj.success != "true")
             {
-                const string message = "Error creating Batch ";
-                var batchException = new ApplicationException(message, obj.ErrorException);
+                const string message = "Error creating Batch " ;
+                var batchException = new ApplicationException(message + obj.errors, obj.ErrorException);
                 throw batchException;
             }
             return obj["batch-id"];
@@ -42,7 +42,7 @@ namespace BrightLocal
             if (obj.success != "true")
             {
                 const string message = "Error ccommiting Batch ";
-                var batchException = new ApplicationException(message, obj.ErrorException);
+                var batchException = new ApplicationException(message + obj.errors, obj.ErrorException);
                 throw batchException;
             }
             return true;                
@@ -69,7 +69,7 @@ namespace BrightLocal
             if (obj.success != "true")
             {
                 const string message = "Error deleting Batch ";
-                var batchException = new ApplicationException(message, obj.ErrorException);
+                var batchException = new ApplicationException(message + obj.errors, obj.ErrorException);
                 throw batchException;
             }
             return response;
@@ -85,7 +85,7 @@ namespace BrightLocal
             if (obj.success != "true")
             {
                 const string message = "Error stoping Batch ";
-                var batchException = new ApplicationException(message, obj.ErrorException);
+                var batchException = new ApplicationException(message + obj.errors, obj.ErrorException);
                 throw batchException;
             }
             return response;
