@@ -39,14 +39,14 @@ foreach (var item in searches)
     parameters = batchRequest.convertListToParameters(item);
     parameters.Add("batch-id", batchId);
 
-    var jobId = Api.Post("v4/rankings/search", parameters);
+    var jobId = Api.Post("/v4/rankings/search", parameters);
 
     if (jobId.ResponseStatus == ResponseStatus.Completed)
     {
         dynamic job = JsonConvert.DeserializeObject(jobId.Content);
         if (job.success != "true")
         {
-            string message = job.errors;
+            string message = "Error adding job";
             var batchException = new ApplicationException(message, job.ErrorException);
             throw batchException;
         }
@@ -106,14 +106,14 @@ var parameters = new api.Parameters();
         parameters.Add("search-terms", searches);
         parameters.Add("urls", "['le-bernardin.com']");
         parameters.Add("business-names", "['Le Bernardin']");
-        var jobId = Api.Post("v4/rankings/bulk-search", parameters);
+        var jobId = Api.Post("/v4/rankings/bulk-search", parameters);
 
 if (jobId.ResponseStatus == ResponseStatus.Completed)
 {
     dynamic job = JsonConvert.DeserializeObject(jobId.Content);
     if (job.success != "true")
     {
-        string message = job.errors;
+        string message = "Error adding job";
         var batchException = new ApplicationException(message + job.errors, job.ErrorException);
         throw batchException;
     }
