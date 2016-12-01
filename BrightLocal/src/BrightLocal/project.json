@@ -1,6 +1,7 @@
 ﻿{
   "version": "1.0.0-*",
-
+  "id": "BrightLocal",
+  "description": "A c# wrapper class for consuming The Bright Local api. Automatically generates the proper authentication, with the siganture and expires parameter. Avoid the need to generate your own authentication signature. See documentation for examples.",
   "dependencies": {
     "Newtonsoft.Json": "9.0.1"
 
@@ -27,9 +28,33 @@
   },
   "scripts": {
     "postcompile": [
-      "dotnet pack --no-build --output nugetpackages --configuration %compile:Configuration%"
+      "dotnet pack --no-build --output bin\\Debug --configuration %compile:Configuration%"
     ]
   },
-  "authors": [ "Hanane Moshe" ],
-  "owners": ["BrightLocal"]
+  "packOptions": {
+    "summary": "A c# wrapper class for consuming The Bright Local api. Automatically generates the proper authentication, with the siganture and expires parameter. Avoid the need to generate your own authentication signature. See documentation for examples.",
+    "tags": [ "BrightLocal.com", "Bright Local Api", "C# wrapper", "SEO Tools" ],
+    "owners": [ "BrightLocal" ],
+
+    "releaseNotes": "First release, more to come",
+    "iconUrl": "",
+    "projectUrl": "https://github.com/BrightLocal/C-Sharp-Api-Wrapper/",
+    "licenseUrl": "",
+    "requireLicenseAcceptance": false,
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/BrightLocal/C-Sharp-Api-Wrapper/"
+    },
+    "files": {
+      "include": "",
+      "exclude": "",
+      "includeFiles": [ "" ],
+      "excludeFiles": [ "" ],
+      "builtIns": {},
+      "mappings": {
+        "dest/path": "./src/path"
+      }
+    }
+  },
+  "authors": [ "Hanane Moshe" ]
 }
