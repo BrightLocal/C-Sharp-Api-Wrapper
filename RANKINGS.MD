@@ -44,7 +44,7 @@ foreach (var item in searches)
     if (jobId.ResponseStatus == ResponseStatus.Completed)
     {
         dynamic job = JsonConvert.DeserializeObject(jobId.Content);
-        if (job.success != "true")
+        if (!job.success)
         {
             string message = "Error adding job";
             var batchException = new ApplicationException(message, job.ErrorException);
@@ -65,7 +65,7 @@ bool commit = batchRequest.Commit(batchId);
 var results = batchRequest.GetResults(batchId);
 dynamic rankingResults = JsonConvert.DeserializeObject(results.Content);
 
-if (rankingResults.success == "true")
+if (rankingResults.success)
 {
     while (rankingResults.status != "Stopped" || rankingResults.status != "Finished")
     {
@@ -111,7 +111,7 @@ var parameters = new api.Parameters();
 if (jobId.ResponseStatus == ResponseStatus.Completed)
 {
     dynamic job = JsonConvert.DeserializeObject(jobId.Content);
-    if (job.success != "true")
+    if (!job.success)
     {
         string message = "Error adding job";
         var batchException = new ApplicationException(message + job.errors, job.ErrorException);
@@ -132,7 +132,7 @@ bool commit = batchRequest.Commit(batchId);
 var results = batchRequest.GetResults(batchId);
 dynamic rankingResults = JsonConvert.DeserializeObject(results.Content);
 
-if (rankingResults.success == "true")
+if (rankingResults.success)
 {
     while (rankingResults.status != "Stopped" || rankingResults.status != "Finished")
     {

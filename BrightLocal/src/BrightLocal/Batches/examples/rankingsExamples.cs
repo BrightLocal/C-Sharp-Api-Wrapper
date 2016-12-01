@@ -54,7 +54,7 @@ namespace BrightLocal.Batches.examples
                 if (jobId.ResponseStatus == ResponseStatus.Completed)
                 {
                     dynamic job = JsonConvert.DeserializeObject(jobId.Content);
-                    if (job.success != "true")
+                    if (job.success)
                     {
                         string message = "Error adding job";
                         var batchException = new ApplicationException(message + job.errors, job.ErrorException);
@@ -75,7 +75,7 @@ namespace BrightLocal.Batches.examples
             var results = batchRequest.GetResults(batchId);
             dynamic rankingResults = JsonConvert.DeserializeObject(results.Content);
 
-            if (rankingResults.success == "true")
+            if (rankingResults.success)
             {
                 while (rankingResults.status != "Stopped" || rankingResults.status != "Finished")
                 {
@@ -123,7 +123,7 @@ namespace BrightLocal.Batches.examples
                 if (jobId.ResponseStatus == ResponseStatus.Completed)
                 {
                     dynamic job = JsonConvert.DeserializeObject(jobId.Content);
-                    if (job.success != "true")
+                    if (!job.success)
                     {
                         string message = "Error adding job";
                         var batchException = new ApplicationException(message + job.errors, job.ErrorException);
@@ -144,7 +144,7 @@ namespace BrightLocal.Batches.examples
             var results = batchRequest.GetResults(batchId);
             dynamic rankingResults = JsonConvert.DeserializeObject(results.Content);
 
-            if (rankingResults.success == "true")
+            if (rankingResults.success)
             {
                 while (rankingResults.status != "Stopped" || rankingResults.status != "Finished")
                 {
