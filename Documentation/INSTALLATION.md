@@ -19,6 +19,8 @@ It is recommended you install the BrightLocal wrapper via NuGet.
 
 2. Copy api.cs class from /BrightLocal/src/BrightLocal/ to your project and reference the class in using statement.
 
+3. Copy batchApi.cs class from /BrightLocal/src/BrightLocal/ to your project and reference the class in using statement.
+
 
 
        

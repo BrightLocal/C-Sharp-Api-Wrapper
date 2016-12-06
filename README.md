@@ -6,14 +6,16 @@ A c# wrapper class for consuming The Bright Local api. Automatically generates t
 
 ## Documentation
 
-1. [Installation](INSTALLATION.md)
-2. [Client Examples](CLIENTS.md)
-3. [Location Examples](LOCATIONS.md)
-4. [Local Search Rank Checker Examples](LSRC.md)
-5. [Local SEO Chek-up Examples](LSCU.md)
-6. [Citation Tracker Examples](CT.md)
-7. [ReviewFlow Reports](RF.md)
-8. [Google+ Local Wizard Reports](GPW.md)
+1. [Installation](Documentation/INSTALLATION.md)
+2. [Client Examples](Documentation/CLIENTS.md)
+3. [Location Examples](Documentation/LOCATIONS.md)
+4. [Local Search Rank Checker Examples](Documentation/LSRC.md)
+5. [Local SEO Chek-up Examples](Documentation/LSCU.md)
+6. [Citation Tracker Examples](Documentation/CT.md)
+7. [ReviewFlow Reports](Documentation/RF.md)
+8. [Google+ Local Wizard Reports](Documentation/GPW.md)
+9. [Rankings](Documentation/RANKINGS.md)
+10. [Local Directories](Documentation/LOCAL-DIRECTORIES.md)
 
 
 
