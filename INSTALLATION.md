@@ -5,7 +5,7 @@ It is recommended you install the BrightLocal wrapper via NuGet.
    nuget Install-Package BrightLocal
 ```
 
-Manual Installation
+#Manual Installation
 
 
 ##Dependencies
