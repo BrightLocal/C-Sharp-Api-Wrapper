@@ -1,6 +1,6 @@
 ##QuickStart
 
-It is recommended you install the BrightLocal wrapper via NuGet.
+It is recommended you install the BrightLocal wrapper via NuGet | https://www.nuget.org/packages/BrightLocal/1.0.0/
 ```csharp
    nuget Install-Package BrightLocal
 ```
