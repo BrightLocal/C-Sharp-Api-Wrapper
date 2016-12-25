@@ -11,7 +11,7 @@ namespace BrightLocal
         private string api_key;
         private string api_secret;
 
-        protected BrightLocalService(string key, string secret)
+        internal BrightLocalService(string key, string secret)
         {
             api_key = key;
             api_secret = secret;
