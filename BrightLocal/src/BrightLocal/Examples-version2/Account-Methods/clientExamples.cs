@@ -18,7 +18,9 @@ namespace BrightLocal.Examples_version2.Account_Methods
             myClient.businessCategoryId = 791;
 
             var clientService = new ClientService();
-            return clientService.Create(myClient);
+
+            BrightLocalClient newClient = clientService.Create(myClient);
+            return newClient;
         }
     }
 }
