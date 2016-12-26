@@ -20,5 +20,12 @@ namespace BrightLocal.Services
            var success =  request.Post(Urls.Clients, parameters);
            return JsonConvert.DeserializeObject<BrightLocalClient>(success.Content);
         }
+
+        public virtual BrightLocalClient Update(UpdateClientOptions updateOptions)
+        {
+            var parameters = Parameters.convertListToParameters(updateOptions);
+            var success = request.Put(Urls.Clients, parameters);
+            return JsonConvert.DeserializeObject<BrightLocalClient>(success.Content);
+        }
     }
 }

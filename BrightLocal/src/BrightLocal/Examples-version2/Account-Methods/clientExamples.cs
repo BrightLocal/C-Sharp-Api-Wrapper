@@ -22,5 +22,19 @@ namespace BrightLocal.Examples_version2.Account_Methods
             BrightLocalClient newClient = clientService.Create(myClient);
             return newClient;
         }
+
+        public static BrightLocalClient Update()
+        {
+            var myClient = new UpdateClientOptions();
+            myClient.clientId = 36447;
+            myClient.name = "Le Bernardin";
+            myClient.companyUrl = "le-bernardin.com";
+            myClient.businessCategoryId = 791;
+
+            var clientService = new ClientService();
+
+            BrightLocalClient updateClient = clientService.Update(myClient);
+            return updateClient;
+        }
     }
 }
