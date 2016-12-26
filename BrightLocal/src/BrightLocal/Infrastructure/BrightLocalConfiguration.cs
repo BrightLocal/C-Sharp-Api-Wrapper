@@ -14,13 +14,19 @@ namespace BrightLocal.Infrastructure
 
         public static string GetApiKey()
         {
-            api_key = ConfigurationManager.AppSettings["BrightLocalApiKey"];
+            if (string.IsNullOrEmpty(api_key))
+            {
+                api_key = ConfigurationManager.AppSettings["BrightLocalApiKey"];
+            }                
             return api_key;       
         }
 
         public static string GetApiSecret()
         {
-            api_secret = ConfigurationManager.AppSettings["BrightLocalApiSecret"];
+            if (string.IsNullOrEmpty(api_secret))
+            {
+                api_secret = ConfigurationManager.AppSettings["BrightLocalApiSecret"];
+            }           
             return api_secret;
         }
 

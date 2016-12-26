@@ -4,16 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BrightLocal.Entities
+namespace BrightLocal.Services.Clients
 {
-    public class BrightLocalClient
+    public class ClientOptions
     {
-        [JsonProperty("client-id")]
-        public int clientId { get; set; }
-        [JsonProperty("succecss")]
-        public bool success { get; set; }
-        [JsonProperty("company-name")]
-        public string companyName { get; set; }
+        [JsonProperty("name")]
+        public string name { get; set; }
         [JsonProperty("company-url")]
         public string companyUrl { get; set; }
         [JsonProperty("business-category-id")]

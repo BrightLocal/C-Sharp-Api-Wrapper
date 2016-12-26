@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using RestSharp;
 using RestSharp.Extensions.MonoHttp;
 using System;
 using System.Collections.Generic;
@@ -61,10 +62,21 @@ namespace BrightLocal.Infrastructure
             {
                 throw new ApplicationException(response.ErrorMessage);
             }
-
+            if (response.ResponseStatus == ResponseStatus.Completed)
+            {
+                dynamic result = JsonConvert.DeserializeObject(response.Content);
+                if (!result.success)
+                {
+                    string message = "Error adding job";
+                    var batchException = new ApplicationException(message + result.errors, result.ErrorException);
+                    throw batchException;
+                }
+            }
+            else
+            {
+                throw new ApplicationException(response.ErrorMessage);
+            }
             return response;
-
-
         }
 
         // Methods for post, put, get, delete
@@ -124,20 +136,5 @@ namespace BrightLocal.Infrastructure
             return request;
 
         }
-
-        // api class contructor
-        public api(string key, string secret)
-        {
-            api_key = key;
-            api_secret = secret;
-
-        }
-
-        public class Parameters : Dictionary<string, object>
-        {
-
-        }
-
-
     }
 }
