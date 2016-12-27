@@ -1,7 +1,4 @@
-﻿using BrightLocal.Entities;
-using BrightLocal.Services;
-using BrightLocal.Services.Clients;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,6 +32,33 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             BrightLocalClient updateClient = clientService.Update(myClient);
             return updateClient;
+        }
+
+        public static BrightLocalClient Delete()
+        {
+            var clientId = 1;
+            var clientService = new ClientService();
+
+            BrightLocalClient deleteClient = clientService.Delete(clientId);
+            return deleteClient;
+        }
+
+        public static BrightLocalClient Get()
+        {
+            var clientId = 1;
+            var clientService = new ClientService();
+
+            BrightLocalClient client = clientService.Get(clientId);
+            return client;
+        }
+
+        public static List<BrightLocalClient> Search()
+        {
+            var searchQuery = "le-bernardin";
+            var clientService = new ClientService();
+
+            var results = clientService.Search(searchQuery);
+            return results;
         }
     }
 }

@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BrightLocal
+﻿namespace BrightLocal
 {
-    public abstract class BrightLocalService
+    public class BrightLocalService
     {
         // Decalre Variables
-        private string api_key;
-        private string api_secret;
+        public string api_key;
+        public string api_secret;
 
-        internal BrightLocalService(string key, string secret)
+        protected  BrightLocalService(string apiKey, string apiSecret)
         {
-            api_key = key;
-            api_secret = secret;
+            api_key = apiKey;
+            api_secret = apiSecret;
         }
     }
 }

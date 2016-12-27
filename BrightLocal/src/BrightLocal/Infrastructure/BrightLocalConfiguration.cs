@@ -4,15 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Configuration;
 
-namespace BrightLocal.Infrastructure
+namespace BrightLocal
 {
-    public class BrightLocalConfiguration
+    public static class BrightLocalConfiguration
     {
         // Decalre Variables
         private static string api_key;
         private static string api_secret;
 
-        public static string GetApiKey()
+        internal static string GetApiKey()
         {
             if (string.IsNullOrEmpty(api_key))
             {
@@ -21,7 +21,7 @@ namespace BrightLocal.Infrastructure
             return api_key;       
         }
 
-        public static string GetApiSecret()
+        internal static string GetApiSecret()
         {
             if (string.IsNullOrEmpty(api_secret))
             {

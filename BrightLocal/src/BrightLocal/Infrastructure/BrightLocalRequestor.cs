@@ -8,12 +8,12 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 
-namespace BrightLocal.Infrastructure
+namespace BrightLocal
 {
     public class BrightLocalRequestor
     {
         private static readonly System.Uri baseUrl = new System.Uri(Urls.BaseUrl);
-
+       
         // create an instance of restsharp client
         RestClient client = new RestClient();
 
@@ -43,29 +43,27 @@ namespace BrightLocal.Infrastructure
             return Math.Floor(diff.TotalSeconds + 1800); // Not more than 1800 seconds
         }
 
-        // Function that creates and sends the actual request.
-        public IRestResponse Call(Method method, string endPoint, Dictionary<string, object> apiParameters)
-        {
 
+        // Function that creates and sends the actual request.
+        public IRestResponse Call(Method method, string endPoint, Dictionary<string, object> apiParameters, string apiKey, string apiSecret)
+        {
+            apiKey = apiKey ?? BrightLocalConfiguration.GetApiKey();
+            apiSecret = apiSecret ?? BrightLocalConfiguration.GetApiSecret();
             // create sxpires variable
             var expires = CreateExpiresParameter();
             // set base url   
             client.BaseUrl = baseUrl;
             // Generate encoded signature
-            var sig = CreateSig(BrightLocalConfiguration.GetApiKey(), BrightLocalConfiguration.GetApiSecret(), expires);
+            var sig = CreateSig(apiKey, apiSecret, expires);
             // Generate the request
-            var request = GetApiRequest(method, endPoint, BrightLocalConfiguration.GetApiKey(), sig, expires, apiParameters);
+            var request = GetApiRequest(method, endPoint, apiKey, sig, expires, apiParameters);
             // execure the request
             var response = client.Execute(request);
             // check for a succesful response from server
-            if (response.ResponseStatus != ResponseStatus.Completed)
-            {
-                throw new ApplicationException(response.ErrorMessage);
-            }
             if (response.ResponseStatus == ResponseStatus.Completed)
             {
                 dynamic result = JsonConvert.DeserializeObject(response.Content);
-                if (!result.success)
+                if (result.success != "true")
                 {
                     string message = "Error adding job";
                     var batchException = new ApplicationException(message + result.errors, result.ErrorException);
@@ -80,31 +78,30 @@ namespace BrightLocal.Infrastructure
         }
 
         // Methods for post, put, get, delete
-        public IRestResponse Post(string endPoint, Dictionary<string, object> apiParameters)
+        public IRestResponse Post(string endPoint, Dictionary<string, object> apiParameters, string apiKey, string apiSecret)
         {
             Method method = Method.POST;
-            return Call(method, endPoint, apiParameters);
+            return Call(method, endPoint, apiParameters, apiKey, apiSecret);
         }
 
-        public IRestResponse Put(string endPoint, Dictionary<string, object> apiParameters)
+        public IRestResponse Put(string endPoint, Dictionary<string, object> apiParameters, string apiKey, string apiSecret)
         {
             Method method = Method.PUT;
-            return Call(method, endPoint, apiParameters);
+            return Call(method, endPoint, apiParameters, apiKey, apiSecret);
         }
 
-        public IRestResponse Get(string endPoint, Dictionary<string, object> apiParameters)
+        public IRestResponse Get(string endPoint, Dictionary<string, object> apiParameters, string apiKey, string apiSecret)
         {
             Method method = Method.GET;
-            return Call(method, endPoint, apiParameters);
+            return Call(method, endPoint, apiParameters, apiKey, apiSecret);
         }
 
-        public IRestResponse Delete(string endPoint, Dictionary<string, object> apiParameters)
+        public IRestResponse Delete(string endPoint, Dictionary<string, object> apiParameters, string apiKey, string apiSecret)
         {
             Method method = Method.DELETE;
-            return Call(method, endPoint, apiParameters);
+            return Call(method, endPoint, apiParameters, apiKey, apiSecret);
         }
-
-
+       
         private static RestRequest GetApiRequest(Method method, string url, string api_key, string sig, double expires, Dictionary<string, object> apiParameters)
         {
             // Create a new restsharp request
@@ -136,5 +133,6 @@ namespace BrightLocal.Infrastructure
             return request;
 
         }
+
     }
 }
