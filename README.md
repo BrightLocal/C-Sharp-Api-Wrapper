@@ -1,27 +1,73 @@
-# BrightLocal-Api-C-Sharp-Wrapper
-Bright Local Api C# Wrapper
-
-A c# wrapper class for consuming The Bright Local api. Automatically generates the proper authentication, with the siganture and expires. Avoid the need to generate your own authentication signature.
+![BrightLocal](https://www.brightlocal.com/wp-content/themes/ashdown-local/images/logo.png) 
 
 
-## Documentation
+**BrightLocal API Wrapper Version 2.0**
+For version 1.0 [Click Here](Documentation/README.md)
 
-1. [Installation](Documentation/INSTALLATION.md)
+Quick Start
+-----------
 
-### Account Methods
+It is recommended that you install BrightLocal via NuGet ` nuget Install-Package BrightLocal`. | https://www.nuget.org/packages/BrightLocal/1.0.0/
 
-2. [Client Examples](Documentation/CLIENTS.md)
-3. [Location Examples](Documentation/LOCATIONS.md)
-4. [Local Search Rank Checker Examples](Documentation/LSRC.md)
-5. [Local SEO Check-up Examples](Documentation/LSCU.md)
-6. [Citation Tracker Examples](Documentation/CT.md)
-7. [Citation Burst Examples](Documentation/CB.md)
-8. [ReviewFlow Reports Examples](Documentation/RF.md)
-9. [Google+ Local Wizard Reports Examples](Documentation/GPW.md)
+```csharp
+   nuget Install-Package BrightLocal
+```
 
-### Batch Methods
+Next you will need to provide BrightLocal with your api key & api secret. There are currently 2 ways to do this:
 
-10. [Rankings Examples](Documentation/RANKINGS.md)
-11. [Local Directories Examples](Documentation/LOCAL-DIRECTORIES.md)
-12. [Reviews Examples](Documentation/REVIEWS.md)
-13. [Offsite SEO & Social PRofiles Examples](Documentation/OFFSITE&SP.md)
+a) Add an AppSetting with your api key to your config (this is the easiest way and will work throughout the app on every request) 
+
+```xml
+	<appSettings>
+	...
+		<add key="BrightLocalApiKey" value="[your api key here]" />
+		<add key="BrightLocalApiSecret" value="[your api secret here]" />
+	...
+	</appSettings>
+```
+
+b) In your application initialization, call this method (this is a programmatic way, but you only have to do it once during startup)
+
+```csharp
+	BrightLocalConfiguration.SetApiCredentials("[your api key here]", "[your api secret here]");
+```
+
+c) In any of the service constructors, you can optionally pass the api key & api secret (will be assigned that apikey for the life of the service instance).
+
+```csharp
+	var clientService = new ClientService("[your api key here]", "[your api secret here]");
+```
+
+Clients
+-----
+
+### Adding a client
+
+```csharp
+	var myClient = new ClientOptions();
+    myClient.name = "Le Bernardin";
+    myClient.companyUrl = "le-bernardin.com";
+    myClient.businessCategoryId = 791;
+
+    var clientService = new ClientService();
+
+    BrightLocalClient newClient = clientService.Create(myClient);
+```
+
+The returned BrightLocalClient entity above will have a client-id. You will want to persist this for later. When you create a location you will be able to assign it
+to a client id (or not).
+
+### Updating a client
+
+```csharp
+	var myClient = new UpdateClientOptions();
+    myClient.clientId = 36447;
+    myClient.name = "Le Bernardin";
+    myClient.companyUrl = "le-bernardin.com";
+    myClient.businessCategoryId = 791;
+
+    var clientService = new ClientService();
+
+    BrightLocalClient updateClient = clientService.Update(myClient);
+```
+

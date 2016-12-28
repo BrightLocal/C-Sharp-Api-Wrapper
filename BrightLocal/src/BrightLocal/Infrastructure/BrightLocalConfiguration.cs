@@ -30,7 +30,7 @@ namespace BrightLocal
             return api_secret;
         }
 
-        public static void SetApiCreds(string newApiKey, string newApiSecret)
+        public static void SetApiCredentials(string newApiKey, string newApiSecret)
         {
             api_key = newApiKey;
             api_secret = newApiSecret;
