@@ -1,4 +1,4 @@
-![BrightLocal](https://github.com/BrightLocal/C-Sharp-Api-Wrapper/tree/Developer/version2.0/Documentation/logo.png)
+![BrightLocal](https://github.com/BrightLocal/C-Sharp-Api-Wrapper/blob/master/Documentation/logo.png)
 
 
 **BrightLocal API Wrapper Version 2.0**
