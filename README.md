@@ -71,3 +71,30 @@ to a client id (or not).
     BrightLocalClient updateClient = clientService.Update(myClient);
 ```
 
+### Deleting a client
+
+```csharp
+	var clientId = 1;
+    var clientService = new ClientService();
+
+    BrightLocalClient deleteClient = clientService.Delete(clientId);
+```
+
+### Getting a client
+
+```csharp
+	var clientId = 1;
+    var clientService = new ClientService();
+
+    BrightLocalClient client = clientService.Get(clientId);
+```
+
+### Searching for a client
+
+```csharp
+	var searchQuery = "le-bernardin";
+    var clientService = new ClientService();
+
+    List<BrightLocalClient> results = clientService.Search(searchQuery); // returns a list of type BrightLocalClient
+```
+
