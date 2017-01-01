@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
 
+
 namespace BrightLocal
 {
     public class UpdateLocationOptions
     {
+        [JsonRequired]
         [JsonProperty("location-id")]
         public int locationId { get; set; }
         [JsonProperty("name")]

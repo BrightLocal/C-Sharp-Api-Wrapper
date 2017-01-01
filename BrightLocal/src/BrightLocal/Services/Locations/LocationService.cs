@@ -17,9 +17,9 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BrightLocalLocation>(success.Content);
         }
 
-        public virtual BrightLocalLocation Update(LocationOptions createOptions)
+        public virtual BrightLocalLocation Update(UpdateLocationOptions updateOptions)
         {
-            var parameters = Parameters.convertListToParameters(createOptions);
+            var parameters = Parameters.convertListToParameters(updateOptions);
             var success = request.Put(Urls.Locations, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BrightLocalLocation>(success.Content);
         }
