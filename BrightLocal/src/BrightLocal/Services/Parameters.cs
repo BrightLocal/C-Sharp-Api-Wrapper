@@ -25,6 +25,11 @@ namespace BrightLocal
             return parameters;
         }
 
+        public static string convertToNewline(string item)
+        {
+            return item.Replace(',', '\n');
+        }
+
         public class requestParameters : Dictionary<string, object>
         {
 

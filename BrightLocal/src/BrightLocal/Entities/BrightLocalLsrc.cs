@@ -45,7 +45,7 @@ namespace BrightLocal
         [JsonProperty("telephone")]
         public string telephone { get; set; }
         [JsonProperty("search-engines")]
-        public List<string> searchEngines { get; set; }
+        public string searchEngines { get; set; }
         [JsonProperty("include-local-directory-results")]
         public string includeLocalDirectoryResults { get; set; }
         [JsonProperty("notify")]
@@ -53,6 +53,11 @@ namespace BrightLocal
         [JsonProperty("emailAddresses")]
         public string emailAddresses { get; set; }
         [JsonProperty("is-public")]
-        public JsonArray isPublic { get; set; }       
+        public string isPublic { get; set; }
+        [JsonProperty("status")]
+        public string status { get; set; }
+        [JsonProperty("credits")]
+        public string credits { get; set; }
+
     }
 }
