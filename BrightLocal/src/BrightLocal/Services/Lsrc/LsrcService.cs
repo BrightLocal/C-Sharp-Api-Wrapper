@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BrightLocal
+namespace BrightLocal.Services.Lsrc
 {
-    public class EntityWithId
+    public class LsrcService
     {
-        public string id { get; set; }
     }
 }

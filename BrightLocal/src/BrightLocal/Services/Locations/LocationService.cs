@@ -29,7 +29,7 @@ namespace BrightLocal
         {
             var url = string.Format(Urls.Locations + "/{0}", locationId);
             var parameters = new Parameters.requestParameters();            
-            var success = request.Delete(locationId, parameters, this.api_key, this.api_secret);
+            var success = request.Delete(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BrightLocalLocation>(success.Content);
         }
 
