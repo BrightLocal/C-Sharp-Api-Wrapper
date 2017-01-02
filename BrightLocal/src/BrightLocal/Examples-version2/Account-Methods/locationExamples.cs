@@ -42,14 +42,13 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var locationService = new LocationService();
 
-            BrightLocalLocation newLocation = locationService.Update(myLocation);
-            return newLocation;
+            BrightLocalLocation updateLocation = locationService.Update(myLocation);
+            return updateLocation;
         }
 
         public static BrightLocalLocation Delete()
         {
             var locationId = 1;
-
             var locationService = new LocationService();
 
             BrightLocalLocation deleteLocation = locationService.Delete(locationId);
@@ -59,7 +58,6 @@ namespace BrightLocal.Examples_version2.Account_Methods
         public static BrightLocalLocation Get()
         {
             var locationId = 1;
-
             var locationService = new LocationService();
 
             BrightLocalLocation getLocation = locationService.Get(locationId);

@@ -102,3 +102,79 @@ to a client id (or not).
     List<BrightLocalClient> results = clientService.Search(searchQuery); // returns a list of type BrightLocalClient
 ```
 
+
+Locations
+-----
+
+### Adding a location
+
+```csharp
+	var myLocation = new LocationOptions();
+    myLocation.name = "Le Bernardin";
+    myLocation.url = "le-bernardin.com";
+    myLocation.businessCategoryId = 791;
+    myLocation.country = "USA";
+    myLocation.address1 = "155 Weest 51st Street";
+    myLocation.address2 = "";
+    myLocation.region = "NY"; // state or region
+    myLocation.city = "New York";
+    myLocation.postcode = "10019";
+    myLocation.telephone = "+1 212-554-1515";
+
+    var locationService = new LocationService();
+
+    BrightLocalLocation newLocation = locationService.Create(myLocation);
+```
+
+The returned BrightLocalClient entity above will have a location-id. You will want to persist this for later. When you create a report you will be able to assign it
+to a location id (or not).
+
+### Updating a location
+
+```csharp
+	var myLocation = new UpdateLocationOptions();
+	myLocation.locationId = 1;
+	myLocation.name = "Le Bernardin";
+	myLocation.url = "le-bernardin.com";
+	myLocation.businessCategoryId = 791;
+	myLocation.country = "USA";
+	myLocation.address1 = "155 Weest 51st Street";
+	myLocation.address2 = "";
+	myLocation.region = "NY"; // state or region
+	myLocation.city = "New York";
+	myLocation.postcode = "10019";
+	myLocation.telephone = "+1 212-554-1515";
+
+	var locationService = new LocationService();
+
+	BrightLocalLocation updateLocation = locationService.Update(myLocation);
+```
+
+### Deleting a location
+
+```csharp
+	var locationId = 1;
+    var locationService = new LocationService();
+
+    BrightLocalLocation deleteLocation = locationService.Delete(locationId);
+          
+```
+
+### Getting a location
+
+```csharp
+	var locationId = 1;
+    var locationService = new LocationService();
+
+    BrightLocalLocation getLocation = locationService.Get(locationId);
+```
+
+### Searching for a location
+
+```csharp
+	var searchQuery = "le-bernardin";
+    var locationService = new LocationService();
+
+    List<BrightLocalLocation> results = locationService.Search(searchQuery); // returns a list of type BrightLocalLocation
+```
+
