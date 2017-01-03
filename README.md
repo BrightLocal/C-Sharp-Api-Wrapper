@@ -7,6 +7,7 @@ For version 1.0 [Click Here](Documentation/README.md)
 **BrightLocal API Services**
 
 [Clients](#clients) 
+[Locations](#locations)
 
 Quick Start
 -----------
