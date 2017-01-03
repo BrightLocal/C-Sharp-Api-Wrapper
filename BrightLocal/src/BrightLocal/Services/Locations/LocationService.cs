@@ -19,7 +19,7 @@ namespace BrightLocal
 
         public virtual BrightLocalLocation Update(UpdateLocationOptions updateOptions)
         {
-            var url = string.Format(Urls.Locations + "/{0}", updateOptions.locationId);
+            var url = string.Format(Urls.Locations + "{0}", updateOptions.locationId);
             var parameters = Parameters.convertListToParameters(updateOptions);
             var success = request.Put(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BrightLocalLocation>(success.Content);
@@ -27,7 +27,7 @@ namespace BrightLocal
 
         public virtual BrightLocalLocation Delete(int locationId)
         {
-            var url = string.Format(Urls.Locations + "/{0}", locationId);
+            var url = string.Format(Urls.Locations + "{0}", locationId);
             var parameters = new Parameters.requestParameters();            
             var success = request.Delete(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BrightLocalLocation>(success.Content);
@@ -35,7 +35,7 @@ namespace BrightLocal
 
         public virtual BrightLocalLocation Get(int locationId)
         {
-            var url = string.Format(Urls.Locations + "/{0}", locationId);
+            var url = string.Format(Urls.Locations + "{0}", locationId);
             var parameters = new Parameters.requestParameters();
             var success = request.Get(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BrightLocalLocation>(success.Content);
@@ -43,7 +43,7 @@ namespace BrightLocal
 
         public virtual List<BrightLocalLocation> Search(string query)
         {
-            var url = string.Format(Urls.Locations + "/search");
+            var url = string.Format(Urls.Locations + "search");
             var parameters = new Parameters.requestParameters();
             parameters.Add("q", query);
             var results = request.Get(url, parameters, this.api_key, this.api_secret);

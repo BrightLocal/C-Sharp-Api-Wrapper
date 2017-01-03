@@ -35,7 +35,7 @@ namespace BrightLocal
 
         public virtual BrightLocalClient Get(int clientId)
         {
-            var url = string.Format(Urls.Clients + "/{0}", clientId);
+            var url = string.Format(Urls.Clients + "{0}", clientId);
             var parameters = new Parameters.requestParameters();            
             var success = request.Get(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BrightLocalClient>(success.Content);
@@ -43,7 +43,7 @@ namespace BrightLocal
 
         public virtual List<BrightLocalClient> Search(string query)
         {
-            var url = string.Format(Urls.Clients + "/search");
+            var url = string.Format(Urls.Clients + "search");
             var parameters = new Parameters.requestParameters();
             parameters.Add("q", query);
             var results = request.Get(url, parameters, this.api_key, this.api_secret);
