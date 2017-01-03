@@ -40,8 +40,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
         public static BrightLocalLsrc Delete()
         {
-            var campaignId = 1;
-           
+            var campaignId = 1;           
             var lsrcService = new LsrcService();
 
             BrightLocalLsrc deletedLsrc = lsrcService.Delete(campaignId);

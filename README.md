@@ -8,6 +8,7 @@ For version 1.0 [Click Here](Documentation/README.md)
 
 [Clients](#clients) 
 [Locations](#locations)
+[Local Search Rank Checker ](#Local Search Rank Checker)
 
 Quick Start
 -----------
@@ -178,4 +179,98 @@ to a location id (or not).
 
     List<BrightLocalLocation> results = locationService.Search(searchQuery); // returns a list of type BrightLocalLocation
 ```
+
+Local Search Rank Checker
+-----
+
+### Adding a report
+
+```csharp
+	var myLsrc = new LsrcOptions();
+    myLsrc.name = "Le Bernardin";
+    myLsrc.websiteAddresses = new List<string>() {"le-bernardin.com", "www.le-bernadin.com"};
+    myLsrc.searchTerms = "Restaurant, food+nyc, delivery+midtown+manhattan";
+    myLsrc.schedule = "Adhoc";
+    myLsrc.searchEngines = "google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local";
+          
+    var lsrcService = new LsrcService();
+
+    BrightLocalLsrc newLsrc = lsrcService.Create(myLsrc);
+```
+
+The returned BrightLocalClient entity above will have a campaign-id. You will want to persist this for later in order to run and get the report.
+
+### Updating a report
+
+```csharp
+	var myLsrc = new UpdateLsrcOptions();
+    myLsrc.campaignId = 1;
+    myLsrc.name = "Le Bernardin";
+    myLsrc.websiteAddresses = new List<string>() { "le-bernardin.com", "www.le-bernadin.com" };
+    myLsrc.searchTerms = "Restaurant, food+nyc, delivery+midtown+manhattan";
+    myLsrc.schedule = "Adhoc";
+    myLsrc.searchEngines = "google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local";
+
+    var lsrcService = new LsrcService();
+
+    BrightLocalLsrc updatedLsrc = lsrcService.Update(myLsrc);
+```
+
+### Deleting a report
+
+```csharp
+	var campaignId = 1;           
+    var lsrcService = new LsrcService();
+
+    BrightLocalLsrc deletedLsrc = lsrcService.Delete(campaignId);
+```
+
+### Getting all reports
+
+```csharp
+	var lsrcService = new LsrcService();
+
+    List<BrightLocalLsrc> lsrcList = lsrcService.GetAll();
+```
+
+### Getting a report
+
+```csharp
+	var campaignId = 1;
+    var lsrcService = new LsrcService();
+
+    BrightLocalLsrc myLsrc = lsrcService.Get(campaignId);
+```
+
+### Running a report
+
+```csharp
+	var campaignId = 1;
+    var lsrcService = new LsrcService();
+
+    BrightLocalLsrc myLsrc = lsrcService.Run(campaignId);
+```
+
+### Get report history
+
+```csharp
+	var campaignId = 1;
+    var lsrcService = new LsrcService();
+
+    List<BrightLocalLsrcHistory> lsrcHistory = lsrcService.GetHistory(campaignId);
+```
+
+### Get report results
+
+```csharp
+	var myLsrc = new GetResultsLsrcOptions();
+	myLsrc.campaignId = 1;
+            
+	var lsrcService = new LsrcService();
+
+	var lsrcResults = lsrcService.GetResults(myLsrc);
+```
+
+The LsrcService.GetResults method above currently returns a json object. In future releases we will have a entity BrightLocalLsrcResults.
+
 
