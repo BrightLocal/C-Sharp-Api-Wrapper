@@ -8,7 +8,7 @@ For version 1.0 [Click Here](Documentation/README.md)
 
 [Clients](#clients) 
 [Locations](#locations)
-[Local Search Rank Checker ](#Local Search Rank Checker)
+[Local Search Rank Checker](#local-search-rank-checker)
 
 Quick Start
 -----------
