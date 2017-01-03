@@ -47,7 +47,7 @@ namespace BrightLocal
         public string includeLocalDirectoryResults { get; set; }
         [JsonProperty("notify")]
         public string notify { get; set; }
-        [JsonProperty("emailAddresses")]
+        [JsonProperty("email-addresses")]
         public string emailAddresses { get; set; }
         [JsonProperty("is-public")]
         public string isPublic { get; set; }
