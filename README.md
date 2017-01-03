@@ -6,9 +6,9 @@ For version 1.0 [Click Here](Documentation/README.md)
 
 **BrightLocal API Services**
 
-[Clients](#clients) 
-[Locations](#locations)
-[Local Search Rank Checker](#local-search-rank-checker)
+[Clients](#clients)  
+[Locations](#locations)  
+[Local Search Rank Checker](#local-search-rank-checker)  
 
 Quick Start
 -----------
