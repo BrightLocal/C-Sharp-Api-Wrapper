@@ -6,7 +6,7 @@ namespace BrightLocal
     public class UpdateLsrcOptions
     {
         [JsonProperty("campaign-id")]
-        public string campaignId { get; set; }
+        public int campaignId { get; set; }
         [JsonProperty("name")]
         public string name { get; set; }
         [JsonProperty("schedule")]

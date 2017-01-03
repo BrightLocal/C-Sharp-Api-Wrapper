@@ -50,7 +50,7 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BrightLocalLsrc>(success.Content);
         }
 
-        public virtual BrightLocalLsrc Delete(string campaignId)
+        public virtual BrightLocalLsrc Delete(int campaignId)
         {
             var url = string.Format(Urls.Lsrc + "{0}", "delete");
             var parameters = new Parameters.requestParameters();
@@ -59,14 +59,12 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BrightLocalLsrc>(success.Content);
         }
 
-        public virtual List<BrightLocalLsrc> GetAll(int? locationId)
+        public virtual List<BrightLocalLsrc> GetAll(int locationId)
         {
             var url = string.Format(Urls.Lsrc + "{0}", "get-all");
-            var parameters = new Parameters.requestParameters();
-            if (locationId != null)
-            {
-                parameters.Add("location-id", locationId);
-            }
+            var parameters = new Parameters.requestParameters();           
+            parameters.Add("location-id", locationId);
+            
             var results = request.Get(url, parameters, this.api_key, this.api_secret);
 
             List<BrightLocalLsrc> reports = new List<BrightLocalLsrc>();
@@ -77,7 +75,22 @@ namespace BrightLocal
             return reports;
         }
 
-        public virtual BrightLocalLsrc Get(string campaignId)
+        public virtual List<BrightLocalLsrc> GetAll()
+        {
+            var url = string.Format(Urls.Lsrc + "{0}", "get-all");
+            var parameters = new Parameters.requestParameters();
+            
+            var results = request.Get(url, parameters, this.api_key, this.api_secret);
+
+            List<BrightLocalLsrc> reports = new List<BrightLocalLsrc>();
+            foreach (var report in results.Content[0].ToString())
+            {
+                reports.Add(JsonConvert.DeserializeObject<BrightLocalLsrc>(report.ToString()));
+            }
+            return reports;
+        }
+
+        public virtual BrightLocalLsrc Get(int campaignId)
         {
             var url = string.Format(Urls.Lsrc + "{0}", "get");
             var parameters = new Parameters.requestParameters();
@@ -86,7 +99,7 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BrightLocalLsrc>(success.Content);
         }
 
-        public virtual BrightLocalLsrc Run(string campaignId)
+        public virtual BrightLocalLsrc Run(int campaignId)
         {
             var url = string.Format(Urls.Lsrc + "{0}", "run");
             var parameters = new Parameters.requestParameters();
@@ -95,7 +108,7 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BrightLocalLsrc>(success.Content);
         }
 
-        public virtual List<BrightLocalLsrcHistory> GetHistory(string campaignId)
+        public virtual List<BrightLocalLsrcHistory> GetHistory(int campaignId)
         {
             var url = string.Format(Urls.Lsrc + "{0}", "history/get");
             var parameters = new Parameters.requestParameters();
@@ -110,14 +123,14 @@ namespace BrightLocal
             return history;
         }
 
-        public virtual IRestResponse  GetResults(string campaignId)
+        public virtual Object GetResults(GetResultsLsrcOptions lsrcOptions)
         {
             var url = string.Format(Urls.Lsrc + "{0}", "results/get");
-            var parameters = new Parameters.requestParameters();
-            parameters.Add("campaign-id", campaignId);
+            var parameters = Parameters.convertListToParameters(lsrcOptions);
+           
             var results = request.Get(url, parameters, this.api_key, this.api_secret);
-
-            return results;
+            var report = JsonConvert.DeserializeObject(results.Content);
+            return report;
         }
     }
 }
