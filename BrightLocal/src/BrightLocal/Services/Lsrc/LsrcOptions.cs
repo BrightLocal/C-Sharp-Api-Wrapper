@@ -53,4 +53,4 @@ namespace BrightLocal
         public string isPublic { get; set; }
     }
 }
-}
+
