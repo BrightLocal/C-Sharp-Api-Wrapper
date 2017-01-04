@@ -57,6 +57,7 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BrightLocalLsrc>(success.Content);
         }
 
+        //method overlaod for supplying the location-id parameter
         public virtual List<BrightLocalLsrc> GetAll(int locationId)
         {
             var url = string.Format(Urls.Lsrc + "{0}", "get-all");

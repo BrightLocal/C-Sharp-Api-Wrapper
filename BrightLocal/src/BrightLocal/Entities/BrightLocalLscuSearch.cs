@@ -11,10 +11,10 @@ namespace BrightLocal
         [JsonProperty("success")]
         public bool success { get; set; }
         [JsonProperty("reports")]
-        public List<Report> reports { get; set; }
+        public List<LscuReport> reports { get; set; }
     }
 
-    public class Report
+    public class LscuReport
     {
         [JsonProperty("report_id")]
         public string report_id { get; set; }
