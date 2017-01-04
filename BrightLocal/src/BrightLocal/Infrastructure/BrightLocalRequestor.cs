@@ -61,16 +61,15 @@ namespace BrightLocal
             var response = client.Execute(request);
             // check for a succesful response from server
             if (response.ResponseStatus == ResponseStatus.Completed)
-            {
-
+            {               
+                dynamic result = JsonConvert.DeserializeObject(response.Content);
+                if (result.success == "false")
+                {
+                    string message = "Error: ";
+                    var batchException = new ApplicationException(message + result.errors, result.ErrorException);
+                    throw batchException;
+                }
                 return response;
-                //dynamic result = JsonConvert.DeserializeObject(response.Content);
-                //if (result.success != "true")
-                //{
-                //    string message = "Error adding job";
-                //    var batchException = new ApplicationException(message + result.errors, result.ErrorException);
-                //    throw batchException;
-                //}
             }
             else
             {
