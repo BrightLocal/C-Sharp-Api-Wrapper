@@ -9,6 +9,7 @@ For version 1.0 [Click Here](Documentation/README.md)
 [Clients](#clients)  
 [Locations](#locations)  
 [Local Search Rank Checker](#local-search-rank-checker)  
+[Local SEO Check-up](#local-seo-check-up)
 
 Quick Start
 -----------
@@ -273,4 +274,112 @@ The returned BrightLocalClient entity above will have a campaign-id. You will wa
 
 The LsrcService.GetResults method above currently returns a json object. In future releases we will have a entity BrightLocalLsrcResults.
 
+Local SEO Check-up
+-----
+
+### Adding a report
+
+```csharp
+	LscuOptions myLscu = new LscuOptions();
+    myLscu.reportName = "Sample SEO Chek-Up Report";
+    myLscu.businessNames = new List<string>() {"Le Bernardin", "Le Bernardin Cafe"};
+    myLscu.websiteAddress = "le-bernardin.com";
+    myLscu.address1 = "155 Weest 51st Street";
+    myLscu.address2 = "";
+    myLscu.city = "New York";
+    myLscu.stateCode = "NY";
+    myLscu.postcode = "10019";
+    myLscu.telephone = "+1 212-554-1515";
+    myLscu.country = "USA";
+    myLscu.businessCategory = "Restaurant";
+    myLscu.primaryBusinessLocation = "NY, New York";
+    myLscu.searchTerms = new List<string>() { "restaurant manhattan", "cafe new york" };       
+
+    var lscuService = new LscuService();
+
+    BrightLocalLscu newLscu = lscuService.Create(myLscu);
+```
+
+The returned BrightLocalLscu entity above will have a report-id. You will want to persist this for later when you get and run a report.
+
+### Supplying Local Directory URLs (see local-directory-urls parameter)
+
+```csharp
+    LscuOptions myLscu = new LscuOptions();
+	myLscu.localDirectoryUrls.Add(
+        "citysearch",
+        new DirectoryUrls
+        {
+            url = "http://www.yelp.co.uk/biz/greens-restaurant-san-francisco-3",
+            include = "yes"
+        });
+    myLscu.localDirectoryUrls.Add(
+        "dexknows",
+        new DirectoryUrls
+        {
+            url = "",
+            include = "yes"
+        });
+```
+
+### Updating a report
+
+```csharp
+	UpdateLscuOptions myLscu = new UpdateLscuOptions();
+    myLscu.reportName = "Sample SEO Chek-Up Report";
+    myLscu.businessNames = new List<string>() { "Le Bernardin", "Le Bernardin Cafe" };
+    myLscu.websiteAddress = "le-bernardin.com";
+    myLscu.address1 = "155 Weest 51st Street";
+    myLscu.address2 = "";
+    myLscu.city = "New York";
+    myLscu.stateCode = "NY";
+    myLscu.postcode = "10019";
+    myLscu.telephone = "+1 212-554-1515";
+    myLscu.country = "USA";
+    myLscu.businessCategory = "Restaurant";
+    myLscu.primaryBusinessLocation = "NY, New York";
+    myLscu.searchTerms = new List<string>() { "restaurant manhattan", "cafe new york" };
+
+    var lscuService = new LscuService();
+
+    BrightLocalLscu updateLscu = lscuService.Update(myLscu);
+```
+
+### Getting a report
+
+```csharp
+	var reportId = 1;
+    var lscuService = new LscuService();
+
+    BrightLocalLscuReport lscuReport = lscuService.Get(reportId);
+```
+
+### Running a report
+
+```csharp
+	var reportId = 1;
+    var lscuService = new LscuService();
+
+    var success = lscuService.Run(reportId);
+```
+The returned success entity above is of type string. Success or Failure with errors.
+
+### Deleting a report
+
+```csharp
+	var reportId = 1;
+    var lscuService = new LscuService();
+
+    var success = lscuService.Delete(reportId);
+```
+The returned success entity above is of type string. Success or Failure with errors.
+
+### Searching for a report
+
+```csharp
+	var searchQuery = "Bodega Wine Bar";
+    var lscuService = new LscuService();
+
+    BrightLocalLscuSearch lscuSearch = lscuService.Search(searchQuery);
+```
 

@@ -75,7 +75,6 @@ namespace BrightLocal.Examples_version2.Account_Methods
         public static BrightLocalLscuReport Get()
         {
             var reportId = 1;
-
             var lscuService = new LscuService();
 
             BrightLocalLscuReport lscuReport = lscuService.Get(reportId);
@@ -86,7 +85,6 @@ namespace BrightLocal.Examples_version2.Account_Methods
         public static string Run()
         {
             var reportId = 1;
-
             var lscuService = new LscuService();
 
             var success = lscuService.Run(reportId);
@@ -96,7 +94,6 @@ namespace BrightLocal.Examples_version2.Account_Methods
         public static string Delete()
         {
             var reportId = 1;
-
             var lscuService = new LscuService();
 
             var success = lscuService.Delete(reportId);
@@ -106,7 +103,6 @@ namespace BrightLocal.Examples_version2.Account_Methods
         public static BrightLocalLscuSearch Search()
         {
             var searchQuery = "Bodega Wine Bar";
-
             var lscuService = new LscuService();
 
             BrightLocalLscuSearch lscuSearch = lscuService.Search(searchQuery);
