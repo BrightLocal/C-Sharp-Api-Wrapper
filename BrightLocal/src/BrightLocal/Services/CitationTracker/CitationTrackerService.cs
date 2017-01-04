@@ -52,21 +52,21 @@ namespace BrightLocal
         }
 
         //method overlaod for supplying the location-id parameter
-        public virtual BrightLocalCitationTrackerGetAll GetAll(int locationId)
+        public virtual BrightLocalGetAllResults GetAll(int locationId)
         {
             var url = string.Format(Urls.CitationTracker + "{0}", "get-all");
             var parameters = new Parameters.requestParameters();
             parameters.Add("location-id", locationId);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalCitationTrackerGetAll>(success.Content);
+            return JsonConvert.DeserializeObject<BrightLocalGetAllResults>(success.Content);
         }
 
-        public virtual BrightLocalCitationTrackerGetAll GetAll()
+        public virtual BrightLocalGetAllResults GetAll()
         {
             var url = string.Format(Urls.CitationTracker + "{0}", "get-all");
             var parameters = new Parameters.requestParameters();            
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalCitationTrackerGetAll>(success.Content);
+            return JsonConvert.DeserializeObject<BrightLocalGetAllResults>(success.Content);
         }
     }
 }

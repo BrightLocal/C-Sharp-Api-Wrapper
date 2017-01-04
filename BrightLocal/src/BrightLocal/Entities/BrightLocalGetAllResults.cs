@@ -2,12 +2,12 @@
 
 namespace BrightLocal
 {
-    public class BrightLocalCitationTrackerGetAll
+    public class BrightLocalGetAllResults
     {
-        public List<CitationTrackerAll> results { get; set; }
+        public List<ResultsList> results { get; set; }
     }
 
-    public class CitationTrackerAll
+    public class ResultsList
     {
         public string campaign_id { get; set; }
         public string name { get; set; }
