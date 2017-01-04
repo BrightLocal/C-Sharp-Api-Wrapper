@@ -8,6 +8,11 @@ namespace BrightLocal
 {
     public class BrightLocalLsrcHistory
     {
+        public List<LsrcHistory> reports { get; set; }
+    }
+
+    public class LsrcHistory
+    {
         [JsonProperty("campaign_history_id")]
         public string campaignHistoryId { get; set; }
         [JsonProperty("campaign_id")]

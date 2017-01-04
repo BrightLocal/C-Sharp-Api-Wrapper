@@ -231,7 +231,7 @@ The returned BrightLocalClient entity above will have a campaign-id. You will wa
 ```csharp
 	var lsrcService = new LsrcService();
 
-    List<BrightLocalLsrc> lsrcList = lsrcService.GetAll();
+    BrightLocalGetAllResults lsrcList = lsrcService.GetAll();;
 ```
 
 ### Getting a report
@@ -240,7 +240,7 @@ The returned BrightLocalClient entity above will have a campaign-id. You will wa
 	var campaignId = 1;
     var lsrcService = new LsrcService();
 
-    BrightLocalLsrc myLsrc = lsrcService.Get(campaignId);
+    BrightLocalLsrcReport myLsrc = lsrcService.Get(campaignId);
 ```
 
 ### Running a report
@@ -258,7 +258,7 @@ The returned BrightLocalClient entity above will have a campaign-id. You will wa
 	var campaignId = 1;
     var lsrcService = new LsrcService();
 
-    List<BrightLocalLsrcHistory> lsrcHistory = lsrcService.GetHistory(campaignId);
+    BrightLocalLsrcHistory lsrcHistory = lsrcService.GetHistory(campaignId);
 ```
 
 ### Get report results

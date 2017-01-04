@@ -47,20 +47,20 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return deletedLsrc;
         }
 
-        public static List<BrightLocalLsrc> GetAll()
+        public static BrightLocalGetAllResults GetAll()
         {
             var lsrcService = new LsrcService();
 
-            List<BrightLocalLsrc> lsrcList = lsrcService.GetAll();
+            BrightLocalGetAllResults lsrcList = lsrcService.GetAll();
             return lsrcList;
         }
 
-        public static BrightLocalLsrc GetReport()
+        public static BrightLocalLsrcReport GetReport()
         {
             var campaignId = 1;
             var lsrcService = new LsrcService();
 
-            BrightLocalLsrc myLsrc = lsrcService.Get(campaignId);
+            BrightLocalLsrcReport myLsrc = lsrcService.Get(campaignId);
             return myLsrc;
         }
 
@@ -73,12 +73,12 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return myLsrc;
         }
 
-        public static List<BrightLocalLsrcHistory> GetHistory()
+        public static BrightLocalLsrcHistory GetHistory()
         {
             var campaignId = 1;
             var lsrcService = new LsrcService();
 
-            List<BrightLocalLsrcHistory> lsrcHistory = lsrcService.GetHistory(campaignId);
+            BrightLocalLsrcHistory lsrcHistory = lsrcService.GetHistory(campaignId);
             return lsrcHistory;
         }
 
