@@ -11,6 +11,7 @@ namespace BrightLocal
         internal static string Clients => "/v1/clients-and-locations/clients/";
         internal static string Locations => "/v1/clients-and-locations/locations/";
         internal static string Lsrc => "/v2/lsrc/";
+        internal static string Lscu => "/v4/lscu";
 
     }
 }
