@@ -102,7 +102,7 @@ to a client id (or not).
 	var searchQuery = "le-bernardin";
     var clientService = new ClientService();
 
-    List<BrightLocalClient> results = clientService.Search(searchQuery); // returns a list of type BrightLocalClient
+    BrightLocalClientSearch results = clientService.Search(searchQuery);
 ```
 
 

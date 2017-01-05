@@ -6,14 +6,14 @@ namespace BrightLocal
     {
         [JsonProperty("client-id")]
         public int clientId { get; set; }
-        [JsonProperty("succecss")]
-        public bool success { get; set; }
+        [JsonProperty("success")]
+        public bool? success { get; set; }
         [JsonProperty("company-name")]
         public string companyName { get; set; }
         [JsonProperty("company-url")]
         public string companyUrl { get; set; }
         [JsonProperty("business-category-id")]
-        public int businessCategoryId { get; set; }
+        public int? businessCategoryId { get; set; }
         [JsonProperty("reference-number")]
         public string referenceNumber { get; set; }
     }

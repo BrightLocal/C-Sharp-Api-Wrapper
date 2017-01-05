@@ -50,12 +50,12 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return client;
         }
 
-        public static List<BrightLocalClient> Search()
+        public static BrightLocalClientSearch Search()
         {
             var searchQuery = "le-bernardin";
             var clientService = new ClientService();
 
-            List<BrightLocalClient> results = clientService.Search(searchQuery);
+            BrightLocalClientSearch results = clientService.Search(searchQuery);
             return results;
         }
     }

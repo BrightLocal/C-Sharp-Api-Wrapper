@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 
@@ -38,22 +39,18 @@ namespace BrightLocal
             var url = string.Format(Urls.Clients + "{0}", clientId);
             var parameters = new Parameters.requestParameters();            
             var success = request.Get(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalClient>(success.Content);
+            JObject o = JObject.Parse(success.Content);            
+            return JsonConvert.DeserializeObject<BrightLocalClient>(o.SelectToken("client").ToString());
         }
 
-        public virtual List<BrightLocalClient> Search(string query)
+        public virtual BrightLocalClientSearch Search(string query)
         {
             var url = string.Format(Urls.Clients + "search");
             var parameters = new Parameters.requestParameters();
             parameters.Add("q", query);
             var results = request.Get(url, parameters, this.api_key, this.api_secret);
 
-            List<BrightLocalClient> clients = new List<BrightLocalClient>();
-            foreach (var client in results.Content[0].ToString())
-            {
-               clients.Add(JsonConvert.DeserializeObject<BrightLocalClient>(client.ToString()));
-            }
-            return clients;
+            return JsonConvert.DeserializeObject<BrightLocalClientSearch>(results.Content);          
         }
     }
 }
