@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
+using System.Collections.Generic;
 
 namespace BrightLocal
 {
@@ -7,12 +8,12 @@ namespace BrightLocal
     {
         [JsonProperty("location-id")]
         public int locationId { get; set; }
-        [JsonProperty("name")]
-        public string name { get; set; }
+        [JsonProperty("location-name")]
+        public string locationName { get; set; }
         [JsonProperty("client-id")]
         public int clientId { get; set; }
-        [JsonProperty("url")]
-        public string url { get; set; }
+        [JsonProperty("location-url")]
+        public string locationUrl { get; set; }
         [JsonProperty("business-category-id")]
         public int businessCategoryId { get; set; }
         [JsonProperty("country")]
@@ -23,14 +24,14 @@ namespace BrightLocal
         public string address2 { get; set; }
         [JsonProperty("region")]
         public string region { get; set; }
-        [JsonProperty("city")]
-        public string city { get; set; }
+        [JsonProperty("town")]
+        public string town { get; set; }
         [JsonProperty("postcode")]
         public string postcode { get; set; }
         [JsonProperty("telephone")]
         public string telephone { get; set; }
-        [JsonProperty("unique-reference")]
-        public string uniqueReference { get; set; }
+        [JsonProperty("location-reference")]
+        public string locationReference { get; set; }
         [JsonProperty("contact-first-name")]
         public string contactFirstName { get; set; }
         [JsonProperty("contact-last-name")]
@@ -48,16 +49,34 @@ namespace BrightLocal
         [JsonProperty("year-of-formation")]
         public string yearOfFormation { get; set; }
         [JsonProperty("extra-business-categories")]
-        public JsonArray extraBusinessCategories { get; set; }
+        public List<string> extraBusinessCategories { get; set; }
         [JsonProperty("working-hours")]
-        public JsonArray workingHours { get; set; }
+        public WorkingHours workingHours { get; set; }
         [JsonProperty("payment-methods")]
-        public JsonArray paymentMethods { get; set; }
+        public List<string> paymentMethods { get; set; }
         [JsonProperty("short-description")]
         public string shortDescription { get; set; }
         [JsonProperty("long-description")]
         public string longDescription { get; set; }
         [JsonProperty("services-of-products")]
-        public JsonArray servicesOfProducts { get; set; }
+        public List<string> servicesOfProducts { get; set; }
+    }
+
+    public class WorkingHours
+    {
+        public string mon_start { get; set; }
+        public string mon_end { get; set; }
+        public string tue_start { get; set; }
+        public string tue_end { get; set; }
+        public string wed_start { get; set; }
+        public string wed_end { get; set; }
+        public string thu_start { get; set; }
+        public string thu_end { get; set; }
+        public string fri_start { get; set; }
+        public string fri_end { get; set; }
+        public string sat_start { get; set; }
+        public string sat_end { get; set; }
+        public string sun_start { get; set; }
+        public string sun_end { get; set; }
     }
 }

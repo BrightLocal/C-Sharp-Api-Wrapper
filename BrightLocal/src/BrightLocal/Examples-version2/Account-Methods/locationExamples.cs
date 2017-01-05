@@ -64,12 +64,12 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return getLocation;
         }
 
-        public static List<BrightLocalLocation> Search()
+        public static BrightLocalLocationSearch Search()
         {
             var searchQuery = "le-bernardin";
             var locationService = new LocationService();
 
-            List<BrightLocalLocation> results = locationService.Search(searchQuery);
+            BrightLocalLocationSearch results = locationService.Search(searchQuery);
             return results;
         }
     }

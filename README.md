@@ -178,7 +178,7 @@ to a location id (or not).
 	var searchQuery = "le-bernardin";
     var locationService = new LocationService();
 
-    List<BrightLocalLocation> results = locationService.Search(searchQuery); // returns a list of type BrightLocalLocation
+    BrightLocalLocationSearch results = locationService.Search(searchQuery); 
 ```
 
 Local Search Rank Checker
