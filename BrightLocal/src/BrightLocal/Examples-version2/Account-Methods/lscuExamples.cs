@@ -7,7 +7,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 {
     public class lscuExamples
     {
-        public static BrightLocalLscu Create()
+        public static BrightLocalSuccess Create()
         {
             LscuOptions myLscu = new LscuOptions();
             myLscu.reportName = "Sample SEO Chek-Up Report";
@@ -43,12 +43,12 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var lscuService = new LscuService();
 
-            BrightLocalLscu newLscu = lscuService.Create(myLscu);
+            BrightLocalSuccess newLscu = lscuService.Create(myLscu);
 
             return newLscu;
         }
 
-        public static BrightLocalLscu Update()
+        public static BrightLocalSuccess Update()
         {
             UpdateLscuOptions myLscu = new UpdateLscuOptions();
             myLscu.reportName = "Sample SEO Chek-Up Report";
@@ -67,7 +67,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var lscuService = new LscuService();
 
-            BrightLocalLscu updateLscu = lscuService.Update(myLscu);
+            BrightLocalSuccess updateLscu = lscuService.Update(myLscu);
 
             return updateLscu;
         }

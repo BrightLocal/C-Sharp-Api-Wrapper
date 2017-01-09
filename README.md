@@ -58,10 +58,10 @@ Clients
 
     var clientService = new ClientService();
 
-    BrightLocalClient newClient = clientService.Create(myClient);
+    BrightLocalSuccess newClient = clientService.Create(myClient);
 ```
 
-The returned BrightLocalClient entity above will have a client-id. You will want to persist this for later. When you create a location you will be able to assign it
+The returned BrightLocalSuccess entity above will have a client-id. You will want to persist this for later. When you create a location you will be able to assign it
 to a client id (or not).
 
 ### Updating a client
@@ -75,7 +75,7 @@ to a client id (or not).
 
     var clientService = new ClientService();
 
-    BrightLocalClient updateClient = clientService.Update(myClient);
+    BrightLocalSuccess updateClient = clientService.Update(myClient);
 ```
 
 ### Deleting a client
@@ -84,7 +84,7 @@ to a client id (or not).
 	var clientId = 1;
     var clientService = new ClientService();
 
-    BrightLocalClient deleteClient = clientService.Delete(clientId);
+    BrightLocalSuccess deleteClient = clientService.Delete(clientId);
 ```
 
 ### Getting a client
@@ -126,10 +126,10 @@ Locations
 
     var locationService = new LocationService();
 
-    BrightLocalLocation newLocation = locationService.Create(myLocation);
+    var BrightLocalSuccess = locationService.Create(myLocation);
 ```
 
-The returned BrightLocalClient entity above will have a location-id. You will want to persist this for later. When you create a report you will be able to assign it
+The returned BrightLocalSuccess entity above will have a location-id. You will want to persist this for later. When you create a report you will be able to assign it
 to a location id (or not).
 
 ### Updating a location
@@ -150,7 +150,7 @@ to a location id (or not).
 
 	var locationService = new LocationService();
 
-	BrightLocalLocation updateLocation = locationService.Update(myLocation);
+	BrightLocalSuccess updateLocation = locationService.Update(myLocation);
 ```
 
 ### Deleting a location
@@ -159,8 +159,7 @@ to a location id (or not).
 	var locationId = 1;
     var locationService = new LocationService();
 
-    BrightLocalLocation deleteLocation = locationService.Delete(locationId);
-          
+    BrightLocalSuccess deleteLocation = locationService.Delete(locationId);          
 ```
 
 ### Getting a location

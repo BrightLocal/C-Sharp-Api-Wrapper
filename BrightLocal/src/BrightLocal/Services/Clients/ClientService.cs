@@ -12,26 +12,26 @@ namespace BrightLocal
        
         BrightLocalRequestor request = new BrightLocalRequestor();      
 
-        public virtual BrightLocalClient Create(ClientOptions createOptions)
+        public virtual BrightLocalSuccess Create(ClientOptions createOptions)
         {
            var parameters = Parameters.convertListToParameters(createOptions);
            var success =  request.Post(Urls.Clients, parameters, this.api_key, this.api_secret);
-           return JsonConvert.DeserializeObject<BrightLocalClient>(success.Content);
+           return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
         }
 
-        public virtual BrightLocalClient Update(UpdateClientOptions updateOptions)
+        public virtual BrightLocalSuccess Update(UpdateClientOptions updateOptions)
         {
             var parameters = Parameters.convertListToParameters(updateOptions);
             var success = request.Put(Urls.Clients, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalClient>(success.Content);
+            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
         }
 
-        public virtual BrightLocalClient Delete(int clientId)
+        public virtual BrightLocalSuccess Delete(int clientId)
         {
             var parameters = new Parameters.requestParameters();
             parameters.Add("client-id", clientId);
             var success = request.Delete(Urls.Clients, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalClient>(success.Content);
+            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
         }
 
         public virtual BrightLocalClient Get(int clientId)

@@ -11,18 +11,18 @@ namespace BrightLocal
 
         BrightLocalRequestor request = new BrightLocalRequestor();
 
-        public virtual BrightLocalLscu Create(LscuOptions createOptions)
+        public virtual BrightLocalSuccess Create(LscuOptions createOptions)
         {
             var parameters = Parameters.convertListToParameters(createOptions);
             var success = request.Post(Urls.Lscu, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalLscu>(success.Content);
+            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
         }
 
-        public virtual BrightLocalLscu Update(UpdateLscuOptions updateOptions)
+        public virtual BrightLocalSuccess Update(UpdateLscuOptions updateOptions)
         {
             var parameters = Parameters.convertListToParameters(updateOptions);
             var success = request.Put(Urls.Lscu, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalLscu>(success.Content);
+            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
         }
 
         public virtual BrightLocalLscuReport Get(int reportId)

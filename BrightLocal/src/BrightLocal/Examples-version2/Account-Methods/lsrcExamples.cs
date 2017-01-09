@@ -7,7 +7,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 {
     public class lsrcExamples
     {
-        public static BrightLocalLsrc Create()
+        public static BrightLocalSuccess Create()
         {
             var myLsrc = new LsrcOptions();
             myLsrc.name = "Le Bernardin";
@@ -18,11 +18,11 @@ namespace BrightLocal.Examples_version2.Account_Methods
           
             var lsrcService = new LsrcService();
 
-            BrightLocalLsrc newLsrc = lsrcService.Create(myLsrc);
+            BrightLocalSuccess newLsrc = lsrcService.Create(myLsrc);
             return newLsrc;
         }
 
-        public static BrightLocalLsrc Update()
+        public static BrightLocalSuccess Update()
         {
             var myLsrc = new UpdateLsrcOptions();
             myLsrc.campaignId = 1;
@@ -34,16 +34,16 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var lsrcService = new LsrcService();
 
-            BrightLocalLsrc updatedLsrc = lsrcService.Update(myLsrc);
+            BrightLocalSuccess updatedLsrc = lsrcService.Update(myLsrc);
             return updatedLsrc;
         }
 
-        public static BrightLocalLsrc Delete()
+        public static BrightLocalSuccess Delete()
         {
             var campaignId = 1;           
             var lsrcService = new LsrcService();
 
-            BrightLocalLsrc deletedLsrc = lsrcService.Delete(campaignId);
+            BrightLocalSuccess deletedLsrc = lsrcService.Delete(campaignId);
             return deletedLsrc;
         }
 

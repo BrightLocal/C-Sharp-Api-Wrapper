@@ -5,7 +5,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 {
     public class clientExamples
     {
-        public static BrightLocalClient Create()
+        public static BrightLocalSuccess Create()
         {
             var myClient = new ClientOptions();
             myClient.name = "Le Bernardin";
@@ -14,11 +14,11 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var clientService = new ClientService();
 
-            BrightLocalClient newClient = clientService.Create(myClient);
+            BrightLocalSuccess newClient = clientService.Create(myClient);
             return newClient;
         }
 
-        public static BrightLocalClient Update()
+        public static BrightLocalSuccess Update()
         {
             var myClient = new UpdateClientOptions();
             myClient.clientId = 36447;
@@ -28,16 +28,16 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var clientService = new ClientService();
 
-            BrightLocalClient updateClient = clientService.Update(myClient);
+            BrightLocalSuccess updateClient = clientService.Update(myClient);
             return updateClient;
         }
 
-        public static BrightLocalClient Delete()
+        public static BrightLocalSuccess Delete()
         {
             var clientId = 1;
             var clientService = new ClientService();
 
-            BrightLocalClient deleteClient = clientService.Delete(clientId);
+            BrightLocalSuccess deleteClient = clientService.Delete(clientId);
             return deleteClient;
         }
 

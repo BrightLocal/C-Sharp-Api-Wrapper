@@ -11,7 +11,7 @@ namespace BrightLocal
 
         BrightLocalRequestor request = new BrightLocalRequestor();
 
-        public virtual BrightLocalLsrc Create(LsrcOptions createOptions)
+        public virtual BrightLocalSuccess Create(LsrcOptions createOptions)
         {
             var url = string.Format(Urls.Lsrc + "{0}", "add");
             createOptions.searchTerms = Parameters.convertToNewline(createOptions.searchTerms);
@@ -25,10 +25,10 @@ namespace BrightLocal
             }
             var parameters = Parameters.convertListToParameters(createOptions);
             var success = request.Post(Urls.Lsrc, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalLsrc>(success.Content);
+            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
         }
 
-        public virtual BrightLocalLsrc Update(UpdateLsrcOptions updateOptions)
+        public virtual BrightLocalSuccess Update(UpdateLsrcOptions updateOptions)
         {
             var url = string.Format(Urls.Lsrc + "{0}", "update");
             if (updateOptions.searchTerms != null)
@@ -45,16 +45,16 @@ namespace BrightLocal
             }
             var parameters = Parameters.convertListToParameters(updateOptions);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalLsrc>(success.Content);
+            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
         }
 
-        public virtual BrightLocalLsrc Delete(int campaignId)
+        public virtual BrightLocalSuccess Delete(int campaignId)
         {
             var url = string.Format(Urls.Lsrc + "{0}", "delete");
             var parameters = new Parameters.requestParameters();
             parameters.Add("campaign-id", campaignId);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalLsrc>(success.Content);
+            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
         }
 
         //method overlaod for supplying the location-id parameter
