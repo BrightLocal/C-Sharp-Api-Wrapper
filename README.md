@@ -10,6 +10,7 @@ For version 1.0 [Click Here](Documentation/README.md)
 [Locations](#locations)  
 [Local Search Rank Checker](#local-search-rank-checker)  
 [Local SEO Check-up](#local-seo-check-up)
+[Citation Tracker](#citation-tracker)
 
 Quick Start
 -----------
@@ -195,10 +196,10 @@ Local Search Rank Checker
           
     var lsrcService = new LsrcService();
 
-    BrightLocalLsrc newLsrc = lsrcService.Create(myLsrc);
+    BrightLocalSuccess newLsrc = lsrcService.Create(myLsrc);
 ```
 
-The returned BrightLocalClient entity above will have a campaign-id. You will want to persist this for later in order to run and get the report.
+The returned BrightLocalSuccess entity above will have a campaign-id. You will want to persist this for later in order to run and get the report.
 
 ### Updating a report
 
@@ -213,7 +214,7 @@ The returned BrightLocalClient entity above will have a campaign-id. You will wa
 
     var lsrcService = new LsrcService();
 
-    BrightLocalLsrc updatedLsrc = lsrcService.Update(myLsrc);
+    BrightLocalSuccess updatedLsrc = lsrcService.Update(myLsrc);
 ```
 
 ### Deleting a report
@@ -222,7 +223,7 @@ The returned BrightLocalClient entity above will have a campaign-id. You will wa
 	var campaignId = 1;           
     var lsrcService = new LsrcService();
 
-    BrightLocalLsrc deletedLsrc = lsrcService.Delete(campaignId);
+    BrightLoBrightLocalSuccesscalLsrc deletedLsrc = lsrcService.Delete(campaignId);
 ```
 
 ### Getting all reports
@@ -273,6 +274,7 @@ The returned BrightLocalClient entity above will have a campaign-id. You will wa
 
 The LsrcService.GetResults method above currently returns a json object. In future releases we will have a entity BrightLocalLsrcResults.
 
+
 Local SEO Check-up
 -----
 
@@ -296,10 +298,10 @@ Local SEO Check-up
 
     var lscuService = new LscuService();
 
-    BrightLocalLscu newLscu = lscuService.Create(myLscu);
+    BrightLocalSuccess newLscu = lscuService.Create(myLscu);
 ```
 
-The returned BrightLocalLscu entity above will have a report-id. You will want to persist this for later when you get and run a report.
+The returned BrightLocalSuccess entity above will have a report-id. You will want to persist this for later when you get and run a report.
 
 ### Supplying Local Directory URLs (see local-directory-urls parameter)
 
@@ -341,7 +343,7 @@ The returned BrightLocalLscu entity above will have a report-id. You will want t
 
     var lscuService = new LscuService();
 
-    BrightLocalLscu updateLscu = lscuService.Update(myLscu);
+    BrightLocalSuccess updateLscu = lscuService.Update(myLscu);
 ```
 
 ### Getting a report
@@ -382,3 +384,90 @@ The returned success entity above is of type string. Success or Failure with err
     BrightLocalLscuSearch lscuSearch = lscuService.Search(searchQuery);
 ```
 
+Citation Tracker
+-----
+
+### Adding a report
+
+```csharp
+	CitationTrackerOptions myCt = new CitationTrackerOptions();
+    myCt.reportName = "Sample Citation Tracker Report";
+    myCt.businessName = "Le Bernardin";
+    myCt.website = "le-bernardin.com";
+    myCt.businessType = "Restaurant";
+    myCt.stateCode = "NY";
+    myCt.postcode = "10019";
+    myCt.phone = "+1 212-554-1515";
+    myCt.country = "USA";
+
+    var citationTrackerService = new CitationTrackerService();
+
+    BrightLocalSuccess newCt = citationTrackerService.Create(myCt);
+```
+The returned BrightLocalSuccess entity above will have a report-id. You will want to persist this for later in order to run and get the report.
+
+### Updating a report
+
+```csharp
+	UpdateCitationTrackerOptions myCt = new UpdateCitationTrackerOptions();
+    myCt.reportId = 682;
+    myCt.reportName = "Sample Citation Tracker Report";
+    myCt.businessName = "Le Bernardin";
+    myCt.website = "le-bernardin.com";
+    myCt.businessType = "Restaurant";
+    myCt.stateCode = "NY";
+    myCt.postcode = "10019";
+    myCt.phone = "+1 212-554-1515";
+    myCt.country = "USA";
+
+    var citationTrackerService = new CitationTrackerService();
+
+    BrightLocalSuccess updateCt = citationTrackerService.Update(myCt);
+```
+
+### Getting a report
+
+```csharp
+	int reportId = 682;
+
+    var citationTrackerService = new CitationTrackerService();
+
+    BrightLocalCitationTrackerReport myCt = citationTrackerService.Get(reportId);
+```
+
+### Running a report
+
+```csharp
+	int reportId = 682;
+
+    var citationTrackerService = new CitationTrackerService();
+
+    BrightLocalSuccess myCt = citationTrackerService.Run(reportId);
+```
+
+### Deleting a report
+
+```csharp
+	int reportId = 682;
+
+    var citationTrackerService = new CitationTrackerService();
+
+    BrightLocalSuccess myCt = citationTrackerService.Delete(reportId);
+```
+
+### Getting all reports
+
+```csharp	
+    var citationTrackerService = new CitationTrackerService();
+
+    BrightLocalCtGetAllResults ctResults = citationTrackerService.GetAll();
+```
+
+### Getting report results
+
+```csharp	
+    var reportId = 1;
+    var citationTrackerService = new CitationTrackerService();
+
+    BrightLocalCitationTrackerResults ctResults = citationTrackerService.GetReportResults(reportId);
+```
