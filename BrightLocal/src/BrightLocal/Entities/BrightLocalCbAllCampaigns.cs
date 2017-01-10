@@ -25,7 +25,7 @@ namespace BrightLocal
         public string citation_value { get; set; }
     }
 
-    public class Aggregator
+    public class CbAggregator
     {
         public string name { get; set; }
         public string status { get; set; }
@@ -46,6 +46,6 @@ namespace BrightLocal
         public string username { get; set; }
         public string password { get; set; }
         public List<CampaignsCitation> citations { get; set; }
-        public List<Aggregator> aggregators { get; set; }
+        public List<CbAggregator> aggregators { get; set; }
     }
 }
