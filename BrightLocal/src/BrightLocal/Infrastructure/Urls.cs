@@ -13,6 +13,7 @@ namespace BrightLocal
         internal static string Lsrc => "/v2/lsrc/";
         internal static string Lscu => "/v4/lscu/";
         internal static string CitationTracker => "/v2/ct/";
+        internal static string CitationBurst => "/v2/cb/";
 
     }
 }

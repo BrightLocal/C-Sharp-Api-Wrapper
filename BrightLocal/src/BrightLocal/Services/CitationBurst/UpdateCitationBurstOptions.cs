@@ -1,15 +1,13 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BrightLocal
 {
-    public class CitationBurstOptions
+    public class UpdateCitationBurstOptions
     {
+        
+        public int campaignId { get; set; }
         [JsonProperty("location_id")]
-        public int locationId { get; set; }       
+        public int locationId { get; set; }
         [JsonProperty("business_name")]
         public string businessName { get; set; }
         [JsonProperty("campaign_name")]
@@ -35,7 +33,7 @@ namespace BrightLocal
         [JsonProperty("contact_name")]
         public string contactName { get; set; }
         [JsonProperty("contact_telephone")]
-        public string contactTelephone { get; set; }       
+        public string contactTelephone { get; set; }
         [JsonProperty("mobile_number")]
         public string mobileNumber { get; set; }
         [JsonProperty("fax_number")]
