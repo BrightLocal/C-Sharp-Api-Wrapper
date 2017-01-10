@@ -8,20 +8,20 @@ namespace BrightLocal
 
         BrightLocalRequestor request = new BrightLocalRequestor();
 
-        public virtual BrightLocalCitationTracker Create(CitationTrackerOptions createOptions)
+        public virtual BrightLocalSuccess Create(CitationTrackerOptions createOptions)
         {
             var url = string.Format(Urls.CitationTracker + "{0}", "add");
             var parameters = Parameters.convertListToParameters(createOptions);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalCitationTracker>(success.Content);
+            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
         }
 
-        public virtual BrightLocalCitationTracker Update(UpdateCitationTrackerOptions updateOptions)
+        public virtual BrightLocalSuccess Update(UpdateCitationTrackerOptions updateOptions)
         {
             var url = string.Format(Urls.CitationTracker + "{0}", "update");
             var parameters = Parameters.convertListToParameters(updateOptions);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalCitationTracker>(success.Content);
+            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
         }
 
         public virtual BrightLocalCitationTrackerReport Get(int reportId)
@@ -33,40 +33,48 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BrightLocalCitationTrackerReport>(success.Content);
         }
 
-        public virtual BrightLocalCitationTracker Run(int reportId)
+        public virtual BrightLocalSuccess Run(int reportId)
         {
             var url = string.Format(Urls.CitationTracker + "{0}", "run");
             var parameters = new Parameters.requestParameters();
             parameters.Add("report-id", reportId);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalCitationTracker>(success.Content);
+            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
         }
 
-        public virtual BrightLocalCitationTracker Delete(int reportId)
+        public virtual BrightLocalSuccess Delete(int reportId)
         {
             var url = string.Format(Urls.CitationTracker + "{0}", "delete");
             var parameters = new Parameters.requestParameters();
             parameters.Add("report-id", reportId);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalCitationTracker>(success.Content);
+            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
         }
 
         //method overlaod for supplying the location-id parameter
-        public virtual BrightLocalGetAllResults GetAll(int locationId)
+        public virtual BrightLocalCtGetAllResults GetAll(int locationId)
         {
             var url = string.Format(Urls.CitationTracker + "{0}", "get-all");
             var parameters = new Parameters.requestParameters();
             parameters.Add("location-id", locationId);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalGetAllResults>(success.Content);
+            return JsonConvert.DeserializeObject<BrightLocalCtGetAllResults>(success.Content);
         }
 
-        public virtual BrightLocalGetAllResults GetAll()
+        public virtual BrightLocalCtGetAllResults GetAll()
         {
             var url = string.Format(Urls.CitationTracker + "{0}", "get-all");
             var parameters = new Parameters.requestParameters();            
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalGetAllResults>(success.Content);
+            return JsonConvert.DeserializeObject<BrightLocalCtGetAllResults>(success.Content);
+        }
+        public virtual BrightLocalCitationTrackerResults GetReportResults(int reportId)
+        {
+            var url = string.Format(Urls.CitationTracker + "{0}", "get-results");
+            var parameters = new Parameters.requestParameters();
+            parameters.Add("report-id", reportId);
+            var success = request.Post(url, parameters, this.api_key, this.api_secret);
+            return JsonConvert.DeserializeObject<BrightLocalCitationTrackerResults>(success.Content);
         }
     }
 }
