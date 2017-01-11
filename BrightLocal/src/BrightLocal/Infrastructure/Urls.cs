@@ -14,6 +14,6 @@ namespace BrightLocal
         internal static string Lscu => "/v4/lscu/";
         internal static string CitationTracker => "/v2/ct/";
         internal static string CitationBurst => "/v2/cb/";
-
+        internal static string ReviewFlow => "/v4/rf/";
     }
 }
