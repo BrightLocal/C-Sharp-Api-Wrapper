@@ -94,6 +94,14 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return deleteReport;
         }
 
+        public static BrightLocalRfGetAll GetAllReports()
+        {           
+            var rfService = new ReviewFlowService();
+
+            BrightLocalRfGetAll results = rfService.GetAll();
+            return results;
+        }
+
         public static BrightLocalRfGetAll SearchReport()
         {
             string query = "New York";
@@ -127,8 +135,8 @@ namespace BrightLocal.Examples_version2.Account_Methods
             int reportId = 1;
             var rfService = new ReviewFlowService();
 
-            BrightLocalSuccess reviewCount = rfService.GetGrowth(reportId);
-            return reviewCount;
+            BrightLocalSuccess reviewGrowth = rfService.GetGrowth(reportId);
+            return reviewGrowth;
         }
 
         public static BrightLocalRfDirectories GetDirectories()
