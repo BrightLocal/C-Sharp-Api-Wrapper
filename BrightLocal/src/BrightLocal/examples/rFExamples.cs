@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BrightLocal.examples
 {
-    public class rfRxamples
+    public class rFExamples
     {
         public static IRestResponse addReport()
         {

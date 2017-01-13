@@ -66,12 +66,12 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BrightLocalRfGetAll>(success.Content);
         }
 
-        public virtual BrightLocalRfGetAll GetReviews(RfGetReviewsOptions getReviews)
+        public virtual BrightLocalRfReviews GetReviews(RfGetReviewsOptions getReviews)
         {
             var url = string.Format(Urls.ReviewFlow + "{0}" + "/reviews", getReviews.reportId);
             var parameters = Parameters.convertListToParameters(getReviews);            
             var success = request.Get(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalRfGetAll>(success.Content);
+            return JsonConvert.DeserializeObject<BrightLocalRfReviews>(success.Content);
         }
 
         public virtual BrightLocalSuccess GetReviewCount(int reportId)
@@ -88,6 +88,30 @@ namespace BrightLocal
             var parameters = new Parameters.requestParameters();
             var success = request.Get(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
+        }
+
+        public virtual BrightLocalRfDirectories GetDirectories(int reportId)
+        {
+            var url = string.Format(Urls.ReviewFlow + "{0}" + "/directories", reportId);
+            var parameters = new Parameters.requestParameters();
+            var success = request.Get(url, parameters, this.api_key, this.api_secret);
+            return JsonConvert.DeserializeObject<BrightLocalRfDirectories>(success.Content);
+        }
+
+        public virtual BrightLocalRfDirectoryStats GetDirectoryStats(int reportId)
+        {
+            var url = string.Format(Urls.ReviewFlow + "{0}" + "/directories/stats", reportId);
+            var parameters = new Parameters.requestParameters();
+            var success = request.Get(url, parameters, this.api_key, this.api_secret);
+            return JsonConvert.DeserializeObject<BrightLocalRfDirectoryStats>(success.Content);
+        }
+
+        public virtual BrightLocalRfStarCounts GetStarCount(int reportId)
+        {
+            var url = string.Format(Urls.ReviewFlow + "{0}" + "/stars/count", reportId);
+            var parameters = new Parameters.requestParameters();
+            var success = request.Get(url, parameters, this.api_key, this.api_secret);
+            return JsonConvert.DeserializeObject<BrightLocalRfStarCounts>(success.Content);
         }
     }
 }
