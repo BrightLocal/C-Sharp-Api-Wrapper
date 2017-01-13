@@ -11,6 +11,7 @@ For version 1.0 [Click Here](Documentation/README.md)
 [Local Search Rank Checker](#local-search-rank-checker)  
 [Local SEO Check-up](#local-seo-check-up)
 [Citation Tracker](#citation-tracker)
+[ReviewFlow Reports](#reviewflow-reports)
 
 Quick Start
 -----------
@@ -470,4 +471,169 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     var citationTrackerService = new CitationTrackerService();
 
     BrightLocalCitationTrackerResults ctResults = citationTrackerService.GetReportResults(reportId);
+```
+
+ReviewFLow Reports
+-----
+
+### Adding a report
+
+```csharp
+	var myReviewReport = new ReviewFlowOptions();            
+    myReviewReport.reportName = "Sample Citation Tracker Report";
+    myReviewReport.businessName = "Le Bernardin";
+    myReviewReport.contactTelephone = "+1 212-554-1515";
+    myReviewReport.address1 = "155 Weest 51st Street";
+    myReviewReport.address2 = "";
+    myReviewReport.city = "NYC";
+    myReviewReport.postcode = "10019";
+    myReviewReport.country = "USA";
+
+    // Example for supplying Local Directory URLs (see local-directory-urls parameter)
+    myReviewReport.directories.Add(
+        "citysearch",
+        new Directories
+        {
+            url = "http://www.yelp.co.uk/biz/greens-restaurant-san-francisco-3",
+            include = true
+        });
+    myReviewReport.directories.Add(
+        "dexknows",
+        new Directories
+        {
+            url = "",
+            include = true
+        });
+
+    var rfService = new ReviewFlowService();
+
+    BrightLocalSuccess newReviewReport = rfService.Create(myReviewReport);
+    return newReviewReport;
+```
+
+The returned BrightLocalSuccess entity above will have a report-id. You will want to persist this for later when you get a report.
+
+### Updating a report
+
+```csharp
+	var myReviewReport = new UpdateReviewFlowOptions();
+    myReviewReport.reportId = 1;
+    myReviewReport.reportName = "Sample Citation Tracker Report";
+    myReviewReport.businessName = "Le Bernardin";
+    myReviewReport.contactTelephone = "+1 212-554-1515";
+    myReviewReport.address1 = "155 Weest 51st Street";
+    myReviewReport.address2 = "";
+    myReviewReport.city = "NYC";
+    myReviewReport.postcode = "10019";
+    myReviewReport.country = "USA";
+
+    // Example for supplying Local Directory URLs (see local-directory-urls parameter)
+    myReviewReport.directories.Add(
+        "citysearch",
+        new Directories
+        {
+            url = "http://www.yelp.co.uk/biz/greens-restaurant-san-francisco-3",
+            include = true
+        });
+    myReviewReport.directories.Add(
+        "dexknows",
+        new Directories
+        {
+            url = "",
+            include = true
+        });
+
+    var rfService = new ReviewFlowService();
+
+    BrightLocalSuccess updateReviewReport = rfService.Update(myReviewReport);
+```
+
+### Getting a report
+
+```csharp
+	int reportId = 1;
+    var rfService = new ReviewFlowService();
+
+    BrightLocalRfReport reviewReport = rfService.Get(reportId);
+```
+
+### Deleting a report
+
+```csharp
+	int reportId = 1;
+    var rfService = new ReviewFlowService();
+
+    BrightLocalSuccess deleteReport = rfService.Delete(reportId);
+```
+
+### Getting all reports
+
+```csharp
+	var rfService = new ReviewFlowService();
+
+    BrightLocalRfGetAll results = rfService.GetAll();
+```
+
+### Searching for a report
+
+```csharp
+	string query = "New York";
+    var rfService = new ReviewFlowService();
+
+    BrightLocalRfGetAll results = rfService.Search(query);
+```
+
+### Getting Reviews
+
+```csharp
+	var myReviewReport = new RfGetReviewsOptions();
+    myReviewReport.reportId = 1;
+    var rfService = new ReviewFlowService();
+
+    BrightLocalRfReviews reviews = rfService.GetReviews(myReviewReport);
+```
+
+### Getting Reviews Count
+
+```csharp
+	int reportId = 1;
+    var rfService = new ReviewFlowService();
+
+    BrightLocalSuccess reviewCount = rfService.GetReviewCount(reportId);
+```
+
+### Getting Growth
+
+```csharp
+	int reportId = 1;
+    var rfService = new ReviewFlowService();
+
+    BrightLocalSuccess reviewGrowth = rfService.GetGrowth(reportId);
+```
+
+### Getting Directories
+
+```csharp
+	int reportId = 1;
+    var rfService = new ReviewFlowService();
+
+    BrightLocalRfDirectories reviewDirectories = rfService.GetDirectories(reportId);
+```
+
+### Getting Directory Stats
+
+```csharp
+	int reportId = 1;
+    var rfService = new ReviewFlowService();
+
+    BrightLocalRfDirectoryStats reviewDirectoryStats = rfService.GetDirectoryStats(reportId);
+```
+
+### Getting Star Counts
+
+```csharp	
+    int reportId = 1;
+    var rfService = new ReviewFlowService();
+
+    BrightLocalRfStarCounts reviewStarCount = rfService.GetStarCount(reportId);
 ```
