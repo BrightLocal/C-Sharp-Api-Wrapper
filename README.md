@@ -12,6 +12,7 @@ For version 1.0 [Click Here](Documentation/README.md)
 [Local SEO Check-up](#local-seo-check-up)
 [Citation Tracker](#citation-tracker)
 [ReviewFlow Reports](#reviewflow-reports)
+[Google+ Local Wizard Reports](#google+-local-wizard-reports)
 
 Quick Start
 -----------
@@ -636,4 +637,99 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     var rfService = new ReviewFlowService();
 
     BrightLocalRfStarCounts reviewStarCount = rfService.GetStarCount(reportId);
+```
+
+Google+ Local Wizard Reports
+-----
+
+### Adding a report
+
+```csharp
+	var myGpwReport = new GpwOptions();
+    myGpwReport.reportName = "Sample Citation Tracker Report";
+    myGpwReport.businessNames = "Le Bernardin";
+    myGpwReport.schedule = "Adhoc";
+    myGpwReport.dayOfMonth = "2";
+    myGpwReport.reportType = "with";           
+    myGpwReport.address1 = "155 Weest 51st Street";
+    myGpwReport.address2 = "";
+    myGpwReport.city = "NYC";
+    myGpwReport.stateCode = "NY";
+    myGpwReport.postcode = "10019";
+    myGpwReport.phoneNumber = "+1 212-554-1515";
+    myGpwReport.country = "USA";
+    myGpwReport.searchTerms = new List<string>() { "restaurant manhattan", "cafe new york" };
+
+    var gpwService = new GpwService();
+
+    BrightLocalSuccess gpwReport = gpwService.Create(myGpwReport);
+```
+The returned BrightLocalSuccess entity above will have a report-id. You will want to persist this for later in order to run and get the report.
+
+### Updating a report
+
+```csharp
+	var myGpwReport = new UpdateGpwOptions();
+    myGpwReport.reportId = 1;
+    myGpwReport.reportName = "Sample Citation Tracker Report";
+    myGpwReport.businessNames = "Le Bernardin";
+    myGpwReport.schedule = "Adhoc";
+    myGpwReport.dayOfMonth = "2";
+    myGpwReport.reportType = "with";
+    myGpwReport.address1 = "155 Weest 51st Street";
+    myGpwReport.address2 = "";
+    myGpwReport.city = "NYC";
+    myGpwReport.stateCode = "NY";
+    myGpwReport.postcode = "10019";
+    myGpwReport.phoneNumber = "+1 212-554-1515";
+    myGpwReport.country = "USA";
+    myGpwReport.searchTerms = new List<string>() { "restaurant manhattan", "cafe new york" };
+
+    var gpwService = new GpwService();
+
+    BrightLocalSuccess gpwReport = gpwService.Update(myGpwReport);
+```
+
+### Getting a report
+
+```csharp
+	var reportId = 1;
+    var gpwService = new GpwService();
+
+    BrightLocalGpwReport gpwReport = gpwService.Get(reportId);
+```
+
+### Deleting a report
+
+```csharp
+	var reportId = 1;
+    var gpwService = new GpwService();
+
+    BrightLocalSuccess gpwReport = gpwService.Delete(reportId);
+```
+
+### Getting all reports
+
+```csharp	
+    var gpwService = new GpwService();
+
+	BrightLocalGpwGetAllResults gpwGetAllResults = gpwService.GetAll();
+```
+
+### Running a report
+
+```csharp
+	var reportId = 1;
+    var gpwService = new GpwService();
+
+    BrightLocalSuccess gpwReport = gpwService.Run(reportId);
+```
+
+### Getting report results
+
+```csharp	
+    var reportId = 1;
+    var gpwService = new GpwService();
+
+    BrightLocalGpwReportResults gpwReport = gpwService.GetReportResults(reportId);
 ```
