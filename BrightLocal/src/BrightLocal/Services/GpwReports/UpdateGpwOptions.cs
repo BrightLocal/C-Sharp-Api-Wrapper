@@ -6,7 +6,7 @@ namespace BrightLocal
     public class UpdateGpwOptions
     {
         [JsonProperty("report-ID")]
-        public string reportId { get; set; }
+        public int reportId { get; set; }
         [JsonProperty("report_name")]
         public string reportName { get; set; }
         [JsonProperty("location_id")]
