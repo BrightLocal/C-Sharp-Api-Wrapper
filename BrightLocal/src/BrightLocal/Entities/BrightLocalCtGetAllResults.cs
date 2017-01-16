@@ -7,9 +7,9 @@ namespace BrightLocal
 {
     public class BrightLocalCtGetAllResults
     {
-        public Response response { get; set; }
+        public CtGetAllResponse response { get; set; }
     }
-    public class Response
+    public class CtGetAllResponse
     {
         public List<CtResult> results { get; set; }
     }
