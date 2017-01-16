@@ -100,6 +100,36 @@ namespace BrightLocal
             return Call(method, endPoint, apiParameters);
         }
 
+        public IRestResponse PostImage(string endPoint, string path)
+        {
+            Method method = Method.POST;
+            return CallImage(method, endPoint, path);
+        }
+
+        public IRestResponse CallImage(Method method, string endPoint, string path)
+        {
+
+            // create sxpires variable
+            var expires = CreateExpiresParameter();
+            // set base url   
+            client.BaseUrl = api.baseUrl;
+            // Generate encoded signature
+            var sig = CreateSig(this.api_key, this.api_secret, expires);
+            // Generate the request
+            var request = GetApiRequestWithImage(method, endPoint, this.api_key, sig, expires, path);
+            // execure the request
+            var response = client.Execute(request);
+            // check for a succesful response from server
+            if (response.ResponseStatus != ResponseStatus.Completed)
+            {
+                throw new ApplicationException(response.ErrorMessage);
+            }
+
+            return response;
+
+
+        }
+
 
         private static RestRequest GetApiRequest(Method method, string url, string api_key, string sig, double expires, Dictionary<string, object> apiParameters)
         {
@@ -128,6 +158,24 @@ namespace BrightLocal
             {
                 request.AddParameter(prop.Key, prop.Value);
             }
+
+            return request;
+
+        }
+
+        private static RestRequest GetApiRequestWithImage(Method method, string url, string api_key, string sig, double expires, string path)
+        {
+            // Create a new restsharp request
+            RestRequest request = new RestRequest(url, method);
+            // Add appropriate headers to request
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Accept", "application/json");
+
+            // Add key, sig and expires to request
+            request.AddParameter("api-key", api_key);
+            request.AddParameter("sig", sig);
+            request.AddParameter("expires", expires);
+            request.AddFile("file", path);
 
             return request;
 

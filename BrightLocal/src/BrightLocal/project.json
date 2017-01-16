@@ -1,5 +1,5 @@
 ﻿{
-  "version": "1.0.0-*",
+  "version": "1.0.5-*",
   "id": "BrightLocal",
   "description": "A c# wrapper class for consuming The Bright Local api. Automatically generates the proper authentication, with the siganture and expires parameter. Avoid the need to generate your own authentication signature. See documentation for examples.",
   "dependencies": {
