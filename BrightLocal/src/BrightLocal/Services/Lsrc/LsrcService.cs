@@ -89,13 +89,13 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BrightLocalLsrcReport>(success.Content);
         }
 
-        public virtual BrightLocalLsrc Run(int campaignId)
+        public virtual BrightLocalSuccess Run(int campaignId)
         {
             var url = string.Format(Urls.Lsrc + "{0}", "run");
             var parameters = new Parameters.requestParameters();
             parameters.Add("campaign-id", campaignId);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalLsrc>(success.Content);
+            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
         }
 
         public virtual BrightLocalLsrcHistory GetHistory(int campaignId)
