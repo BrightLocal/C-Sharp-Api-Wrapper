@@ -4,9 +4,12 @@ namespace BrightLocal
 {
     public class BrightLocalGetAllResults
     {
+        public LsrcGetAllResponse response { get; set; }        
+    }
+    public class LsrcGetAllResponse
+    {
         public List<ResultsList> results { get; set; }
     }
-
     public class ResultsList
     {
         public string campaign_id { get; set; }
