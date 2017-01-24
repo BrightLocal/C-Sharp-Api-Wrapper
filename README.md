@@ -9,10 +9,10 @@ For version 1.0 [Click Here](Documentation/README.md)
 [Clients](#clients)  
 [Locations](#locations)  
 [Local Search Rank Checker](#local-search-rank-checker)  
-[Local SEO Check-up](#local-seo-check-up) 
-[Citation Tracker](#citation-tracker) 
-[ReviewFlow Reports](#reviewflow-reports) 
-[Google+ Local Wizard Reports](#google+-local-wizard-reports) 
+[Local SEO Check-up](#local-seo-check-up)  
+[Citation Tracker](#citation-tracker)  
+[ReviewFlow Reports](#reviewflow-reports)  
+[Google+ Local Wizard Reports](#google+-local-wizard-reports)  
 
 Quick Start
 -----------
