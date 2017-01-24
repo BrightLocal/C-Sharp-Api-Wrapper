@@ -64,12 +64,12 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return myLsrc;
         }
 
-        public static BrightLocalLsrc Run()
+        public static BrightLocalSuccess Run()
         {
             var campaignId = 1;
             var lsrcService = new LsrcService();
 
-            BrightLocalLsrc myLsrc = lsrcService.Run(campaignId);
+            BrightLocalSuccess myLsrc = lsrcService.Run(campaignId);
             return myLsrc;
         }
 
