@@ -6,8 +6,6 @@ namespace BrightLocal
 {
     public class BrightLocalLocation
     {
-        [JsonProperty("location-id")]
-        public int locationId { get; set; }
         [JsonProperty("location-name")]
         public string locationName { get; set; }
         [JsonProperty("client-id")]
