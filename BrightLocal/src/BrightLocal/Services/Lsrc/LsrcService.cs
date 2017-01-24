@@ -24,7 +24,7 @@ namespace BrightLocal
                 createOptions.emailAddresses = Parameters.convertToNewline(createOptions.emailAddresses);
             }
             var parameters = Parameters.convertListToParameters(createOptions);
-            var success = request.Post(Urls.Lsrc, parameters, this.api_key, this.api_secret);
+            var success = request.Post(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
         }
 
