@@ -5,6 +5,14 @@ namespace BrightLocal
 {
     public class BrightLocalLsrcReport
     {
+        public LsrcResponse response { get; set; }
+    }
+    public class LsrcResponse
+    {
+        public LsrcResult result { get; set; }
+    }
+    public class LsrcResult
+    {
         [JsonProperty("campaign_id")]
         public string campaign_id { get; set; }
         [JsonProperty("customer_id")]
