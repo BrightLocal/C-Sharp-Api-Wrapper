@@ -12,7 +12,7 @@ For version 1.0 [Click Here](Documentation/README.md)
 [Local SEO Check-up](#local-seo-check-up)  
 [Citation Tracker](#citation-tracker)  
 [ReviewFlow Reports](#reviewflow-reports)  
-[Google+ Local Wizard Reports](#google+-local-wizard-reports)  
+[Google+ Local Wizard Reports](#google-plus-local-wizard-reports)  
 
 Quick Start
 -----------
@@ -639,7 +639,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalRfStarCounts reviewStarCount = rfService.GetStarCount(reportId);
 ```
 
-Google+ Local Wizard Reports
+Google Plus Local Wizard Reports
 -----
 
 ### Adding a report
