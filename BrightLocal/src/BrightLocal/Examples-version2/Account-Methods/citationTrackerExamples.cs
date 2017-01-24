@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BrightLocal.Examples_version2.Account_Methods
+﻿namespace BrightLocal.Examples_version2.Account_Methods
 {
     public class citationTrackerExamples
     {

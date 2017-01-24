@@ -34,6 +34,8 @@ namespace BrightLocal
         public string postcode { get; set; }
         [JsonProperty("contact_name")]
         public string contactName { get; set; }
+        [JsonProperty("contact_firstname")]
+        public string contactFirstName { get; set; }
         [JsonProperty("contact_telephone")]
         public string contactTelephone { get; set; }       
         [JsonProperty("mobile_number")]
@@ -59,7 +61,7 @@ namespace BrightLocal
         [JsonProperty("service_name_5")]
         public string serviceName5 { get; set; }
         [JsonProperty("working_hours_apply_to_all")]
-        public string workingHoursApplyToAll { get; set; }
+        public int workingHoursApplyToAll { get; set; }
         [JsonProperty("working_hours_mon_start")]
         public int workingHoursMonStart { get; set; }
         [JsonProperty("working_hours_mon_end")]
@@ -75,7 +77,7 @@ namespace BrightLocal
         [JsonProperty("working_hours_thu_start")]
         public int workingHoursThuStart { get; set; }
         [JsonProperty("working_hours_thu_end")]
-        public int workingHoursthuEnd { get; set; }
+        public int workingHoursThuEnd { get; set; }
         [JsonProperty("working_hours_fri_start")]
         public int workingHoursFriStart { get; set; }
         [JsonProperty("working_hours_fri_end")]
