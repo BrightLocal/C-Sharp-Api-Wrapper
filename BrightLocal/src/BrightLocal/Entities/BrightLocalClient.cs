@@ -5,9 +5,7 @@ namespace BrightLocal
     public class BrightLocalClient
     {
         [JsonProperty("client-id")]
-        public int clientId { get; set; }
-        [JsonProperty("success")]
-        public bool? success { get; set; }
+        public int clientId { get; set; }        
         [JsonProperty("company-name")]
         public string companyName { get; set; }
         [JsonProperty("company-url")]

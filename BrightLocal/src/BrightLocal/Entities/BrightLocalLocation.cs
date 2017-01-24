@@ -51,7 +51,7 @@ namespace BrightLocal
         [JsonProperty("extra-business-categories")]
         public List<string> extraBusinessCategories { get; set; }
         [JsonProperty("working-hours")]
-        public WorkingHours workingHours { get; set; }
+        public List<WorkingHours> workingHours { get; set; }
         [JsonProperty("payment-methods")]
         public List<string> paymentMethods { get; set; }
         [JsonProperty("short-description")]
@@ -62,21 +62,21 @@ namespace BrightLocal
         public List<string> servicesOfProducts { get; set; }
     }
 
-    public class WorkingHours
+    public class WorkingHours : Dictionary<string, string>
     {
-        public string mon_start { get; set; }
-        public string mon_end { get; set; }
-        public string tue_start { get; set; }
-        public string tue_end { get; set; }
-        public string wed_start { get; set; }
-        public string wed_end { get; set; }
-        public string thu_start { get; set; }
-        public string thu_end { get; set; }
-        public string fri_start { get; set; }
-        public string fri_end { get; set; }
-        public string sat_start { get; set; }
-        public string sat_end { get; set; }
-        public string sun_start { get; set; }
-        public string sun_end { get; set; }
+        //public string mon_start { get; set; }
+        //public string mon_end { get; set; }
+        //public string tue_start { get; set; }
+        //public string tue_end { get; set; }
+        //public string wed_start { get; set; }
+        //public string wed_end { get; set; }
+        //public string thu_start { get; set; }
+        //public string thu_end { get; set; }
+        //public string fri_start { get; set; }
+        //public string fri_end { get; set; }
+        //public string sat_start { get; set; }
+        //public string sat_end { get; set; }
+        //public string sun_start { get; set; }
+        //public string sun_end { get; set; }
     }
 }
