@@ -272,10 +272,8 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
             
 	var lsrcService = new LsrcService();
 
-	var lsrcResults = lsrcService.GetResults(myLsrc);
+	BrightLocalLsrcReportResults lsrcResults = lsrcService.GetResults(myLsrc);
 ```
-
-The LsrcService.GetResults method above currently returns a json object. In future releases we will have a entity BrightLocalLsrcResults.
 
 
 Local SEO Check-up
