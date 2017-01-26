@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace BrightLocal
 {
     public class LscuOptions
-    {
+    {        
         [JsonProperty("report-name")]
         public string reportName { get; set; }
         [JsonProperty("location-id")]

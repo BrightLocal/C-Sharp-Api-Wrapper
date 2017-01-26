@@ -7,7 +7,7 @@ namespace BrightLocal
     public class UpdateLscuOptions
     {
         [JsonProperty("report-id")]
-        public string reportId { get; set; }
+        public int reportId { get; set; }
         [JsonProperty("report-name")]
         public string reportName { get; set; }
         [JsonProperty("location-id")]

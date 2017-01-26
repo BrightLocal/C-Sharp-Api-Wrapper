@@ -307,7 +307,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 ### Supplying Local Directory URLs (see local-directory-urls parameter)
 
 ```csharp
-    LscuOptions myLscu = new LscuOptions();
+    myLscu.localDirectoryUrls = new LocalDirectoryUrls();
 	myLscu.localDirectoryUrls.Add(
         "citysearch",
         new DirectoryUrls
@@ -328,6 +328,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 
 ```csharp
 	UpdateLscuOptions myLscu = new UpdateLscuOptions();
+	myLscu.reportId = 1;
     myLscu.reportName = "Sample SEO Chek-Up Report";
     myLscu.businessNames = new List<string>() { "Le Bernardin", "Le Bernardin Cafe" };
     myLscu.websiteAddress = "le-bernardin.com";

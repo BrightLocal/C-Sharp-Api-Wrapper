@@ -23,9 +23,10 @@ namespace BrightLocal.Examples_version2.Account_Methods
             myLscu.businessCategory = "Restaurant";
             myLscu.primaryBusinessLocation = "NY, New York";
             myLscu.searchTerms = new List<string>() { "restaurant manhattan", "cafe new york" };
-                        
+
 
             // Example for supplying Local Directory URLs (see local-directory-urls parameter)
+            myLscu.localDirectoryUrls = new LocalDirectoryUrls();
             myLscu.localDirectoryUrls.Add(
                 "citysearch",
                 new DirectoryUrls
@@ -51,6 +52,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
         public static BrightLocalSuccess Update()
         {
             UpdateLscuOptions myLscu = new UpdateLscuOptions();
+            myLscu.reportId = 1;
             myLscu.reportName = "Sample SEO Chek-Up Report";
             myLscu.businessNames = new List<string>() { "Le Bernardin", "Le Bernardin Cafe" };
             myLscu.websiteAddress = "le-bernardin.com";
