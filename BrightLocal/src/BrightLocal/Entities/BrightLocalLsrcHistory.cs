@@ -8,7 +8,11 @@ namespace BrightLocal
 {
     public class BrightLocalLsrcHistory
     {
-        public List<LsrcHistory> reports { get; set; }
+        public LsrcHistoryResponse response { get; set; }        
+    }
+    public class LsrcHistoryResponse
+    {
+        public List<LsrcHistory> results { get; set; }
     }
 
     public class LsrcHistory
