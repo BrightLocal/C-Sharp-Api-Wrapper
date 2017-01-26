@@ -108,13 +108,13 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BrightLocalLsrcHistory>(results.Content);           
         }
 
-        public virtual Object GetResults(GetResultsLsrcOptions lsrcOptions)
+        public virtual BrightLocalLsrcReportResults GetResults(GetResultsLsrcOptions lsrcOptions)
         {
             var url = string.Format(Urls.Lsrc + "{0}", "results/get");
             var parameters = Parameters.convertListToParameters(lsrcOptions);
            
             var results = request.Get(url, parameters, this.api_key, this.api_secret);
-            var report = JsonConvert.DeserializeObject(results.Content);
+            var report = JsonConvert.DeserializeObject<BrightLocalLsrcReportResults>(results.Content);
             return report;
         }
     }

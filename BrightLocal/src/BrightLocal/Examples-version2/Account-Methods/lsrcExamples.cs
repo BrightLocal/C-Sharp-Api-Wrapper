@@ -82,7 +82,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return lsrcHistory;
         }
 
-        public static Object GetReportResults()
+        public static BrightLocalLsrcReportResults GetReportResults()
         {
             var myLsrc = new GetResultsLsrcOptions();
             myLsrc.campaignId = 1;
