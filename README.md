@@ -363,7 +363,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 	var reportId = 1;
     var lscuService = new LscuService();
 
-    var success = lscuService.Run(reportId);
+    BrightLocalSuccess success = lscuService.Run(reportId);
 ```
 The returned success entity above is of type string. Success or Failure with errors.
 
@@ -373,7 +373,7 @@ The returned success entity above is of type string. Success or Failure with err
 	var reportId = 1;
     var lscuService = new LscuService();
 
-    var success = lscuService.Delete(reportId);
+    BrightLocalSuccess success = lscuService.Delete(reportId);
 ```
 The returned success entity above is of type string. Success or Failure with errors.
 

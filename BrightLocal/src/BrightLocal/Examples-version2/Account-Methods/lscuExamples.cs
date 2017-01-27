@@ -84,7 +84,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
         }
 
-        public static string Run()
+        public static BrightLocalSuccess Run()
         {
             var reportId = 1;
             var lscuService = new LscuService();
@@ -93,7 +93,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return success;
         }
 
-        public static string Delete()
+        public static BrightLocalSuccess Delete()
         {
             var reportId = 1;
             var lscuService = new LscuService();

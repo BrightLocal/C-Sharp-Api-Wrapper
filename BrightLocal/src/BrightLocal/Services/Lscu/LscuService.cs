@@ -34,42 +34,23 @@ namespace BrightLocal
         }
 
         // returns success or failed as a string message
-        public virtual string Run(int reportId)
+        public virtual BrightLocalSuccess Run(int reportId)
         {
-            string response;
             var url = string.Format(Urls.Lscu + "{0}", "run");
             var parameters = new Parameters.requestParameters();
             parameters.Add("report-id", reportId);
-            var success = request.Post(Urls.Lscu, parameters, this.api_key, this.api_secret);
-            if(JsonConvert.DeserializeObject<bool>(success.Content))
-            {
-                response = "Success, your report is running";
-            }
-            else
-            {
-                response = "Falied, " + success.Content;
-            }
+            var success = request.Put(url, parameters, this.api_key, this.api_secret);
 
-            return response;  
+            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
         }
 
         // returns success or failed as a string message
-        public virtual string Delete(int reportId)
+        public virtual BrightLocalSuccess Delete(int reportId)
         {
-            string response;
             var parameters = new Parameters.requestParameters();
             parameters.Add("report-id", reportId);
             var success = request.Delete(Urls.Lscu, parameters, this.api_key, this.api_secret);
-            if (JsonConvert.DeserializeObject<bool>(success.Content))
-            {
-                response = "Success, your report has been deleted";
-            }
-            else
-            {
-                response = "Falied, " + success.Content;
-            }
-
-            return response;
+            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
         }
 
         public virtual BrightLocalLscuSearch Search(string query)
@@ -77,7 +58,7 @@ namespace BrightLocal
             var url = string.Format(Urls.Lscu + "{0}", "search");
             var parameters = new Parameters.requestParameters();
             parameters.Add("q", query);
-            var success = request.Get(Urls.Lscu, parameters, this.api_key, this.api_secret);
+            var success = request.Get(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BrightLocalLscuSearch>(success.Content);
         }
     }
