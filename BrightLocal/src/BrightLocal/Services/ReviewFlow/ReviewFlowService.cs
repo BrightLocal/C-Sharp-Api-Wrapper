@@ -10,7 +10,7 @@ namespace BrightLocal
 
         public virtual BrightLocalSuccess Create(ReviewFlowOptions createOptions)
         {
-            var url = string.Format(Urls.ReviewFlow + "{0}", "create");
+            var url = string.Format(Urls.ReviewFlow + "{0}", "add");
             var parameters = Parameters.convertListToParameters(createOptions);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
