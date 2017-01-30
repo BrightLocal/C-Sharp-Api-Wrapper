@@ -15,7 +15,7 @@ namespace BrightLocal.examples
 
             var parameters = new api.Parameters();
             parameters.Add("report-name", "Sample SEO Check-Up Report");
-            parameters.Add("business-names", "['Le Bernardin']");
+            parameters.Add("business-names", JsonConvert.SerializeObject("['Le Bernardin']"));
             parameters.Add("website-address", "le-bernardin.com");
             parameters.Add("address1", "155 Weest 51st Street");
             parameters.Add("address2", "");
@@ -26,7 +26,7 @@ namespace BrightLocal.examples
             parameters.Add("country", "USA");
             parameters.Add("business-category", "Restaurant");
             parameters.Add("primary-business-location", "NY, New York");
-            parameters.Add("search-terms", "['restaurant manhattan', 'cafe new york']");
+            parameters.Add("search-terms", JsonConvert.SerializeObject("['restaurant manhattan', 'cafe new york']"));
           
             var success = request.Post("v4/lscu", parameters);
 
@@ -44,7 +44,7 @@ namespace BrightLocal.examples
             parameters.Add("country", "USA");
             parameters.Add("business-category", "Restaurant");
             parameters.Add("primary-business-location", "NY, New York");
-            parameters.Add("search-terms", "['restaurant manhattan', 'cafe new york']");
+            parameters.Add("search-terms", JsonConvert.SerializeObject("['restaurant manhattan', 'cafe new york']"));
 
             var success = request.Put("v4/lscu", parameters);
 

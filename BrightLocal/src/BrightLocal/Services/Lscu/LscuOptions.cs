@@ -14,7 +14,7 @@ namespace BrightLocal
         [JsonProperty("white-label-profile-id")]
         public int whiteLabelProfileId { get; set; }
         [JsonProperty("business-names")]
-        public List<string> businessNames { get; set; }
+        public string businessNames { get; set; }
         [JsonProperty("website-address")]
         public string websiteAddress { get; set; }
         [JsonProperty("address1")]
@@ -38,7 +38,7 @@ namespace BrightLocal
         [JsonProperty("primary-business-location")]
         public string primaryBusinessLocation { get; set; }
         [JsonProperty("search-terms")]
-        public List<string> searchTerms { get; set; }       
+        public string searchTerms { get; set; }       
         [JsonProperty("google-location")]
         public string googleLocation { get; set; }
         [JsonProperty("bing-location")]

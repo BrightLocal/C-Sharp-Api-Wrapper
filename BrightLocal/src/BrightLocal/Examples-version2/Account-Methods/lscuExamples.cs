@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
         {
             LscuOptions myLscu = new LscuOptions();
             myLscu.reportName = "Sample SEO Chek-Up Report";
-            myLscu.businessNames = new List<string>() {"Le Bernardin", "Le Bernardin Cafe"};
+            myLscu.businessNames = JsonConvert.SerializeObject(new List<string>() {"Le Bernardin", "Le Bernardin Cafe"});
             myLscu.websiteAddress = "le-bernardin.com";
             myLscu.address1 = "155 Weest 51st Street";
             myLscu.address2 = "";
@@ -22,7 +23,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
             myLscu.country = "USA";
             myLscu.businessCategory = "Restaurant";
             myLscu.primaryBusinessLocation = "NY, New York";
-            myLscu.searchTerms = new List<string>() { "restaurant manhattan", "cafe new york" };
+            myLscu.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });
 
 
             // Example for supplying Local Directory URLs (see local-directory-urls parameter)
@@ -31,14 +32,14 @@ namespace BrightLocal.Examples_version2.Account_Methods
                 "citysearch",
                 new DirectoryUrls
                 {
-                    url = "http://www.yelp.co.uk/biz/greens-restaurant-san-francisco-3",
+                    url = null,
                     include = "yes"
                 });
             myLscu.localDirectoryUrls.Add(
                 "dexknows",
                 new DirectoryUrls
                 {
-                    url = "",
+                    url = null,
                     include = "yes"
                 });
 
@@ -54,7 +55,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
             UpdateLscuOptions myLscu = new UpdateLscuOptions();
             myLscu.reportId = 1;
             myLscu.reportName = "Sample SEO Chek-Up Report";
-            myLscu.businessNames = new List<string>() { "Le Bernardin", "Le Bernardin Cafe" };
+            myLscu.businessNames = JsonConvert.SerializeObject(new List<string>() { "Le Bernardin", "Le Bernardin Cafe" });
             myLscu.websiteAddress = "le-bernardin.com";
             myLscu.address1 = "155 Weest 51st Street";
             myLscu.address2 = "";
@@ -65,7 +66,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
             myLscu.country = "USA";
             myLscu.businessCategory = "Restaurant";
             myLscu.primaryBusinessLocation = "NY, New York";
-            myLscu.searchTerms = new List<string>() { "restaurant manhattan", "cafe new york" };
+            myLscu.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });
 
             var lscuService = new LscuService();
 

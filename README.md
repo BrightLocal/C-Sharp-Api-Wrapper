@@ -284,7 +284,7 @@ Local SEO Check-up
 ```csharp
 	LscuOptions myLscu = new LscuOptions();
     myLscu.reportName = "Sample SEO Chek-Up Report";
-    myLscu.businessNames = new List<string>() {"Le Bernardin", "Le Bernardin Cafe"};
+    myLscu.businessNames = JsonConvert.SerializeObject(new List<string>() {"Le Bernardin", "Le Bernardin Cafe"});
     myLscu.websiteAddress = "le-bernardin.com";
     myLscu.address1 = "155 Weest 51st Street";
     myLscu.address2 = "";
@@ -295,7 +295,7 @@ Local SEO Check-up
     myLscu.country = "USA";
     myLscu.businessCategory = "Restaurant";
     myLscu.primaryBusinessLocation = "NY, New York";
-    myLscu.searchTerms = new List<string>() { "restaurant manhattan", "cafe new york" };       
+    myLscu.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });       
 
     var lscuService = new LscuService();
 
@@ -330,7 +330,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 	UpdateLscuOptions myLscu = new UpdateLscuOptions();
 	myLscu.reportId = 1;
     myLscu.reportName = "Sample SEO Chek-Up Report";
-    myLscu.businessNames = new List<string>() { "Le Bernardin", "Le Bernardin Cafe" };
+    myLscu.businessNames =  JsonConvert.SerializeObject(new List<string>() { "Le Bernardin", "Le Bernardin Cafe" });
     myLscu.websiteAddress = "le-bernardin.com";
     myLscu.address1 = "155 Weest 51st Street";
     myLscu.address2 = "";
@@ -341,7 +341,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     myLscu.country = "USA";
     myLscu.businessCategory = "Restaurant";
     myLscu.primaryBusinessLocation = "NY, New York";
-    myLscu.searchTerms = new List<string>() { "restaurant manhattan", "cafe new york" };
+    myLscu.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });
 
     var lscuService = new LscuService();
 

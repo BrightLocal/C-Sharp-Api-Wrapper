@@ -43,7 +43,7 @@ namespace BrightLocal
         public string previous_bing_location { get; set; }
         public string is_public { get; set; }
         public string public_key { get; set; }
-        public LocalDirectoryUrls local_directory_urls { get; set; }
+        public List<LocalDirectoryUrls> local_directory_urls { get; set; }
         public LatestRun latest_run { get; set; }
     }
 
