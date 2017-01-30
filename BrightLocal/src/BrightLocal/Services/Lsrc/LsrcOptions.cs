@@ -22,7 +22,7 @@ namespace BrightLocal
         [JsonProperty("search-terms")]
         public string searchTerms { get; set; }
         [JsonProperty("website-addresses")]
-        public List<string> websiteAddresses { get; set; }
+        public string websiteAddresses { get; set; }
         [JsonProperty("website-address")]
         public string websiteAddress { get; set; }
         [JsonProperty("website-address-2")]

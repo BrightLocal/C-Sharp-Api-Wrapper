@@ -192,7 +192,7 @@ Local Search Rank Checker
 ```csharp
 	var myLsrc = new LsrcOptions();
     myLsrc.name = "Le Bernardin";
-    myLsrc.websiteAddresses = new List<string>() {"le-bernardin.com", "www.le-bernadin.com"};
+    myLsrc.websiteAddresses = JsonConvert.SerializeObject(new List<string>() {"le-bernardin.com", "www.le-bernadin.com"});
     myLsrc.searchTerms = "Restaurant, food+nyc, delivery+midtown+manhattan";
     myLsrc.schedule = "Adhoc";
     myLsrc.searchEngines = "google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local";
@@ -210,7 +210,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
 	var myLsrc = new UpdateLsrcOptions();
     myLsrc.campaignId = 1;
     myLsrc.name = "Le Bernardin";
-    myLsrc.websiteAddresses = new List<string>() { "le-bernardin.com", "www.le-bernadin.com" };
+    myLsrc.websiteAddresses = JsonConvert.SerializeObject(new List<string>() { "le-bernardin.com", "www.le-bernadin.com" });
     myLsrc.searchTerms = "Restaurant, food+nyc, delivery+midtown+manhattan";
     myLsrc.schedule = "Adhoc";
     myLsrc.searchEngines = "google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local";

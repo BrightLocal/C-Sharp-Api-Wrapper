@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace BrightLocal.examples
             parameters.Add("name", "Le Bernardin");            
             parameters.Add("schedule", "Adhoc");
             parameters.Add("search-terms", "Restaurant\nfood+nyc\ndelivery+midtown+manhattan");
-            parameters.Add("website-addresses", "['le-bernardin.com', 'le-bernardin2.com']");
+            parameters.Add("website-addresses", JsonConvert.SerializeObject("['le-bernardin.com', 'le-bernardin2.com']"));
             parameters.Add("search-engines", "google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local");
             var success = request.Post("v2/lsrc/add", parameters);
 
@@ -32,7 +33,7 @@ namespace BrightLocal.examples
             parameters.Add("name", "Le Bernardin");
             parameters.Add("schedule", "Adhoc");
             parameters.Add("search-terms", "Restaurant\nfood+nyc\ndelivery+midtown+manhattan");
-            parameters.Add("website-addresses", "['le-bernardin.com', 'le-bernardin2.com']");
+            parameters.Add("website-addresses", JsonConvert.SerializeObject("['le-bernardin.com', 'le-bernardin2.com']"));
             parameters.Add("search-engines", "google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local");
             var success = request.Post("v2/lsrc/add", parameters);
 

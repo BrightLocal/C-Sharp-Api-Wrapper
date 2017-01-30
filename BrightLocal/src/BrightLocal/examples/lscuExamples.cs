@@ -26,7 +26,7 @@ namespace BrightLocal.examples
             parameters.Add("country", "USA");
             parameters.Add("business-category", "Restaurant");
             parameters.Add("primary-business-location", "NY, New York");
-            parameters.Add("search-terms", JsonConvert.SerializeObject("['restaurant manhattan', 'cafe new york']"));
+            parameters.Add("search_terms", JsonConvert.SerializeObject("['restaurant manhattan', 'cafe new york']"));
           
             var success = request.Post("v4/lscu", parameters);
 
@@ -44,7 +44,7 @@ namespace BrightLocal.examples
             parameters.Add("country", "USA");
             parameters.Add("business-category", "Restaurant");
             parameters.Add("primary-business-location", "NY, New York");
-            parameters.Add("search-terms", JsonConvert.SerializeObject("['restaurant manhattan', 'cafe new york']"));
+            parameters.Add("search_terms", JsonConvert.SerializeObject("['restaurant manhattan', 'cafe new york']"));
 
             var success = request.Put("v4/lscu", parameters);
 

@@ -8,7 +8,7 @@
             myCt.reportName = "Sample Citation Tracker Report";
             myCt.businessName = "Le Bernardin";
             myCt.website = "le-bernardin.com";
-            myCt.businessType = "Restaurant";
+            myCt.businessType = "Restaurant";            
             myCt.stateCode = "NY";
             myCt.postcode = "10019";
             myCt.phone = "+1 212-554-1515";
