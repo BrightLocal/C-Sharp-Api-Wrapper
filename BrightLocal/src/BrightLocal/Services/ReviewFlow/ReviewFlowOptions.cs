@@ -5,6 +5,11 @@ namespace BrightLocal
 {
     public class ReviewFlowOptions
     {
+        public ReviewFlowOptions()
+        {
+            directories = new RFDirectoryUrls();
+        }
+           
         [JsonProperty("report-name")]
         public string reportName { get; set; }
         [JsonProperty("location-id")]
