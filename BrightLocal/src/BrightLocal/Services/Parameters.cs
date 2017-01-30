@@ -13,18 +13,38 @@ namespace BrightLocal
             var parameters = new requestParameters();
             foreach (var directoryinfo in item.GetType().GetProperties())
             {
-                foreach (CustomAttributeData att in directoryinfo.CustomAttributes)
+                var prpType = directoryinfo.GetType();
+                if(directoryinfo != null)
                 {
-                    foreach (CustomAttributeTypedArgument arg in att.ConstructorArguments)
+                    foreach (CustomAttributeData att in directoryinfo.CustomAttributes)
                     {
-                        parameters.Add(arg.Value.ToString(), directoryinfo.GetValue(item, null));
-
+                        foreach (CustomAttributeTypedArgument arg in att.ConstructorArguments)
+                        {
+                            parameters.Add(arg.Value.ToString(), directoryinfo.GetValue(item, null));
+                        }
                     }
                 }
+                
             }
             return parameters;
         }
-
+        //public static Dictionary<string, object> ObjectToDictionary(object value)
+        //{
+        //    Dictionary<string, object> dictionary = new Dictionary<string, object>();
+        //    if (value != null)
+        //    {
+        //        foreach (System.ComponentModel.PropertyDescriptor descriptor in System.ComponentModel.TypeDescriptor.GetProperties(value))
+        //        {
+        //            if (descriptor != null && descriptor.Name != null)
+        //            {
+        //                object propValue = descriptor.GetValue(value);
+        //                if (propValue != null)
+        //                    dictionary.Add(descriptor.Name, String.Format("{0}", propValue));
+        //            }
+        //        }                
+        //    }
+        //    return dictionary;
+        //}
         public static string convertToNewline(string item)
         {
             return item.Replace(',', '\n');
