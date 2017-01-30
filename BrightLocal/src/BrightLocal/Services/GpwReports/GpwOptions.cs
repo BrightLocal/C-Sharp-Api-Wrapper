@@ -36,11 +36,11 @@ namespace BrightLocal
         [JsonProperty("country")]
         public string country { get; set; }
         [JsonProperty("search_terms")]
-        public List<string> searchTerms { get; set; }
+        public string searchTerms { get; set; }
         [JsonProperty("notify")]
         public string notify { get; set; }        
         [JsonProperty("email-addresses")]
-        public List<string> emailAddresses { get; set; }
+        public string emailAddresses { get; set; }
         [JsonProperty("google_location")]
         public string googleLocation { get; set; }
         [JsonProperty("is_public")]

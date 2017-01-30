@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
             myGpwReport.postcode = "10019";
             myGpwReport.phoneNumber = "+1 212-554-1515";
             myGpwReport.country = "USA";
-            myGpwReport.searchTerms = new List<string>() { "restaurant manhattan", "cafe new york" };
+            myGpwReport.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });
 
             var gpwService = new GpwService();
 
@@ -46,7 +47,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
             myGpwReport.postcode = "10019";
             myGpwReport.phoneNumber = "+1 212-554-1515";
             myGpwReport.country = "USA";
-            myGpwReport.searchTerms = new List<string>() { "restaurant manhattan", "cafe new york" };
+            myGpwReport.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });
 
             var gpwService = new GpwService();
 

@@ -13,8 +13,7 @@ namespace BrightLocal
             var parameters = new requestParameters();
             foreach (var directoryinfo in item.GetType().GetProperties())
             {
-                var prpType = directoryinfo.GetType();
-                if(directoryinfo != null)
+                if(directoryinfo.GetValue(item) != null)
                 {
                     foreach (CustomAttributeData att in directoryinfo.CustomAttributes)
                     {
