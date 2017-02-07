@@ -16,5 +16,7 @@ namespace BrightLocal
         internal static string CitationBurst => "/v2/cb/";
         internal static string ReviewFlow => "/v4/rf/";
         internal static string Gpw => "/v4/gpw/";
+
+        internal static string Rankings => "/v4/rankings/";
     }
 }
