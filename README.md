@@ -1,32 +1,29 @@
-![BrightLocal](https://github.com/BrightLocal/C-Sharp-Api-Wrapper/blob/master/Documentation/logo1.png)
-
-
 **BrightLocal API Wrapper Version 2.0**
 For version 1.0 [Click Here](Documentation/README.md)
 
 **BrightLocal API Services**
 
-[Clients](#clients)  
-[Locations](#locations)  
-[Local Search Rank Checker](#local-search-rank-checker)  
-[Local SEO Check-up](#local-seo-check-up)  
-[Citation Tracker](#citation-tracker)  
-[Citation Burst](#citation-burst)  
-[ReviewFlow Reports](#reviewflow-reports)  
-[Google+ Local Wizard Reports](#google-plus-local-wizard-reports)  
+* [Clients](#clients)  
+* [Locations](#locations)  
+* [Local Search Rank Checker](#local-search-rank-checker)  
+* [Local SEO Check-up](#local-seo-check-up)  
+* [Citation Tracker](#citation-tracker)  
+* [Citation Burst](#citation-burst)  
+* [ReviewFlow Reports](#reviewflow-reports)  
+* [Google+ Local Wizard Reports](#google-plus-local-wizard-reports)  
 
 Quick Start
 -----------
 
-It is recommended that you install BrightLocal via NuGet ` nuget Install-Package BrightLocal`. | https://www.nuget.org/packages/BrightLocal/1.0.0/
+We recommend that you install BrightLocal via NuGet ` nuget Install-Package BrightLocal` (https://www.nuget.org/packages/BrightLocal/1.0.0/).
 
 ```csharp
    nuget Install-Package BrightLocal
 ```
 
-Next you will need to provide BrightLocal with your api key & api secret. There are currently 2 ways to do this:
+Next you will need to provide BrightLocal with your API key & API secret. There are currently three ways to do this:
 
-a) Add an AppSetting with your api key to your config (this is the easiest way and will work throughout the app on every request) 
+1) Add an AppSetting with your API key to your config (this is the easiest way and will work throughout the app on every request) 
 
 ```xml
 	<appSettings>
@@ -37,13 +34,13 @@ a) Add an AppSetting with your api key to your config (this is the easiest way a
 	</appSettings>
 ```
 
-b) In your application initialization, call this method (this is a programmatic way, but you only have to do it once during startup)
+2) In your application initialization, call this method (this is a programmatic way, but you only have to do it once during startup)
 
 ```csharp
-	BrightLocalConfiguration.SetApiCredentials("[your api key here]", "[your api secret here]");
+	BrightLocalConfiguration.SetApiCredentials("[your API key here]", "[your api secret here]");
 ```
 
-c) In any of the service constructors, you can optionally pass the api key & api secret (will be assigned that apikey for the life of the service instance).
+3) In any of the service constructors, you can optionally pass the API key & API secret (will be assigned that apikey for the life of the service instance).
 
 ```csharp
 	var clientService = new ClientService("[your api key here]", "[your api secret here]");
@@ -52,7 +49,7 @@ c) In any of the service constructors, you can optionally pass the api key & api
 Clients
 -----
 
-### Adding a client
+### Add Client
 
 ```csharp
 	var myClient = new ClientOptions();
@@ -65,10 +62,9 @@ Clients
     BrightLocalSuccess newClient = clientService.Create(myClient);
 ```
 
-The returned BrightLocalSuccess entity above will have a client-id. You will want to persist this for later. When you create a location you will be able to assign it
-to a client id (or not).
+The returned BrightLocalSuccess entity above will have a client-id. You will want to persist this for later. When you create a location you will be able to optionally assign it to a client ID.
 
-### Updating a client
+### Update Client
 
 ```csharp
 	var myClient = new UpdateClientOptions();
@@ -82,7 +78,7 @@ to a client id (or not).
     BrightLocalSuccess updateClient = clientService.Update(myClient);
 ```
 
-### Deleting a client
+### Delete Client
 
 ```csharp
 	var clientId = 1;
@@ -91,7 +87,7 @@ to a client id (or not).
     BrightLocalSuccess deleteClient = clientService.Delete(clientId);
 ```
 
-### Getting a client
+### Get Client
 
 ```csharp
 	var clientId = 1;
@@ -100,7 +96,7 @@ to a client id (or not).
     BrightLocalClient client = clientService.Get(clientId);
 ```
 
-### Searching for a client
+### Search Clients
 
 ```csharp
 	var searchQuery = "le-bernardin";
@@ -113,7 +109,7 @@ to a client id (or not).
 Locations
 -----
 
-### Adding a location
+### Add Location
 
 ```csharp
 	var myLocation = new LocationOptions();
@@ -133,10 +129,9 @@ Locations
     var BrightLocalSuccess = locationService.Create(myLocation);
 ```
 
-The returned BrightLocalSuccess entity above will have a location-id. You will want to persist this for later. When you create a report you will be able to assign it
-to a location id (or not).
+The returned BrightLocalSuccess entity above will have a location-id. You will want to persist this for later. When you create a report you will be able to optionally assign it to a location id.
 
-### Updating a location
+### Update Location
 
 ```csharp
 	var myLocation = new UpdateLocationOptions();
@@ -157,7 +152,7 @@ to a location id (or not).
 	BrightLocalSuccess updateLocation = locationService.Update(myLocation);
 ```
 
-### Deleting a location
+### Delete Location
 
 ```csharp
 	var locationId = 1;
@@ -166,7 +161,7 @@ to a location id (or not).
     BrightLocalSuccess deleteLocation = locationService.Delete(locationId);          
 ```
 
-### Getting a location
+### Get Location
 
 ```csharp
 	var locationId = 1;
@@ -175,7 +170,7 @@ to a location id (or not).
     BrightLocalLocation getLocation = locationService.Get(locationId);
 ```
 
-### Searching for a location
+### Search Locations
 
 ```csharp
 	var searchQuery = "le-bernardin";
@@ -187,7 +182,7 @@ to a location id (or not).
 Local Search Rank Checker
 -----
 
-### Adding a report
+### Add Report
 
 ```csharp
 	var myLsrc = new LsrcOptions();
@@ -202,9 +197,9 @@ Local Search Rank Checker
     BrightLocalSuccess newLsrc = lsrcService.Create(myLsrc);
 ```
 
-The returned BrightLocalSuccess entity above will have a campaign-id. You will want to persist this for later in order to run and get the report.
+The returned BrightLocalSuccess entity above will have a campaign-id. You will want to persist this for later in order to run and fetch the report.
 
-### Updating a report
+### Update Report
 
 ```csharp
 	var myLsrc = new UpdateLsrcOptions();
@@ -220,7 +215,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
     BrightLocalSuccess updatedLsrc = lsrcService.Update(myLsrc);
 ```
 
-### Deleting a report
+### Delete Report
 
 ```csharp
 	var campaignId = 1;           
@@ -229,7 +224,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
     BrightLoBrightLocalSuccesscalLsrc deletedLsrc = lsrcService.Delete(campaignId);
 ```
 
-### Getting all reports
+### Get Reports
 
 ```csharp
 	var lsrcService = new LsrcService();
@@ -237,7 +232,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
     BrightLocalGetAllResults lsrcList = lsrcService.GetAll();;
 ```
 
-### Getting a report
+### Get Report
 
 ```csharp
 	var campaignId = 1;
@@ -246,7 +241,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
     BrightLocalLsrcReport myLsrc = lsrcService.Get(campaignId);
 ```
 
-### Running a report
+### Run Report
 
 ```csharp
 	var campaignId = 1;
@@ -255,7 +250,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
     BrightLocalLsrc myLsrc = lsrcService.Run(campaignId);
 ```
 
-### Get report history
+### Get Report History
 
 ```csharp
 	var campaignId = 1;
@@ -264,7 +259,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
     BrightLocalLsrcHistory lsrcHistory = lsrcService.GetHistory(campaignId);
 ```
 
-### Get report results
+### Get Report Results
 
 ```csharp
 	var myLsrc = new GetResultsLsrcOptions();
@@ -279,7 +274,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
 Local SEO Check-up
 -----
 
-### Adding a report
+### Add Report
 
 ```csharp
 	LscuOptions myLscu = new LscuOptions();
@@ -324,7 +319,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
         });
 ```
 
-### Updating a report
+### Update Report
 
 ```csharp
 	UpdateLscuOptions myLscu = new UpdateLscuOptions();
@@ -348,7 +343,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalSuccess updateLscu = lscuService.Update(myLscu);
 ```
 
-### Getting a report
+### Get Report
 
 ```csharp
 	var reportId = 1;
@@ -357,7 +352,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalLscuReport lscuReport = lscuService.Get(reportId);
 ```
 
-### Running a report
+### Run Report
 
 ```csharp
 	var reportId = 1;
@@ -367,7 +362,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 ```
 The returned success entity above is of type string. Success or Failure with errors.
 
-### Deleting a report
+### Delete Report
 
 ```csharp
 	var reportId = 1;
@@ -377,7 +372,7 @@ The returned success entity above is of type string. Success or Failure with err
 ```
 The returned success entity above is of type string. Success or Failure with errors.
 
-### Searching for a report
+### Search Reports
 
 ```csharp
 	var searchQuery = "Bodega Wine Bar";
@@ -389,7 +384,7 @@ The returned success entity above is of type string. Success or Failure with err
 Citation Tracker
 -----
 
-### Adding a report
+### Add Report
 
 ```csharp
 	CitationTrackerOptions myCt = new CitationTrackerOptions();
@@ -408,7 +403,7 @@ Citation Tracker
 ```
 The returned BrightLocalSuccess entity above will have a report-id. You will want to persist this for later in order to run and get the report.
 
-### Updating a report
+### Update Report
 
 ```csharp
 	UpdateCitationTrackerOptions myCt = new UpdateCitationTrackerOptions();
@@ -427,7 +422,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalSuccess updateCt = citationTrackerService.Update(myCt);
 ```
 
-### Getting a report
+### Get Report
 
 ```csharp
 	int reportId = 682;
@@ -437,7 +432,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalCitationTrackerReport myCt = citationTrackerService.Get(reportId);
 ```
 
-### Running a report
+### Run Report
 
 ```csharp
 	int reportId = 682;
@@ -447,7 +442,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalSuccess myCt = citationTrackerService.Run(reportId);
 ```
 
-### Deleting a report
+### Delete Report
 
 ```csharp
 	int reportId = 682;
@@ -457,7 +452,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalSuccess myCt = citationTrackerService.Delete(reportId);
 ```
 
-### Getting all reports
+### Get Reports
 
 ```csharp	
     var citationTrackerService = new CitationTrackerService();
@@ -465,7 +460,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalCtGetAllResults ctResults = citationTrackerService.GetAll();
 ```
 
-### Getting report results
+### Get Report Results
 
 ```csharp	
     var reportId = 1;
@@ -477,11 +472,11 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 Citation Burst
 -----
 
-### Creating a campaign
+### Create Campaign
 
 ```csharp
-	string brief_description = "Born in Paris in 1972 by sibling duo Maguy and Gilbert Le Coze, Le Bernardin only served fish: Fresh, simple and prepared with respect. After receiving its first Michelin star in 1976, and two more in 1980, the Le Coze’s set to open Le Bernardin in New York in 1986.";
-    string full_description = "The restaurant has held three stars from the Michelin Guide since its 2005 New York launch and currently ranks 24 on the World’s 50 Best Restaurants list. The New York Zagat Guide has recognized Le Bernardin as top rated in the category of “Best Food” for the last nine consecutive years, and in 2015 was rated by the guide as New York City’s top restaurant for food and service.  Le Bernardin has earned seven James Beard Awards since 1998 including “Outstanding Restaurant of the Year,” “Top Chef in New York City,” “Outstanding Service,” “Outstanding Chef in the United States,” “Outstanding Pastry Chef,” “Outstanding Wine Service,” and “Best Restaurant Design” in 2012. Most recently, the Foundation named Maguy Le Coze as Outstanding.";
+	string brief_description = "Born in Paris in 1972 by sibling duo Maguy and Gilbert Le Coze, Le Bernardin only served fish: Fresh, simple and prepared with respect. After receiving its first Michelin star in 1976, and two more in 1980, the Le CozeÂ’s set to open Le Bernardin in New York in 1986.";
+    string full_description = "The restaurant has held three stars from the Michelin Guide since its 2005 New York launch and currently ranks 24 on the WorldÂ’s 50 Best Restaurants list. The New York Zagat Guide has recognized Le Bernardin as top rated in the category of Â“Best FoodÂ” for the last nine consecutive years, and in 2015 was rated by the guide as New York CityÂ’s top restaurant for food and service.  Le Bernardin has earned seven James Beard Awards since 1998 including Â“Outstanding Restaurant of the Year,Â” Â“Top Chef in New York City,Â” Â“Outstanding Service,Â” Â“Outstanding Chef in the United States,Â” Â“Outstanding Pastry Chef,Â” Â“Outstanding Wine Service,Â” and Â“Best Restaurant DesignÂ” in 2012. Most recently, the Foundation named Maguy Le Coze as Outstanding.";
 
     CitationBurstOptions myCb = new CitationBurstOptions();            
     myCb.businessName = "Le Bernardin";
@@ -525,11 +520,11 @@ Citation Burst
 ```
 The returned BrightLocalSuccess entity above will have a campaign-id. You will want to persist this for later in order to get citations, confirm & pay, etc.
 
-### Updating a campaign
+### Update Campaign
 
 ```csharp
-	string brief_description = "Born in Paris in 1972 by sibling duo Maguy and Gilbert Le Coze, Le Bernardin only served fish: Fresh, simple and prepared with respect. After receiving its first Michelin star in 1976, and two more in 1980, the Le Coze’s set to open Le Bernardin in New York in 1986.";
-    string full_description = "The restaurant has held three stars from the Michelin Guide since its 2005 New York launch and currently ranks 24 on the World’s 50 Best Restaurants list. The New York Zagat Guide has recognized Le Bernardin as top rated in the category of “Best Food” for the last nine consecutive years, and in 2015 was rated by the guide as New York City’s top restaurant for food and service.  Le Bernardin has earned seven James Beard Awards since 1998 including “Outstanding Restaurant of the Year,” “Top Chef in New York City,” “Outstanding Service,” “Outstanding Chef in the United States,” “Outstanding Pastry Chef,” “Outstanding Wine Service,” and “Best Restaurant Design” in 2012. Most recently, the Foundation named Maguy Le Coze as Outstanding.";
+	string brief_description = "Born in Paris in 1972 by sibling duo Maguy and Gilbert Le Coze, Le Bernardin only served fish: Fresh, simple and prepared with respect. After receiving its first Michelin star in 1976, and two more in 1980, the Le CozeÂ’s set to open Le Bernardin in New York in 1986.";
+    string full_description = "The restaurant has held three stars from the Michelin Guide since its 2005 New York launch and currently ranks 24 on the WorldÂ’s 50 Best Restaurants list. The New York Zagat Guide has recognized Le Bernardin as top rated in the category of Â“Best FoodÂ” for the last nine consecutive years, and in 2015 was rated by the guide as New York CityÂ’s top restaurant for food and service.  Le Bernardin has earned seven James Beard Awards since 1998 including Â“Outstanding Restaurant of the Year,Â” Â“Top Chef in New York City,Â” Â“Outstanding Service,Â” Â“Outstanding Chef in the United States,Â” Â“Outstanding Pastry Chef,Â” Â“Outstanding Wine Service,Â” and Â“Best Restaurant DesignÂ” in 2012. Most recently, the Foundation named Maguy Le Coze as Outstanding.";
 
     UpdateCitationBurstOptions myCb = new UpdateCitationBurstOptions();
     myCb.campaignId = 1;
@@ -573,7 +568,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
     BrightLocalSuccess newCb = citationBurstService.Update(myCb);
 ```
 
-### Uploading an image
+### Upload Image
 
 ```csharp
 	CbUploadImage image = new CbUploadImage();
@@ -586,7 +581,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
     BrightLocalSuccess cbImage = citationBurstService.UploadImage(image);
 ```
 
-### Getting citations
+### Get Citations
 
 ```csharp
 	int campaingId = 1;
@@ -595,7 +590,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
     BrightLocalCitations citations = citationBurstService.GetCitations(campaingId);
 ```
 
-### Confirm & Pay for citation Campaign
+### Confirm & Pay for Citation Campaign
 
 ```csharp
 	BrightLocalCbPayOptions confirmPay = new BrightLocalCbPayOptions();
@@ -607,7 +602,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
     BrightLocalSuccess confirm = citationBurstService.ConfirmAndPay(confirmPay);
 ```
 
-### Getting all campaigns
+### Getting All Campaigns
 
 ```csharp	
     var citationBurstService = new CitationBurstService();
@@ -615,7 +610,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
     BrightLocalCbAllCampaigns results = citationBurstService.GetCampaigns();
 ```
 
-### Getting campaign details
+### Get Campaign Details
 
 ```csharp	
     int campaignId = 1;
@@ -624,7 +619,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
     BrightLocalCbCampaign results = citationBurstService.GetCampaign(campaignId);
 ```
 
-### Getting credits balance
+### Get Credits Balance
 
 ```csharp	
     var citationBurstService = new CitationBurstService();
@@ -635,7 +630,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
 ReviewFLow Reports
 -----
 
-### Adding a report
+### Add Report
 
 ```csharp
 	var myReviewReport = new ReviewFlowOptions();            
@@ -672,7 +667,7 @@ ReviewFLow Reports
 
 The returned BrightLocalSuccess entity above will have a report-id. You will want to persist this for later when you get a report.
 
-### Updating a report
+### Update Report
 
 ```csharp
 	var myReviewReport = new UpdateReviewFlowOptions();
@@ -707,7 +702,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalSuccess updateReviewReport = rfService.Update(myReviewReport);
 ```
 
-### Getting a report
+### Get Report
 
 ```csharp
 	int reportId = 1;
@@ -716,7 +711,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalRfReport reviewReport = rfService.Get(reportId);
 ```
 
-### Deleting a report
+### Delete Report
 
 ```csharp
 	int reportId = 1;
@@ -725,7 +720,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalSuccess deleteReport = rfService.Delete(reportId);
 ```
 
-### Getting all reports
+### Get All Reports
 
 ```csharp
 	var rfService = new ReviewFlowService();
@@ -733,7 +728,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalRfGetAll results = rfService.GetAll();
 ```
 
-### Searching for a report
+### Search Reports
 
 ```csharp
 	string query = "New York";
@@ -742,7 +737,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalRfGetAll results = rfService.Search(query);
 ```
 
-### Getting Reviews
+### Get Reviews
 
 ```csharp
 	var myReviewReport = new RfGetReviewsOptions();
@@ -752,7 +747,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalRfReviews reviews = rfService.GetReviews(myReviewReport);
 ```
 
-### Getting Reviews Count
+### Get Review Counts
 
 ```csharp
 	int reportId = 1;
@@ -761,7 +756,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalSuccess reviewCount = rfService.GetReviewCount(reportId);
 ```
 
-### Getting Growth
+### Get Growth
 
 ```csharp
 	int reportId = 1;
@@ -770,7 +765,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalSuccess reviewGrowth = rfService.GetGrowth(reportId);
 ```
 
-### Getting Directories
+### Get Directories
 
 ```csharp
 	int reportId = 1;
@@ -779,7 +774,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalRfDirectories reviewDirectories = rfService.GetDirectories(reportId);
 ```
 
-### Getting Directory Stats
+### Get Directory Stats
 
 ```csharp
 	int reportId = 1;
@@ -788,7 +783,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalRfDirectoryStats reviewDirectoryStats = rfService.GetDirectoryStats(reportId);
 ```
 
-### Getting Star Counts
+### Get Star Counts
 
 ```csharp	
     int reportId = 1;
@@ -800,7 +795,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 Google Plus Local Wizard Reports
 -----
 
-### Adding a report
+### Add Report
 
 ```csharp
 	var myGpwReport = new GpwOptions();
@@ -824,7 +819,7 @@ Google Plus Local Wizard Reports
 ```
 The returned BrightLocalSuccess entity above will have a report-id. You will want to persist this for later in order to run and get the report.
 
-### Updating a report
+### Update Report
 
 ```csharp
 	var myGpwReport = new UpdateGpwOptions();
@@ -848,7 +843,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalSuccess gpwReport = gpwService.Update(myGpwReport);
 ```
 
-### Getting a report
+### Get Report
 
 ```csharp
 	var reportId = 1;
@@ -857,7 +852,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalGpwReport gpwReport = gpwService.Get(reportId);
 ```
 
-### Deleting a report
+### Delete Report
 
 ```csharp
 	var reportId = 1;
@@ -866,7 +861,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalSuccess gpwReport = gpwService.Delete(reportId);
 ```
 
-### Getting all reports
+### Get All Reports
 
 ```csharp	
     var gpwService = new GpwService();
@@ -874,7 +869,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 	BrightLocalGpwGetAllResults gpwGetAllResults = gpwService.GetAll();
 ```
 
-### Running a report
+### Run Report
 
 ```csharp
 	var reportId = 1;
@@ -883,7 +878,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     BrightLocalSuccess gpwReport = gpwService.Run(reportId);
 ```
 
-### Getting report results
+### Get Report Results
 
 ```csharp	
     var reportId = 1;
