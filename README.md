@@ -1,6 +1,6 @@
 **BrightLocal API Wrapper Version 2.0**
 
-For documentation for version 1.0 [click nere](Documentation/README.md).
+For documentation for version 1.0 [click here](Documentation/README.md).
 
 **BrightLocal API Services**
 
