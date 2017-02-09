@@ -2,7 +2,7 @@
 
 namespace BrightLocal
 {
-    public class BrightLocalCbCampaign
+    public class BlCbCampaign
     {
         public CampaignResponse response { get; set; }
     }

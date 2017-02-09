@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BrightLocal
 {
-    public class BrightLocalCbAllCampaigns
+    public class BlCbAllCampaigns
     {
         public CbResponse response { get; set; }
     }

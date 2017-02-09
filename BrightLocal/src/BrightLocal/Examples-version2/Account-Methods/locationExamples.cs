@@ -5,7 +5,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 {
     public class locationExamples
     {
-        public static BrightLocalSuccess Create()
+        public static BlSuccess Create()
         {
             var myLocation = new LocationOptions();
             myLocation.name = "Le Bernardin";
@@ -21,11 +21,11 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var locationService = new LocationService();
 
-            BrightLocalSuccess newLocation = locationService.Create(myLocation);
+            BlSuccess newLocation = locationService.Create(myLocation);
             return newLocation;
         }
 
-        public static BrightLocalSuccess Update()
+        public static BlSuccess Update()
         {
             var myLocation = new UpdateLocationOptions();
             myLocation.locationId = 1;
@@ -42,16 +42,16 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var locationService = new LocationService();
 
-            BrightLocalSuccess updateLocation = locationService.Update(myLocation);
+            BlSuccess updateLocation = locationService.Update(myLocation);
             return updateLocation;
         }
 
-        public static BrightLocalSuccess Delete()
+        public static BlSuccess Delete()
         {
             var locationId = 1;
             var locationService = new LocationService();
 
-            BrightLocalSuccess deleteLocation = locationService.Delete(locationId);
+            BlSuccess deleteLocation = locationService.Delete(locationId);
             return deleteLocation;
         }
 

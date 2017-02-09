@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BrightLocal
 {
-    public class BrightLocalBatchSuccess
+    public class BlBatchSuccess
     {
         public int batchId { get; set; }
         public JobIds jobids { get; set; }

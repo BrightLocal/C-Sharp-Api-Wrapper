@@ -4,7 +4,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 {
     public class citationBurstExamples
     {
-        public static BrightLocalSuccess Create()
+        public static BlSuccess Create()
         {
             string brief_description = "Born in Paris in 1972 by sibling duo Maguy and Gilbert Le Coze, Le Bernardin only served fish: Fresh, simple and prepared with respect. After receiving its first Michelin star in 1976, and two more in 1980, the Le Coze’s set to open Le Bernardin in New York in 1986.";
             string full_description = "The restaurant has held three stars from the Michelin Guide since its 2005 New York launch and currently ranks 24 on the World’s 50 Best Restaurants list. The New York Zagat Guide has recognized Le Bernardin as top rated in the category of “Best Food” for the last nine consecutive years, and in 2015 was rated by the guide as New York City’s top restaurant for food and service.  Le Bernardin has earned seven James Beard Awards since 1998 including “Outstanding Restaurant of the Year,” “Top Chef in New York City,” “Outstanding Service,” “Outstanding Chef in the United States,” “Outstanding Pastry Chef,” “Outstanding Wine Service,” and “Best Restaurant Design” in 2012. Most recently, the Foundation named Maguy Le Coze as Outstanding.";
@@ -47,12 +47,12 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var citationBurstService = new CitationBurstService();
 
-            BrightLocalSuccess newCb = citationBurstService.Create(myCb);
+            BlSuccess newCb = citationBurstService.Create(myCb);
 
             return newCb;
         }
 
-        public static BrightLocalSuccess Update()
+        public static BlSuccess Update()
         {
             string brief_description = "Born in Paris in 1972 by sibling duo Maguy and Gilbert Le Coze, Le Bernardin only served fish: Fresh, simple and prepared with respect. After receiving its first Michelin star in 1976, and two more in 1980, the Le Coze’s set to open Le Bernardin in New York in 1986.";
             string full_description = "The restaurant has held three stars from the Michelin Guide since its 2005 New York launch and currently ranks 24 on the World’s 50 Best Restaurants list. The New York Zagat Guide has recognized Le Bernardin as top rated in the category of “Best Food” for the last nine consecutive years, and in 2015 was rated by the guide as New York City’s top restaurant for food and service.  Le Bernardin has earned seven James Beard Awards since 1998 including “Outstanding Restaurant of the Year,” “Top Chef in New York City,” “Outstanding Service,” “Outstanding Chef in the United States,” “Outstanding Pastry Chef,” “Outstanding Wine Service,” and “Best Restaurant Design” in 2012. Most recently, the Foundation named Maguy Le Coze as Outstanding.";
@@ -96,12 +96,12 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var citationBurstService = new CitationBurstService();
 
-            BrightLocalSuccess newCb = citationBurstService.Update(myCb);
+            BlSuccess newCb = citationBurstService.Update(myCb);
 
             return newCb;
         }
 
-        public static BrightLocalSuccess UploadImage()
+        public static BlSuccess UploadImage()
         {
             CbUploadImage image = new CbUploadImage();
             image.campaignId = 1;
@@ -110,23 +110,23 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var citationBurstService = new CitationBurstService();
 
-            BrightLocalSuccess cbImage = citationBurstService.UploadImage(image);
+            BlSuccess cbImage = citationBurstService.UploadImage(image);
 
             return cbImage;
         }
 
-        public static BrightLocalCitations GetCitations()
+        public static BlCitations GetCitations()
         {
             int campaingId = 1;
 
             var citationBurstService = new CitationBurstService();
 
-            BrightLocalCitations citations = citationBurstService.GetCitations(campaingId);
+            BlCitations citations = citationBurstService.GetCitations(campaingId);
 
             return citations;
         }
 
-        public static BrightLocalSuccess ConfirmAndPay()
+        public static BlSuccess ConfirmAndPay()
         {
             BrightLocalCbPayOptions confirmPay = new BrightLocalCbPayOptions();
             confirmPay.campaign_id = 1;
@@ -134,35 +134,35 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var citationBurstService = new CitationBurstService();
 
-            BrightLocalSuccess confirm = citationBurstService.ConfirmAndPay(confirmPay);
+            BlSuccess confirm = citationBurstService.ConfirmAndPay(confirmPay);
 
             return confirm;
         }
 
-        public static BrightLocalCbAllCampaigns GetAll()
+        public static BlCbAllCampaigns GetAll()
         {
             var citationBurstService = new CitationBurstService();
 
-            BrightLocalCbAllCampaigns results = citationBurstService.GetCampaigns();
+            BlCbAllCampaigns results = citationBurstService.GetCampaigns();
 
             return results;
         }
 
-        public static BrightLocalCbCampaign GetCampaign()
+        public static BlCbCampaign GetCampaign()
         {
             int campaignId = 1;
             var citationBurstService = new CitationBurstService();
 
-            BrightLocalCbCampaign results = citationBurstService.GetCampaign(campaignId);
+            BlCbCampaign results = citationBurstService.GetCampaign(campaignId);
 
             return results;
         }
 
-        public static BrightLocalSuccess GetCredits()
+        public static BlSuccess GetCredits()
         {
             var citationBurstService = new CitationBurstService();
 
-            BrightLocalSuccess credits = citationBurstService.GetCredits();
+            BlSuccess credits = citationBurstService.GetCredits();
 
             return credits;
         }

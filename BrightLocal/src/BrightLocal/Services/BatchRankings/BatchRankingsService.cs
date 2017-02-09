@@ -13,9 +13,9 @@ namespace BrightLocal
         BrightLocalBatchRequestor batchRequest = new BrightLocalBatchRequestor();
 
         BrightLocalRequestor request = new BrightLocalRequestor();
-        public virtual BrightLocalBatchSuccess Search(RankingsSearchOptions searchOptions)
+        public virtual BlBatchSuccess Search(RankingsSearchOptions searchOptions)
         {
-            BrightLocalBatchSuccess ids = new BrightLocalBatchSuccess();
+            BlBatchSuccess ids = new BlBatchSuccess();
             var batchId = batchRequest.Create(this.api_key);
             var url = string.Format(Urls.Rankings + "{0}", "search");
             foreach(var search in searchOptions.searches)
@@ -41,10 +41,10 @@ namespace BrightLocal
             return  ids;
         }
 
-        public virtual BrightLocalSuccess GetSearchResults(int batchId)
+        public virtual BlSuccess GetSearchResults(int batchId)
         {            
             var results = batchRequest.GetResults(batchId, this.api_key);
-            return JsonConvert.DeserializeObject<BrightLocalSuccess>(results.Content);
+            return JsonConvert.DeserializeObject<BlSuccess>(results.Content);
         }
     }
 }

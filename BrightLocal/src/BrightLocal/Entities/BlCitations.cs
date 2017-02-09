@@ -2,7 +2,7 @@
 
 namespace BrightLocal
 {
-    public class BrightLocalCitations
+    public class BlCitations
     {
         public bool error { get; set; }
         public int campaignId { get; set; }

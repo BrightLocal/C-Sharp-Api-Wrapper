@@ -2,7 +2,7 @@
 {
     public class citationTrackerExamples
     {
-        public static BrightLocalSuccess Create()
+        public static BlSuccess Create()
         {
             CitationTrackerOptions myCt = new CitationTrackerOptions();
             myCt.reportName = "Sample Citation Tracker Report";
@@ -16,12 +16,12 @@
 
             var citationTrackerService = new CitationTrackerService();
 
-            BrightLocalSuccess newCt = citationTrackerService.Create(myCt);
+            BlSuccess newCt = citationTrackerService.Create(myCt);
 
             return newCt;            
         }
 
-        public static BrightLocalSuccess Update()
+        public static BlSuccess Update()
         {
             UpdateCitationTrackerOptions myCt = new UpdateCitationTrackerOptions();
             myCt.reportId = 682;
@@ -36,7 +36,7 @@
 
             var citationTrackerService = new CitationTrackerService();
 
-            BrightLocalSuccess updateCt = citationTrackerService.Update(myCt);
+            BlSuccess updateCt = citationTrackerService.Update(myCt);
 
             return updateCt;
         }
@@ -52,24 +52,24 @@
             return myCt;
         }
 
-        public static BrightLocalSuccess Run()
+        public static BlSuccess Run()
         {
             int reportId = 682;
 
             var citationTrackerService = new CitationTrackerService();
 
-            BrightLocalSuccess myCt = citationTrackerService.Run(reportId);
+            BlSuccess myCt = citationTrackerService.Run(reportId);
 
             return myCt;
         }
 
-        public static BrightLocalSuccess Delete()
+        public static BlSuccess Delete()
         {
             int reportId = 682;
 
             var citationTrackerService = new CitationTrackerService();
 
-            BrightLocalSuccess myCt = citationTrackerService.Delete(reportId);
+            BlSuccess myCt = citationTrackerService.Delete(reportId);
 
             return myCt;
         }

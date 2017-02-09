@@ -8,7 +8,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 {
     public class gpwExamples
     {
-        public static BrightLocalSuccess Create()
+        public static BlSuccess Create()
         {
             var myGpwReport = new GpwOptions();
             myGpwReport.reportName = "Sample Citation Tracker Report";
@@ -27,11 +27,11 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var gpwService = new GpwService();
 
-            BrightLocalSuccess gpwReport = gpwService.Create(myGpwReport);
+            BlSuccess gpwReport = gpwService.Create(myGpwReport);
             return gpwReport;
         }
 
-        public static BrightLocalSuccess Update()
+        public static BlSuccess Update()
         {
             var myGpwReport = new UpdateGpwOptions();
             myGpwReport.reportId = 1;
@@ -51,7 +51,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var gpwService = new GpwService();
 
-            BrightLocalSuccess gpwReport = gpwService.Update(myGpwReport);
+            BlSuccess gpwReport = gpwService.Update(myGpwReport);
             return gpwReport;
         }
 
@@ -64,12 +64,12 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return gpwReport;
         }
 
-        public static BrightLocalSuccess Delete()
+        public static BlSuccess Delete()
         {
             var reportId = 1;
             var gpwService = new GpwService();
 
-            BrightLocalSuccess gpwReport = gpwService.Delete(reportId);
+            BlSuccess gpwReport = gpwService.Delete(reportId);
             return gpwReport;
         }
 
@@ -81,12 +81,12 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return gpwGetAllResults;
         }
 
-        public static BrightLocalSuccess Run()
+        public static BlSuccess Run()
         {
             var reportId = 1;
             var gpwService = new GpwService();
 
-            BrightLocalSuccess gpwReport = gpwService.Run(reportId);
+            BlSuccess gpwReport = gpwService.Run(reportId);
             return gpwReport;
         }
 

@@ -7,7 +7,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 {
     public class rFExamples
     {
-        public static BrightLocalSuccess Create()
+        public static BlSuccess Create()
         {
             var myReviewReport = new ReviewFlowOptions();            
             myReviewReport.reportName = "Sample Citation Tracker Report";
@@ -37,11 +37,11 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var rfService = new ReviewFlowService();
 
-            BrightLocalSuccess newReviewReport = rfService.Create(myReviewReport);
+            BlSuccess newReviewReport = rfService.Create(myReviewReport);
             return newReviewReport;
         }
 
-        public static BrightLocalSuccess Update()
+        public static BlSuccess Update()
         {
             var myReviewReport = new UpdateReviewFlowOptions();
             myReviewReport.reportId = 1;
@@ -72,7 +72,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var rfService = new ReviewFlowService();
 
-            BrightLocalSuccess updateReviewReport = rfService.Update(myReviewReport);
+            BlSuccess updateReviewReport = rfService.Update(myReviewReport);
             return updateReviewReport;
         }
 
@@ -85,12 +85,12 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return reviewReport;
         }
 
-        public static BrightLocalSuccess DeleteReport()
+        public static BlSuccess DeleteReport()
         {
             int reportId = 1;
             var rfService = new ReviewFlowService();
 
-            BrightLocalSuccess deleteReport = rfService.Delete(reportId);
+            BlSuccess deleteReport = rfService.Delete(reportId);
             return deleteReport;
         }
 
@@ -121,21 +121,21 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return reviews;
         }
 
-        public static BrightLocalSuccess GetReviewCount()
+        public static BlSuccess GetReviewCount()
         {
             int reportId = 1;
             var rfService = new ReviewFlowService();
 
-            BrightLocalSuccess reviewCount = rfService.GetReviewCount(reportId);
+            BlSuccess reviewCount = rfService.GetReviewCount(reportId);
             return reviewCount;
         }
 
-        public static BrightLocalSuccess GetGrowth()
+        public static BlSuccess GetGrowth()
         {
             int reportId = 1;
             var rfService = new ReviewFlowService();
 
-            BrightLocalSuccess reviewGrowth = rfService.GetGrowth(reportId);
+            BlSuccess reviewGrowth = rfService.GetGrowth(reportId);
             return reviewGrowth;
         }
 

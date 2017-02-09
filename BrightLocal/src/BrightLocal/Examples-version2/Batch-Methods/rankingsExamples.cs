@@ -9,7 +9,7 @@ namespace BrightLocal.Examples_version2.Batch_Methods
 {
     public class rankingsExamples
     {
-        public static BrightLocalSuccess Create()
+        public static BlSuccess Create()
         {                           
             RankingsSearchOptions searchOptions = new RankingsSearchOptions();
             searchOptions.searches.Add(new SearchOptions()
@@ -32,7 +32,7 @@ namespace BrightLocal.Examples_version2.Batch_Methods
             });
 
             var batchRankingService = new BatchRankingsService();
-            BrightLocalBatchSuccess newBatchRankings = batchRankingService.Search(searchOptions);
+            BlBatchSuccess newBatchRankings = batchRankingService.Search(searchOptions);
 
             var rankingsResults = batchRankingService.GetSearchResults(newBatchRankings.batchId);
 

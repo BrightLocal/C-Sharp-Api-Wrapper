@@ -9,20 +9,20 @@ namespace BrightLocal
 
         BrightLocalRequestor request = new BrightLocalRequestor();
 
-        public virtual BrightLocalSuccess Create(GpwOptions createOptions)
+        public virtual BlSuccess Create(GpwOptions createOptions)
         {
             var url = string.Format(Urls.Gpw + "{0}", "add");
             var parameters = Parameters.convertListToParameters(createOptions);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
+            return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
 
-        public virtual BrightLocalSuccess Update(UpdateGpwOptions updateOptions)
+        public virtual BlSuccess Update(UpdateGpwOptions updateOptions)
         {
             var url = string.Format(Urls.Gpw + "{0}", updateOptions.reportId);
             var parameters = Parameters.convertListToParameters(updateOptions);
             var success = request.Put(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
+            return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
 
         public virtual BrightLocalGpwReport Get(int reportId)
@@ -33,12 +33,12 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BrightLocalGpwReport>(success.Content);
         }
 
-        public virtual BrightLocalSuccess Delete(int reportId)
+        public virtual BlSuccess Delete(int reportId)
         {
             var url = string.Format(Urls.Gpw + "{0}", reportId);
             var parameters = new Parameters.requestParameters();
             var success = request.Delete(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
+            return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
 
         public virtual BrightLocalGpwGetAllResults GetAll()
@@ -56,13 +56,13 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BrightLocalGpwGetAllResults>(success.Content);
         }
 
-        public virtual BrightLocalSuccess Run(int reportId)
+        public virtual BlSuccess Run(int reportId)
         {
             var url = string.Format(Urls.Gpw + "{0}", "run");
             var parameters = new Parameters.requestParameters();
             parameters.Add("report-id", reportId);
             var success = request.Put(Urls.Gpw, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalSuccess>(success.Content);
+            return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
 
         public virtual BrightLocalGpwReportResults GetReportResults(int reportId)
