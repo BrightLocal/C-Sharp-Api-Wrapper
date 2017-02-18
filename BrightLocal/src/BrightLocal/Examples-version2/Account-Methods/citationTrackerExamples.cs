@@ -4,39 +4,39 @@
     {
         public static BlSuccess Create()
         {
-            CitationTrackerOptions myCt = new CitationTrackerOptions();
-            myCt.reportName = "Sample Citation Tracker Report";
-            myCt.businessName = "Le Bernardin";
-            myCt.website = "le-bernardin.com";
-            myCt.businessType = "Restaurant";            
-            myCt.stateCode = "NY";
-            myCt.postcode = "10019";
-            myCt.phone = "+1 212-554-1515";
-            myCt.country = "USA";
+            CitationTrackerOptions ct = new CitationTrackerOptions();
+            ct.reportName = "Sample Citation Tracker Report";
+            ct.businessName = "Le Bernardin";
+            ct.website = "le-bernardin.com";
+            ct.businessType = "Restaurant";            
+            ct.stateCode = "NY";
+            ct.postcode = "10019";
+            ct.phone = "+1 212-554-1515";
+            ct.country = "USA";
 
             var citationTrackerService = new CitationTrackerService();
 
-            BlSuccess newCt = citationTrackerService.Create(myCt);
+            BlSuccess newCt = citationTrackerService.Create(ct);
 
             return newCt;            
         }
 
         public static BlSuccess Update()
         {
-            UpdateCitationTrackerOptions myCt = new UpdateCitationTrackerOptions();
-            myCt.reportId = 682;
-            myCt.reportName = "Sample Citation Tracker Report";
-            myCt.businessName = "Le Bernardin";
-            myCt.website = "le-bernardin.com";
-            myCt.businessType = "Restaurant";
-            myCt.stateCode = "NY";
-            myCt.postcode = "10019";
-            myCt.phone = "+1 212-554-1515";
-            myCt.country = "USA";
+            UpdateCitationTrackerOptions ct = new UpdateCitationTrackerOptions();
+            ct.reportId = 682;
+            ct.reportName = "Sample Citation Tracker Report";
+            ct.businessName = "Le Bernardin";
+            ct.website = "le-bernardin.com";
+            ct.businessType = "Restaurant";
+            ct.stateCode = "NY";
+            ct.postcode = "10019";
+            ct.phone = "+1 212-554-1515";
+            ct.country = "USA";
 
             var citationTrackerService = new CitationTrackerService();
 
-            BlSuccess updateCt = citationTrackerService.Update(myCt);
+            BlSuccess updateCt = citationTrackerService.Update(ct);
 
             return updateCt;
         }
@@ -47,9 +47,9 @@
 
             var citationTrackerService = new CitationTrackerService();
 
-            BlCitationTrackerReport myCt = citationTrackerService.Get(reportId);
+            BlCitationTrackerReport ct = citationTrackerService.Get(reportId);
 
-            return myCt;
+            return ct;
         }
 
         public static BlSuccess Run()
@@ -58,9 +58,9 @@
 
             var citationTrackerService = new CitationTrackerService();
 
-            BlSuccess myCt = citationTrackerService.Run(reportId);
+            BlSuccess ct = citationTrackerService.Run(reportId);
 
-            return myCt;
+            return ct;
         }
 
         public static BlSuccess Delete()
@@ -69,9 +69,9 @@
 
             var citationTrackerService = new CitationTrackerService();
 
-            BlSuccess myCt = citationTrackerService.Delete(reportId);
+            BlSuccess ct = citationTrackerService.Delete(reportId);
 
-            return myCt;
+            return ct;
         }
 
         public static BlCtGetAllResults GetAll()

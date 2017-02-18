@@ -10,48 +10,48 @@ namespace BrightLocal.Examples_version2.Account_Methods
     {
         public static BlSuccess Create()
         {
-            var myGpwReport = new GpwOptions();
-            myGpwReport.reportName = "Sample Citation Tracker Report";
-            myGpwReport.businessNames = "Le Bernardin";
-            myGpwReport.schedule = "Adhoc";
-            myGpwReport.dayOfMonth = "2";
-            myGpwReport.reportType = "with";           
-            myGpwReport.address1 = "155 Weest 51st Street";
-            myGpwReport.address2 = "";
-            myGpwReport.city = "NYC";
-            myGpwReport.stateCode = "NY";
-            myGpwReport.postcode = "10019";
-            myGpwReport.phoneNumber = "+1 212-554-1515";
-            myGpwReport.country = "USA";
-            myGpwReport.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });
+            var gpwReport = new GpwOptions();
+            gpwReport.reportName = "Sample Citation Tracker Report";
+            gpwReport.businessNames = "Le Bernardin";
+            gpwReport.schedule = "Adhoc";
+            gpwReport.dayOfMonth = "2";
+            gpwReport.reportType = "with";           
+            gpwReport.address1 = "155 Weest 51st Street";
+            gpwReport.address2 = "";
+            gpwReport.city = "NYC";
+            gpwReport.stateCode = "NY";
+            gpwReport.postcode = "10019";
+            gpwReport.phoneNumber = "+1 212-554-1515";
+            gpwReport.country = "USA";
+            gpwReport.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });
 
             var gpwService = new GpwService();
 
-            BlSuccess gpwReport = gpwService.Create(myGpwReport);
+            BlSuccess gpwReport = gpwService.Create(gpwReport);
             return gpwReport;
         }
 
         public static BlSuccess Update()
         {
-            var myGpwReport = new UpdateGpwOptions();
-            myGpwReport.reportId = 1;
-            myGpwReport.reportName = "Sample Citation Tracker Report";
-            myGpwReport.businessNames = "Le Bernardin";
-            myGpwReport.schedule = "Adhoc";
-            myGpwReport.dayOfMonth = "2";
-            myGpwReport.reportType = "with";
-            myGpwReport.address1 = "155 Weest 51st Street";
-            myGpwReport.address2 = "";
-            myGpwReport.city = "NYC";
-            myGpwReport.stateCode = "NY";
-            myGpwReport.postcode = "10019";
-            myGpwReport.phoneNumber = "+1 212-554-1515";
-            myGpwReport.country = "USA";
-            myGpwReport.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });
+            var gpwReport = new UpdateGpwOptions();
+            gpwReport.reportId = 1;
+            gpwReport.reportName = "Sample Citation Tracker Report";
+            gpwReport.businessNames = "Le Bernardin";
+            gpwReport.schedule = "Adhoc";
+            gpwReport.dayOfMonth = "2";
+            gpwReport.reportType = "with";
+            gpwReport.address1 = "155 Weest 51st Street";
+            gpwReport.address2 = "";
+            gpwReport.city = "NYC";
+            gpwReport.stateCode = "NY";
+            gpwReport.postcode = "10019";
+            gpwReport.phoneNumber = "+1 212-554-1515";
+            gpwReport.country = "USA";
+            gpwReport.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });
 
             var gpwService = new GpwService();
 
-            BlSuccess gpwReport = gpwService.Update(myGpwReport);
+            BlSuccess gpwReport = gpwService.Update(gpwReport);
             return gpwReport;
         }
 

@@ -9,25 +9,25 @@ namespace BrightLocal.Examples_version2.Account_Methods
     {
         public static BlSuccess Create()
         {
-            var myReviewReport = new ReviewFlowOptions();            
-            myReviewReport.reportName = "Sample Citation Tracker Report";
-            myReviewReport.businessName = "Le Bernardin";
-            myReviewReport.contactTelephone = "+1 212-554-1515";
-            myReviewReport.address1 = "155 Weest 51st Street";
-            myReviewReport.address2 = "";
-            myReviewReport.city = "NYC";
-            myReviewReport.postcode = "10019";
-            myReviewReport.country = "USA";
+            var reviewReport = new ReviewFlowOptions();            
+            reviewReport.reportName = "Sample Citation Tracker Report";
+            reviewReport.businessName = "Le Bernardin";
+            reviewReport.contactTelephone = "+1 212-554-1515";
+            reviewReport.address1 = "155 Weest 51st Street";
+            reviewReport.address2 = "";
+            reviewReport.city = "NYC";
+            reviewReport.postcode = "10019";
+            reviewReport.country = "USA";
 
             // Example for supplying Local Directory URLs (see local-directory-urls parameter)
-            myReviewReport.directories.Add(
+            reviewReport.directories.Add(
                 "citysearch",
                 new Directories
                 {
                     url = "http://www.yelp.co.uk/biz/greens-restaurant-san-francisco-3",
                     include = true
                 });
-            myReviewReport.directories.Add(
+            reviewReport.directories.Add(
                 "dexknows",
                 new Directories
                 {
@@ -37,32 +37,32 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var rfService = new ReviewFlowService();
 
-            BlSuccess newReviewReport = rfService.Create(myReviewReport);
+            BlSuccess newReviewReport = rfService.Create(reviewReport);
             return newReviewReport;
         }
 
         public static BlSuccess Update()
         {
-            var myReviewReport = new UpdateReviewFlowOptions();
-            myReviewReport.reportId = 1;
-            myReviewReport.reportName = "Sample Citation Tracker Report";
-            myReviewReport.businessName = "Le Bernardin";
-            myReviewReport.contactTelephone = "+1 212-554-1515";
-            myReviewReport.address1 = "155 Weest 51st Street";
-            myReviewReport.address2 = "";
-            myReviewReport.city = "NYC";
-            myReviewReport.postcode = "10019";
-            myReviewReport.country = "USA";
+            var reviewReport = new UpdateReviewFlowOptions();
+            reviewReport.reportId = 1;
+            reviewReport.reportName = "Sample Citation Tracker Report";
+            reviewReport.businessName = "Le Bernardin";
+            reviewReport.contactTelephone = "+1 212-554-1515";
+            reviewReport.address1 = "155 Weest 51st Street";
+            reviewReport.address2 = "";
+            reviewReport.city = "NYC";
+            reviewReport.postcode = "10019";
+            reviewReport.country = "USA";
 
             // Example for supplying Local Directory URLs (see local-directory-urls parameter)
-            myReviewReport.directories.Add(
+            reviewReport.directories.Add(
                 "citysearch",
                 new Directories
                 {
                     url = "http://www.yelp.co.uk/biz/greens-restaurant-san-francisco-3",
                     include = true
                 });
-            myReviewReport.directories.Add(
+            reviewReport.directories.Add(
                 "dexknows",
                 new Directories
                 {
@@ -72,7 +72,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var rfService = new ReviewFlowService();
 
-            BlSuccess updateReviewReport = rfService.Update(myReviewReport);
+            BlSuccess updateReviewReport = rfService.Update(reviewReport);
             return updateReviewReport;
         }
 
@@ -113,11 +113,11 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
         public static BlRfReviews GetReviews()
         {
-            var myReviewReport = new RfGetReviewsOptions();
-            myReviewReport.reportId = 1;
+            var reviewReport = new RfGetReviewsOptions();
+            reviewReport.reportId = 1;
             var rfService = new ReviewFlowService();
 
-            BlRfReviews reviews = rfService.GetReviews(myReviewReport);
+            BlRfReviews reviews = rfService.GetReviews(reviewReport);
             return reviews;
         }
 

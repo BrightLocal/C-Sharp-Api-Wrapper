@@ -10,32 +10,32 @@ namespace BrightLocal.Examples_version2.Account_Methods
     {
         public static BlSuccess Create()
         {
-            var myLsrc = new LsrcOptions();
-            myLsrc.name = "Le Bernardin";
-            myLsrc.websiteAddresses = JsonConvert.SerializeObject(new List<string>() {"le-bernardin.com", "www.le-bernadin.com"});
-            myLsrc.searchTerms = "Restaurant, food+nyc, delivery+midtown+manhattan";
-            myLsrc.schedule = "Adhoc";
-            myLsrc.searchEngines = "google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local";
+            var lsrc = new LsrcOptions();
+            lsrc.name = "Le Bernardin";
+            lsrc.websiteAddresses = JsonConvert.SerializeObject(new List<string>() {"le-bernardin.com", "www.le-bernadin.com"});
+            lsrc.searchTerms = "Restaurant, food+nyc, delivery+midtown+manhattan";
+            lsrc.schedule = "Adhoc";
+            lsrc.searchEngines = "google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local";
           
             var lsrcService = new LsrcService();
 
-            BlSuccess newLsrc = lsrcService.Create(myLsrc);
+            BlSuccess newLsrc = lsrcService.Create(lsrc);
             return newLsrc;
         }
 
         public static BlSuccess Update()
         {
-            var myLsrc = new UpdateLsrcOptions();
-            myLsrc.campaignId = 1;
-            myLsrc.name = "Le Bernardin";
-            myLsrc.websiteAddresses = JsonConvert.SerializeObject(new List<string>() { "le-bernardin.com", "www.le-bernadin.com" });
-            myLsrc.searchTerms = "Restaurant, food+nyc, delivery+midtown+manhattan";
-            myLsrc.schedule = "Adhoc";
-            myLsrc.searchEngines = "google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local";
+            var lsrc = new UpdateLsrcOptions();
+            lsrc.campaignId = 1;
+            lsrc.name = "Le Bernardin";
+            lsrc.websiteAddresses = JsonConvert.SerializeObject(new List<string>() { "le-bernardin.com", "www.le-bernadin.com" });
+            lsrc.searchTerms = "Restaurant, food+nyc, delivery+midtown+manhattan";
+            lsrc.schedule = "Adhoc";
+            lsrc.searchEngines = "google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local";
 
             var lsrcService = new LsrcService();
 
-            BlSuccess updatedLsrc = lsrcService.Update(myLsrc);
+            BlSuccess updatedLsrc = lsrcService.Update(lsrc);
             return updatedLsrc;
         }
 
@@ -61,8 +61,8 @@ namespace BrightLocal.Examples_version2.Account_Methods
             var campaignId = 1;
             var lsrcService = new LsrcService();
 
-            BlLsrcReport myLsrc = lsrcService.Get(campaignId);
-            return myLsrc;
+            BlLsrcReport lsrc = lsrcService.Get(campaignId);
+            return lsrc;
         }
 
         public static BlSuccess Run()
@@ -70,8 +70,8 @@ namespace BrightLocal.Examples_version2.Account_Methods
             var campaignId = 1;
             var lsrcService = new LsrcService();
 
-            BlSuccess myLsrc = lsrcService.Run(campaignId);
-            return myLsrc;
+            BlSuccess lsrc = lsrcService.Run(campaignId);
+            return lsrc;
         }
 
         public static BlLsrcHistory GetHistory()
@@ -85,12 +85,12 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
         public static BlLsrcReportResults GetReportResults()
         {
-            var myLsrc = new GetResultsLsrcOptions();
-            myLsrc.campaignId = 1;
+            var lsrc = new GetResultsLsrcOptions();
+            lsrc.campaignId = 1;
             
             var lsrcService = new LsrcService();
 
-            var lsrcResults = lsrcService.GetResults(myLsrc);
+            var lsrcResults = lsrcService.GetResults(lsrc);
             return lsrcResults;
         }
     }

@@ -7,28 +7,28 @@ namespace BrightLocal.Examples_version2.Account_Methods
     {
         public static BlSuccess Create()
         {
-            var myClient = new ClientOptions();
-            myClient.name = "Le Bernardin";
-            myClient.companyUrl = "le-bernardin.com";
-            myClient.businessCategoryId = 791;
+            var client = new ClientOptions();
+            client.name = "Le Bernardin";
+            client.companyUrl = "le-bernardin.com";
+            client.businessCategoryId = 791;
 
             var clientService = new ClientService();
 
-            BlSuccess newClient = clientService.Create(myClient);
+            BlSuccess newClient = clientService.Create(client);
             return newClient;
         }
 
         public static BlSuccess Update()
         {
-            var myClient = new UpdateClientOptions();
-            myClient.clientId = 36447;
-            myClient.name = "Le Bernardin";
-            myClient.companyUrl = "le-bernardin.com";
-            myClient.businessCategoryId = 791;
+            var client = new UpdateClientOptions();
+            client.clientId = 36447;
+            client.name = "Le Bernardin";
+            client.companyUrl = "le-bernardin.com";
+            client.businessCategoryId = 791;
 
             var clientService = new ClientService();
 
-            BlSuccess updateClient = clientService.Update(myClient);
+            BlSuccess updateClient = clientService.Update(client);
             return updateClient;
         }
 

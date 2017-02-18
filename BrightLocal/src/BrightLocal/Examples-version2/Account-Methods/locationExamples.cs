@@ -7,42 +7,42 @@ namespace BrightLocal.Examples_version2.Account_Methods
     {
         public static BlSuccess Create()
         {
-            var myLocation = new LocationOptions();
-            myLocation.name = "Le Bernardin";
-            myLocation.url = "le-bernardin.com";
-            myLocation.businessCategoryId = 791;
-            myLocation.country = "USA";
-            myLocation.address1 = "155 Weest 51st Street";
-            myLocation.address2 = "";
-            myLocation.region = "NY"; // state or region
-            myLocation.city = "New York";
-            myLocation.postcode = "10019";
-            myLocation.telephone = "+1 212-554-1515";
+            var location = new LocationOptions();
+            location.name = "Le Bernardin";
+            location.url = "le-bernardin.com";
+            location.businessCategoryId = 791;
+            location.country = "USA";
+            location.address1 = "155 Weest 51st Street";
+            location.address2 = "";
+            location.region = "NY"; // state or region
+            location.city = "New York";
+            location.postcode = "10019";
+            location.telephone = "+1 212-554-1515";
 
             var locationService = new LocationService();
 
-            BlSuccess newLocation = locationService.Create(myLocation);
+            BlSuccess newLocation = locationService.Create(location);
             return newLocation;
         }
 
         public static BlSuccess Update()
         {
-            var myLocation = new UpdateLocationOptions();
-            myLocation.locationId = 1;
-            myLocation.name = "Le Bernardin";
-            myLocation.url = "le-bernardin.com";
-            myLocation.businessCategoryId = 791;
-            myLocation.country = "USA";
-            myLocation.address1 = "155 Weest 51st Street";
-            myLocation.address2 = "";
-            myLocation.region = "NY"; // state or region
-            myLocation.city = "New York";
-            myLocation.postcode = "10019";
-            myLocation.telephone = "+1 212-554-1515";
+            var location = new UpdateLocationOptions();
+            location.locationId = 1;
+            location.name = "Le Bernardin";
+            location.url = "le-bernardin.com";
+            location.businessCategoryId = 791;
+            location.country = "USA";
+            location.address1 = "155 Weest 51st Street";
+            location.address2 = "";
+            location.region = "NY"; // state or region
+            location.city = "New York";
+            location.postcode = "10019";
+            location.telephone = "+1 212-554-1515";
 
             var locationService = new LocationService();
 
-            BlSuccess updateLocation = locationService.Update(myLocation);
+            BlSuccess updateLocation = locationService.Update(location);
             return updateLocation;
         }
 

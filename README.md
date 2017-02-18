@@ -53,14 +53,14 @@ Clients
 ### Add Client
 
 ```csharp
-	var myClient = new ClientOptions();
-    myClient.name = "Le Bernardin";
-    myClient.companyUrl = "le-bernardin.com";
-    myClient.businessCategoryId = 791;
+	var client = new ClientOptions();
+    client.name = "Le Bernardin";
+    client.companyUrl = "le-bernardin.com";
+    client.businessCategoryId = 791;
 
     var clientService = new ClientService();
 
-    BlSuccess newClient = clientService.Create(myClient);
+    BlSuccess newClient = clientService.Create(client);
 ```
 
 The returned BlSuccess entity above will have a client-id. You will want to persist this for later. When you create a location you will be able to optionally assign it to a client ID.
@@ -68,15 +68,15 @@ The returned BlSuccess entity above will have a client-id. You will want to pers
 ### Update Client
 
 ```csharp
-	var myClient = new UpdateClientOptions();
-    myClient.clientId = 36447;
-    myClient.name = "Le Bernardin";
-    myClient.companyUrl = "le-bernardin.com";
-    myClient.businessCategoryId = 791;
+	var client = new UpdateClientOptions();
+    client.clientId = 36447;
+    client.name = "Le Bernardin";
+    client.companyUrl = "le-bernardin.com";
+    client.businessCategoryId = 791;
 
     var clientService = new ClientService();
 
-    BlSuccess updateClient = clientService.Update(myClient);
+    BlSuccess updateClient = clientService.Update(client);
 ```
 
 ### Delete Client
@@ -113,21 +113,21 @@ Locations
 ### Add Location
 
 ```csharp
-	var myLocation = new LocationOptions();
-    myLocation.name = "Le Bernardin";
-    myLocation.url = "le-bernardin.com";
-    myLocation.businessCategoryId = 791;
-    myLocation.country = "USA";
-    myLocation.address1 = "155 Weest 51st Street";
-    myLocation.address2 = "";
-    myLocation.region = "NY"; // state or region
-    myLocation.city = "New York";
-    myLocation.postcode = "10019";
-    myLocation.telephone = "+1 212-554-1515";
+	var location = new LocationOptions();
+    location.name = "Le Bernardin";
+    location.url = "le-bernardin.com";
+    location.businessCategoryId = 791;
+    location.country = "USA";
+    location.address1 = "155 Weest 51st Street";
+    location.address2 = "";
+    location.region = "NY"; // state or region
+    location.city = "New York";
+    location.postcode = "10019";
+    location.telephone = "+1 212-554-1515";
 
     var locationService = new LocationService();
 
-    var BlSuccess = locationService.Create(myLocation);
+    var BlSuccess = locationService.Create(location);
 ```
 
 The returned BlSuccess entity above will have a location-id. You will want to persist this for later. When you create a report you will be able to optionally assign it to a location id.
@@ -135,22 +135,22 @@ The returned BlSuccess entity above will have a location-id. You will want to pe
 ### Update Location
 
 ```csharp
-	var myLocation = new UpdateLocationOptions();
-	myLocation.locationId = 1;
-	myLocation.name = "Le Bernardin";
-	myLocation.url = "le-bernardin.com";
-	myLocation.businessCategoryId = 791;
-	myLocation.country = "USA";
-	myLocation.address1 = "155 Weest 51st Street";
-	myLocation.address2 = "";
-	myLocation.region = "NY"; // state or region
-	myLocation.city = "New York";
-	myLocation.postcode = "10019";
-	myLocation.telephone = "+1 212-554-1515";
+	var location = new UpdateLocationOptions();
+	location.locationId = 1;
+	location.name = "Le Bernardin";
+	location.url = "le-bernardin.com";
+	location.businessCategoryId = 791;
+	location.country = "USA";
+	location.address1 = "155 Weest 51st Street";
+	location.address2 = "";
+	location.region = "NY"; // state or region
+	location.city = "New York";
+	location.postcode = "10019";
+	location.telephone = "+1 212-554-1515";
 
 	var locationService = new LocationService();
 
-	BlSuccess updateLocation = locationService.Update(myLocation);
+	BlSuccess updateLocation = locationService.Update(location);
 ```
 
 ### Delete Location
@@ -186,16 +186,16 @@ Local Search Rank Checker
 ### Add Report
 
 ```csharp
-	var myLsrc = new LsrcOptions();
-    myLsrc.name = "Le Bernardin";
-    myLsrc.websiteAddresses = JsonConvert.SerializeObject(new List<string>() {"le-bernardin.com", "www.le-bernadin.com"});
-    myLsrc.searchTerms = "Restaurant, food+nyc, delivery+midtown+manhattan";
-    myLsrc.schedule = "Adhoc";
-    myLsrc.searchEngines = "google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local";
+	var lsrc = new LsrcOptions();
+    lsrc.name = "Le Bernardin";
+    lsrc.websiteAddresses = JsonConvert.SerializeObject(new List<string>() {"le-bernardin.com", "www.le-bernadin.com"});
+    lsrc.searchTerms = "Restaurant, food+nyc, delivery+midtown+manhattan";
+    lsrc.schedule = "Adhoc";
+    lsrc.searchEngines = "google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local";
           
     var lsrcService = new LsrcService();
 
-    BlSuccess newLsrc = lsrcService.Create(myLsrc);
+    BlSuccess newLsrc = lsrcService.Create(lsrc);
 ```
 
 The returned BlSuccess entity above will have a campaign-id. You will want to persist this for later in order to run and fetch the report.
@@ -203,17 +203,17 @@ The returned BlSuccess entity above will have a campaign-id. You will want to pe
 ### Update Report
 
 ```csharp
-	var myLsrc = new UpdateLsrcOptions();
-    myLsrc.campaignId = 1;
-    myLsrc.name = "Le Bernardin";
-    myLsrc.websiteAddresses = JsonConvert.SerializeObject(new List<string>() { "le-bernardin.com", "www.le-bernadin.com" });
-    myLsrc.searchTerms = "Restaurant, food+nyc, delivery+midtown+manhattan";
-    myLsrc.schedule = "Adhoc";
-    myLsrc.searchEngines = "google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local";
+	var lsrc = new UpdateLsrcOptions();
+    lsrc.campaignId = 1;
+    lsrc.name = "Le Bernardin";
+    lsrc.websiteAddresses = JsonConvert.SerializeObject(new List<string>() { "le-bernardin.com", "www.le-bernadin.com" });
+    lsrc.searchTerms = "Restaurant, food+nyc, delivery+midtown+manhattan";
+    lsrc.schedule = "Adhoc";
+    lsrc.searchEngines = "google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local";
 
     var lsrcService = new LsrcService();
 
-    BlSuccess updatedLsrc = lsrcService.Update(myLsrc);
+    BlSuccess updatedLsrc = lsrcService.Update(lsrc);
 ```
 
 ### Delete Report
@@ -239,7 +239,7 @@ The returned BlSuccess entity above will have a campaign-id. You will want to pe
 	var campaignId = 1;
     var lsrcService = new LsrcService();
 
-    BlLsrcReport myLsrc = lsrcService.Get(campaignId);
+    BlLsrcReport lsrc = lsrcService.Get(campaignId);
 ```
 
 ### Run Report
@@ -248,7 +248,7 @@ The returned BlSuccess entity above will have a campaign-id. You will want to pe
 	var campaignId = 1;
     var lsrcService = new LsrcService();
 
-    BlLsrc myLsrc = lsrcService.Run(campaignId);
+    BlLsrc lsrc = lsrcService.Run(campaignId);
 ```
 
 ### Get Report History
@@ -263,12 +263,12 @@ The returned BlSuccess entity above will have a campaign-id. You will want to pe
 ### Get Report Results
 
 ```csharp
-	var myLsrc = new GetResultsLsrcOptions();
-	myLsrc.campaignId = 1;
+	var lsrc = new GetResultsLsrcOptions();
+	lsrc.campaignId = 1;
             
 	var lsrcService = new LsrcService();
 
-	BlLsrcReportResults lsrcResults = lsrcService.GetResults(myLsrc);
+	BlLsrcReportResults lsrcResults = lsrcService.GetResults(lsrc);
 ```
 
 
@@ -278,24 +278,24 @@ Local SEO Check-up
 ### Add Report
 
 ```csharp
-	LscuOptions myLscu = new LscuOptions();
-    myLscu.reportName = "Sample SEO Chek-Up Report";
-    myLscu.businessNames = JsonConvert.SerializeObject(new List<string>() {"Le Bernardin", "Le Bernardin Cafe"});
-    myLscu.websiteAddress = "le-bernardin.com";
-    myLscu.address1 = "155 Weest 51st Street";
-    myLscu.address2 = "";
-    myLscu.city = "New York";
-    myLscu.stateCode = "NY";
-    myLscu.postcode = "10019";
-    myLscu.telephone = "+1 212-554-1515";
-    myLscu.country = "USA";
-    myLscu.businessCategory = "Restaurant";
-    myLscu.primaryBusinessLocation = "NY, New York";
-    myLscu.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });       
+	LscuOptions lscu = new LscuOptions();
+    lscu.reportName = "Sample SEO Chek-Up Report";
+    lscu.businessNames = JsonConvert.SerializeObject(new List<string>() {"Le Bernardin", "Le Bernardin Cafe"});
+    lscu.websiteAddress = "le-bernardin.com";
+    lscu.address1 = "155 Weest 51st Street";
+    lscu.address2 = "";
+    lscu.city = "New York";
+    lscu.stateCode = "NY";
+    lscu.postcode = "10019";
+    lscu.telephone = "+1 212-554-1515";
+    lscu.country = "USA";
+    lscu.businessCategory = "Restaurant";
+    lscu.primaryBusinessLocation = "NY, New York";
+    lscu.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });       
 
     var lscuService = new LscuService();
 
-    BlSuccess newLscu = lscuService.Create(myLscu);
+    BlSuccess newLscu = lscuService.Create(lscu);
 ```
 
 The returned BlSuccess entity above will have a report-id. You will want to persist this for later when you get and run a report.
@@ -303,15 +303,15 @@ The returned BlSuccess entity above will have a report-id. You will want to pers
 ### Supplying Local Directory URLs (see local-directory-urls parameter)
 
 ```csharp
-    myLscu.localDirectoryUrls = new LocalDirectoryUrls();
-	myLscu.localDirectoryUrls.Add(
+    lscu.localDirectoryUrls = new LocalDirectoryUrls();
+	lscu.localDirectoryUrls.Add(
         "citysearch",
         new DirectoryUrls
         {
             url = "http://www.yelp.co.uk/biz/greens-restaurant-san-francisco-3",
             include = "yes"
         });
-    myLscu.localDirectoryUrls.Add(
+    lscu.localDirectoryUrls.Add(
         "dexknows",
         new DirectoryUrls
         {
@@ -323,25 +323,25 @@ The returned BlSuccess entity above will have a report-id. You will want to pers
 ### Update Report
 
 ```csharp
-	UpdateLscuOptions myLscu = new UpdateLscuOptions();
-	myLscu.reportId = 1;
-    myLscu.reportName = "Sample SEO Chek-Up Report";
-    myLscu.businessNames =  JsonConvert.SerializeObject(new List<string>() { "Le Bernardin", "Le Bernardin Cafe" });
-    myLscu.websiteAddress = "le-bernardin.com";
-    myLscu.address1 = "155 Weest 51st Street";
-    myLscu.address2 = "";
-    myLscu.city = "New York";
-    myLscu.stateCode = "NY";
-    myLscu.postcode = "10019";
-    myLscu.telephone = "+1 212-554-1515";
-    myLscu.country = "USA";
-    myLscu.businessCategory = "Restaurant";
-    myLscu.primaryBusinessLocation = "NY, New York";
-    myLscu.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });
+	UpdateLscuOptions lscu = new UpdateLscuOptions();
+	lscu.reportId = 1;
+    lscu.reportName = "Sample SEO Chek-Up Report";
+    lscu.businessNames =  JsonConvert.SerializeObject(new List<string>() { "Le Bernardin", "Le Bernardin Cafe" });
+    lscu.websiteAddress = "le-bernardin.com";
+    lscu.address1 = "155 Weest 51st Street";
+    lscu.address2 = "";
+    lscu.city = "New York";
+    lscu.stateCode = "NY";
+    lscu.postcode = "10019";
+    lscu.telephone = "+1 212-554-1515";
+    lscu.country = "USA";
+    lscu.businessCategory = "Restaurant";
+    lscu.primaryBusinessLocation = "NY, New York";
+    lscu.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });
 
     var lscuService = new LscuService();
 
-    BlSuccess updateLscu = lscuService.Update(myLscu);
+    BlSuccess updateLscu = lscuService.Update(lscu);
 ```
 
 ### Get Report
@@ -388,39 +388,39 @@ Citation Tracker
 ### Add Report
 
 ```csharp
-	CitationTrackerOptions myCt = new CitationTrackerOptions();
-    myCt.reportName = "Sample Citation Tracker Report";
-    myCt.businessName = "Le Bernardin";
-    myCt.website = "le-bernardin.com";
-    myCt.businessType = "Restaurant";
-    myCt.stateCode = "NY";
-    myCt.postcode = "10019";
-    myCt.phone = "+1 212-554-1515";
-    myCt.country = "USA";
+	CitationTrackerOptions ct = new CitationTrackerOptions();
+    ct.reportName = "Sample Citation Tracker Report";
+    ct.businessName = "Le Bernardin";
+    ct.website = "le-bernardin.com";
+    ct.businessType = "Restaurant";
+    ct.stateCode = "NY";
+    ct.postcode = "10019";
+    ct.phone = "+1 212-554-1515";
+    ct.country = "USA";
 
     var citationTrackerService = new CitationTrackerService();
 
-    BlSuccess newCt = citationTrackerService.Create(myCt);
+    BlSuccess newCt = citationTrackerService.Create(ct);
 ```
 The returned BlSuccess entity above will have a report-id. You will want to persist this for later in order to run and get the report.
 
 ### Update Report
 
 ```csharp
-	UpdateCitationTrackerOptions myCt = new UpdateCitationTrackerOptions();
-    myCt.reportId = 682;
-    myCt.reportName = "Sample Citation Tracker Report";
-    myCt.businessName = "Le Bernardin";
-    myCt.website = "le-bernardin.com";
-    myCt.businessType = "Restaurant";
-    myCt.stateCode = "NY";
-    myCt.postcode = "10019";
-    myCt.phone = "+1 212-554-1515";
-    myCt.country = "USA";
+	UpdateCitationTrackerOptions ct = new UpdateCitationTrackerOptions();
+    ct.reportId = 682;
+    ct.reportName = "Sample Citation Tracker Report";
+    ct.businessName = "Le Bernardin";
+    ct.website = "le-bernardin.com";
+    ct.businessType = "Restaurant";
+    ct.stateCode = "NY";
+    ct.postcode = "10019";
+    ct.phone = "+1 212-554-1515";
+    ct.country = "USA";
 
     var citationTrackerService = new CitationTrackerService();
 
-    BlSuccess updateCt = citationTrackerService.Update(myCt);
+    BlSuccess updateCt = citationTrackerService.Update(ct);
 ```
 
 ### Get Report
@@ -430,7 +430,7 @@ The returned BlSuccess entity above will have a report-id. You will want to pers
 
     var citationTrackerService = new CitationTrackerService();
 
-    BlCitationTrackerReport myCt = citationTrackerService.Get(reportId);
+    BlCitationTrackerReport ct = citationTrackerService.Get(reportId);
 ```
 
 ### Run Report
@@ -440,7 +440,7 @@ The returned BlSuccess entity above will have a report-id. You will want to pers
 
     var citationTrackerService = new CitationTrackerService();
 
-    BlSuccess myCt = citationTrackerService.Run(reportId);
+    BlSuccess ct = citationTrackerService.Run(reportId);
 ```
 
 ### Delete Report
@@ -450,7 +450,7 @@ The returned BlSuccess entity above will have a report-id. You will want to pers
 
     var citationTrackerService = new CitationTrackerService();
 
-    BlSuccess myCt = citationTrackerService.Delete(reportId);
+    BlSuccess ct = citationTrackerService.Delete(reportId);
 ```
 
 ### Get Reports
@@ -479,45 +479,45 @@ Citation Burst
 	string brief_description = "Born in Paris in 1972 by sibling duo Maguy and Gilbert Le Coze, Le Bernardin only served fish: Fresh, simple and prepared with respect. After receiving its first Michelin star in 1976, and two more in 1980, the Le Cozes set to open Le Bernardin in New York in 1986.";
     string full_description = "The restaurant has held three stars from the Michelin Guide since its 2005 New York launch and currently ranks 24 on the Worlds 50 Best Restaurants list. The New York Zagat Guide has recognized Le Bernardin as top rated in the category of Best Food for the last nine consecutive years, and in 2015 was rated by the guide as New York Citys top restaurant for food and service.  Le Bernardin has earned seven James Beard Awards since 1998 including Outstanding Restaurant of the Year, Top Chef in New York City, Outstanding Service, Outstanding Chef in the United States, Outstanding Pastry Chef, Outstanding Wine Service, and Best Restaurant Design in 2012. Most recently, the Foundation named Maguy Le Coze as Outstanding.";
 
-    CitationBurstOptions myCb = new CitationBurstOptions();            
-    myCb.businessName = "Le Bernardin";
-    myCb.campaignName = "Sample Citation Burst Campaign";
-    myCb.websiteAddress = "le-bernardin.com";
-    myCb.campaignCountry = "USA";
-    myCb.campaignState = "NY";
-    myCb.campaignCity = "New York";
-    myCb.businessCategoryId = 605;
-    myCb.businessCategories = new List<string>() { "restaurant", "cafe" };
-    myCb.address1 = "155 Weest 51st Street";
-    myCb.address2 = "";
-    myCb.postcode = "10019";
-    myCb.contactName = "Hanane Moshe";
-    myCb.contactFirstName = "Hanane";
-    myCb.contactTelephone = "+1 212-554-1515";
-    myCb.briefDescription = brief_description;
-    myCb.fullDescription = full_description;
-    myCb.employeesNumber = 35;
-    myCb.startYear = 1976;
-    myCb.workingHoursApplyToAll = 0;
-    myCb.workingHoursMonStart = 0800;
-    myCb.workingHoursMonEnd = 2200;
-    myCb.workingHoursTueStart = 0800;
-    myCb.workingHoursTueEnd = 2200;
-    myCb.workingHoursWedStart = 0800;
-    myCb.workingHoursWedEnd = 2200;
-    myCb.workingHoursThuStart = 0800;
-    myCb.workingHoursThuEnd = 2200;
-    myCb.workingHoursFriStart = 0800;
-    myCb.workingHoursFriEnd = 2200;
-    myCb.workingHoursSatStart = 1000;
-    myCb.workingHoursSatEnd = 2400;
-    myCb.workingHoursSunStart = 1000;
-    myCb.workingHoursSunEnd = 2400;
-    myCb.paymentMethods = "Cash|Visa";
+    CitationBurstOptions cb = new CitationBurstOptions();            
+    cb.businessName = "Le Bernardin";
+    cb.campaignName = "Sample Citation Burst Campaign";
+    cb.websiteAddress = "le-bernardin.com";
+    cb.campaignCountry = "USA";
+    cb.campaignState = "NY";
+    cb.campaignCity = "New York";
+    cb.businessCategoryId = 605;
+    cb.businessCategories = new List<string>() { "restaurant", "cafe" };
+    cb.address1 = "155 Weest 51st Street";
+    cb.address2 = "";
+    cb.postcode = "10019";
+    cb.contactName = "Hanane Moshe";
+    cb.contactFirstName = "Hanane";
+    cb.contactTelephone = "+1 212-554-1515";
+    cb.briefDescription = brief_description;
+    cb.fullDescription = full_description;
+    cb.employeesNumber = 35;
+    cb.startYear = 1976;
+    cb.workingHoursApplyToAll = 0;
+    cb.workingHoursMonStart = 0800;
+    cb.workingHoursMonEnd = 2200;
+    cb.workingHoursTueStart = 0800;
+    cb.workingHoursTueEnd = 2200;
+    cb.workingHoursWedStart = 0800;
+    cb.workingHoursWedEnd = 2200;
+    cb.workingHoursThuStart = 0800;
+    cb.workingHoursThuEnd = 2200;
+    cb.workingHoursFriStart = 0800;
+    cb.workingHoursFriEnd = 2200;
+    cb.workingHoursSatStart = 1000;
+    cb.workingHoursSatEnd = 2400;
+    cb.workingHoursSunStart = 1000;
+    cb.workingHoursSunEnd = 2400;
+    cb.paymentMethods = "Cash|Visa";
 
     var citationBurstService = new CitationBurstService();
 
-    BlSuccess newCb = citationBurstService.Create(myCb);
+    BlSuccess newCb = citationBurstService.Create(cb);
 ```
 The returned BlSuccess entity above will have a campaign-id. You will want to persist this for later in order to get citations, confirm & pay, etc.
 
@@ -527,46 +527,46 @@ The returned BlSuccess entity above will have a campaign-id. You will want to pe
 	string brief_description = "Born in Paris in 1972 by sibling duo Maguy and Gilbert Le Coze, Le Bernardin only served fish: Fresh, simple and prepared with respect. After receiving its first Michelin star in 1976, and two more in 1980, the Le Cozes set to open Le Bernardin in New York in 1986.";
     string full_description = "The restaurant has held three stars from the Michelin Guide since its 2005 New York launch and currently ranks 24 on the Worlds 50 Best Restaurants list. The New York Zagat Guide has recognized Le Bernardin as top rated in the category of Best Food for the last nine consecutive years, and in 2015 was rated by the guide as New York Citys top restaurant for food and service.  Le Bernardin has earned seven James Beard Awards since 1998 including Outstanding Restaurant of the Year, Top Chef in New York City, Outstanding Service, Outstanding Chef in the United States, Outstanding Pastry Chef, Outstanding Wine Service, and Best Restaurant Design in 2012. Most recently, the Foundation named Maguy Le Coze as Outstanding.";
 
-    UpdateCitationBurstOptions myCb = new UpdateCitationBurstOptions();
-    myCb.campaignId = 1;
-    myCb.businessName = "Le Bernardin";
-    myCb.campaignName = "Sample Citation Burst Campaign";
-    myCb.websiteAddress = "le-bernardin.com";
-    myCb.campaignCountry = "USA";
-    myCb.campaignState = "NY";
-    myCb.campaignCity = "New York";
-    myCb.businessCategoryId = 605;
-    myCb.businessCategories = new List<string>() { "restaurant", "cafe" };
-    myCb.address1 = "155 Weest 51st Street";
-    myCb.address2 = "";
-    myCb.postcode = "10019";
-    myCb.contactName = "Hanane Moshe";
-    myCb.contactFirstName = "Hanane";
-    myCb.contactTelephone = "+1 212-554-1515";
-    myCb.briefDescription = brief_description;
-    myCb.fullDescription = full_description;
-    myCb.employeesNumber = 35;
-    myCb.startYear = 1976;
-    myCb.workingHoursApplyToAll = 0;
-    myCb.workingHoursMonStart = 0800;
-    myCb.workingHoursMonEnd = 2200;
-    myCb.workingHoursTueStart = 0800;
-    myCb.workingHoursTueEnd = 2200;
-    myCb.workingHoursWedStart = 0800;
-    myCb.workingHoursWedEnd = 2200;
-    myCb.workingHoursThuStart = 0800;
-    myCb.workingHoursThuEnd = 2200;
-    myCb.workingHoursFriStart = 0800;
-    myCb.workingHoursFriEnd = 2200;
-    myCb.workingHoursSatStart = 1000;
-    myCb.workingHoursSatEnd = 2400;
-    myCb.workingHoursSunStart = 1000;
-    myCb.workingHoursSunEnd = 2400;
-    myCb.paymentMethods = "Cash|Visa";
+    UpdateCitationBurstOptions cb = new UpdateCitationBurstOptions();
+    cb.campaignId = 1;
+    cb.businessName = "Le Bernardin";
+    cb.campaignName = "Sample Citation Burst Campaign";
+    cb.websiteAddress = "le-bernardin.com";
+    cb.campaignCountry = "USA";
+    cb.campaignState = "NY";
+    cb.campaignCity = "New York";
+    cb.businessCategoryId = 605;
+    cb.businessCategories = new List<string>() { "restaurant", "cafe" };
+    cb.address1 = "155 Weest 51st Street";
+    cb.address2 = "";
+    cb.postcode = "10019";
+    cb.contactName = "Hanane Moshe";
+    cb.contactFirstName = "Hanane";
+    cb.contactTelephone = "+1 212-554-1515";
+    cb.briefDescription = brief_description;
+    cb.fullDescription = full_description;
+    cb.employeesNumber = 35;
+    cb.startYear = 1976;
+    cb.workingHoursApplyToAll = 0;
+    cb.workingHoursMonStart = 0800;
+    cb.workingHoursMonEnd = 2200;
+    cb.workingHoursTueStart = 0800;
+    cb.workingHoursTueEnd = 2200;
+    cb.workingHoursWedStart = 0800;
+    cb.workingHoursWedEnd = 2200;
+    cb.workingHoursThuStart = 0800;
+    cb.workingHoursThuEnd = 2200;
+    cb.workingHoursFriStart = 0800;
+    cb.workingHoursFriEnd = 2200;
+    cb.workingHoursSatStart = 1000;
+    cb.workingHoursSatEnd = 2400;
+    cb.workingHoursSunStart = 1000;
+    cb.workingHoursSunEnd = 2400;
+    cb.paymentMethods = "Cash|Visa";
 
     var citationBurstService = new CitationBurstService();
 
-    BlSuccess newCb = citationBurstService.Update(myCb);
+    BlSuccess newCb = citationBurstService.Update(cb);
 ```
 
 ### Upload Image
@@ -634,25 +634,25 @@ ReviewFLow Reports
 ### Add Report
 
 ```csharp
-	var myReviewReport = new ReviewFlowOptions();            
-    myReviewReport.reportName = "Sample Citation Tracker Report";
-    myReviewReport.businessName = "Le Bernardin";
-    myReviewReport.contactTelephone = "+1 212-554-1515";
-    myReviewReport.address1 = "155 Weest 51st Street";
-    myReviewReport.address2 = "";
-    myReviewReport.city = "NYC";
-    myReviewReport.postcode = "10019";
-    myReviewReport.country = "USA";
+	var reviewReport = new ReviewFlowOptions();            
+    reviewReport.reportName = "Sample Citation Tracker Report";
+    reviewReport.businessName = "Le Bernardin";
+    reviewReport.contactTelephone = "+1 212-554-1515";
+    reviewReport.address1 = "155 Weest 51st Street";
+    reviewReport.address2 = "";
+    reviewReport.city = "NYC";
+    reviewReport.postcode = "10019";
+    reviewReport.country = "USA";
 
     // Example for supplying Local Directory URLs (see local-directory-urls parameter)
-    myReviewReport.directories.Add(
+    reviewReport.directories.Add(
         "citysearch",
         new Directories
         {
             url = "http://www.yelp.co.uk/biz/greens-restaurant-san-francisco-3",
             include = true
         });
-    myReviewReport.directories.Add(
+    reviewReport.directories.Add(
         "dexknows",
         new Directories
         {
@@ -662,7 +662,7 @@ ReviewFLow Reports
 
     var rfService = new ReviewFlowService();
 
-    BlSuccess newReviewReport = rfService.Create(myReviewReport);
+    BlSuccess newReviewReport = rfService.Create(reviewReport);
     return newReviewReport;
 ```
 
@@ -671,26 +671,26 @@ The returned BlSuccess entity above will have a report-id. You will want to pers
 ### Update Report
 
 ```csharp
-	var myReviewReport = new UpdateReviewFlowOptions();
-    myReviewReport.reportId = 1;
-    myReviewReport.reportName = "Sample Citation Tracker Report";
-    myReviewReport.businessName = "Le Bernardin";
-    myReviewReport.contactTelephone = "+1 212-554-1515";
-    myReviewReport.address1 = "155 Weest 51st Street";
-    myReviewReport.address2 = "";
-    myReviewReport.city = "NYC";
-    myReviewReport.postcode = "10019";
-    myReviewReport.country = "USA";
+	var reviewReport = new UpdateReviewFlowOptions();
+    reviewReport.reportId = 1;
+    reviewReport.reportName = "Sample Citation Tracker Report";
+    reviewReport.businessName = "Le Bernardin";
+    reviewReport.contactTelephone = "+1 212-554-1515";
+    reviewReport.address1 = "155 Weest 51st Street";
+    reviewReport.address2 = "";
+    reviewReport.city = "NYC";
+    reviewReport.postcode = "10019";
+    reviewReport.country = "USA";
 
     // Example for supplying Local Directory URLs (see local-directory-urls parameter)
-    myReviewReport.directories.Add(
+    reviewReport.directories.Add(
         "citysearch",
         new Directories
         {
             url = "http://www.yelp.co.uk/biz/greens-restaurant-san-francisco-3",
             include = true
         });
-    myReviewReport.directories.Add(
+    reviewReport.directories.Add(
         "dexknows",
         new Directories
         {
@@ -700,7 +700,7 @@ The returned BlSuccess entity above will have a report-id. You will want to pers
 
     var rfService = new ReviewFlowService();
 
-    BlSuccess updateReviewReport = rfService.Update(myReviewReport);
+    BlSuccess updateReviewReport = rfService.Update(reviewReport);
 ```
 
 ### Get Report
@@ -741,11 +741,11 @@ The returned BlSuccess entity above will have a report-id. You will want to pers
 ### Get Reviews
 
 ```csharp
-	var myReviewReport = new RfGetReviewsOptions();
-    myReviewReport.reportId = 1;
+	var reviewReport = new RfGetReviewsOptions();
+    reviewReport.reportId = 1;
     var rfService = new ReviewFlowService();
 
-    BlRfReviews reviews = rfService.GetReviews(myReviewReport);
+    BlRfReviews reviews = rfService.GetReviews(reviewReport);
 ```
 
 ### Get Review Counts
@@ -799,49 +799,49 @@ Google Plus Local Wizard Reports
 ### Add Report
 
 ```csharp
-	var myGpwReport = new GpwOptions();
-    myGpwReport.reportName = "Sample Citation Tracker Report";
-    myGpwReport.businessNames = "Le Bernardin";
-    myGpwReport.schedule = "Adhoc";
-    myGpwReport.dayOfMonth = "2";
-    myGpwReport.reportType = "with";           
-    myGpwReport.address1 = "155 Weest 51st Street";
-    myGpwReport.address2 = "";
-    myGpwReport.city = "NYC";
-    myGpwReport.stateCode = "NY";
-    myGpwReport.postcode = "10019";
-    myGpwReport.phoneNumber = "+1 212-554-1515";
-    myGpwReport.country = "USA";
-    myGpwReport.searchTerms = new List<string>() { "restaurant manhattan", "cafe new york" };
+	var gpwReport = new GpwOptions();
+    gpwReport.reportName = "Sample Citation Tracker Report";
+    gpwReport.businessNames = "Le Bernardin";
+    gpwReport.schedule = "Adhoc";
+    gpwReport.dayOfMonth = "2";
+    gpwReport.reportType = "with";           
+    gpwReport.address1 = "155 Weest 51st Street";
+    gpwReport.address2 = "";
+    gpwReport.city = "NYC";
+    gpwReport.stateCode = "NY";
+    gpwReport.postcode = "10019";
+    gpwReport.phoneNumber = "+1 212-554-1515";
+    gpwReport.country = "USA";
+    gpwReport.searchTerms = new List<string>() { "restaurant manhattan", "cafe new york" };
 
     var gpwService = new GpwService();
 
-    BlSuccess gpwReport = gpwService.Create(myGpwReport);
+    BlSuccess gpwReport = gpwService.Create(gpwReport);
 ```
 The returned BlSuccess entity above will have a report-id. You will want to persist this for later in order to run and get the report.
 
 ### Update Report
 
 ```csharp
-	var myGpwReport = new UpdateGpwOptions();
-    myGpwReport.reportId = 1;
-    myGpwReport.reportName = "Sample Citation Tracker Report";
-    myGpwReport.businessNames = "Le Bernardin";
-    myGpwReport.schedule = "Adhoc";
-    myGpwReport.dayOfMonth = "2";
-    myGpwReport.reportType = "with";
-    myGpwReport.address1 = "155 Weest 51st Street";
-    myGpwReport.address2 = "";
-    myGpwReport.city = "NYC";
-    myGpwReport.stateCode = "NY";
-    myGpwReport.postcode = "10019";
-    myGpwReport.phoneNumber = "+1 212-554-1515";
-    myGpwReport.country = "USA";
-    myGpwReport.searchTerms = new List<string>() { "restaurant manhattan", "cafe new york" };
+	var gpwReport = new UpdateGpwOptions();
+    gpwReport.reportId = 1;
+    gpwReport.reportName = "Sample Citation Tracker Report";
+    gpwReport.businessNames = "Le Bernardin";
+    gpwReport.schedule = "Adhoc";
+    gpwReport.dayOfMonth = "2";
+    gpwReport.reportType = "with";
+    gpwReport.address1 = "155 Weest 51st Street";
+    gpwReport.address2 = "";
+    gpwReport.city = "NYC";
+    gpwReport.stateCode = "NY";
+    gpwReport.postcode = "10019";
+    gpwReport.phoneNumber = "+1 212-554-1515";
+    gpwReport.country = "USA";
+    gpwReport.searchTerms = new List<string>() { "restaurant manhattan", "cafe new york" };
 
     var gpwService = new GpwService();
 
-    BlSuccess gpwReport = gpwService.Update(myGpwReport);
+    BlSuccess gpwReport = gpwService.Update(gpwReport);
 ```
 
 ### Get Report

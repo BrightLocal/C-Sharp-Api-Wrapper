@@ -10,32 +10,32 @@ namespace BrightLocal.Examples_version2.Account_Methods
     {
         public static BlSuccess Create()
         {
-            LscuOptions myLscu = new LscuOptions();
-            myLscu.reportName = "Sample SEO Chek-Up Report";
-            myLscu.businessNames = JsonConvert.SerializeObject(new List<string>() {"Le Bernardin", "Le Bernardin Cafe"});
-            myLscu.websiteAddress = "le-bernardin.com";
-            myLscu.address1 = "155 Weest 51st Street";
-            myLscu.address2 = "";
-            myLscu.city = "New York";
-            myLscu.stateCode = "NY";
-            myLscu.postcode = "10019";
-            myLscu.telephone = "+1 212-554-1515";
-            myLscu.country = "USA";
-            myLscu.businessCategory = "Restaurant";
-            myLscu.primaryBusinessLocation = "NY, New York";
-            myLscu.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });
+            LscuOptions lscu = new LscuOptions();
+            lscu.reportName = "Sample SEO Chek-Up Report";
+            lscu.businessNames = JsonConvert.SerializeObject(new List<string>() {"Le Bernardin", "Le Bernardin Cafe"});
+            lscu.websiteAddress = "le-bernardin.com";
+            lscu.address1 = "155 Weest 51st Street";
+            lscu.address2 = "";
+            lscu.city = "New York";
+            lscu.stateCode = "NY";
+            lscu.postcode = "10019";
+            lscu.telephone = "+1 212-554-1515";
+            lscu.country = "USA";
+            lscu.businessCategory = "Restaurant";
+            lscu.primaryBusinessLocation = "NY, New York";
+            lscu.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });
 
 
             // Example for supplying Local Directory URLs (see local-directory-urls parameter)
-            myLscu.localDirectoryUrls = new LocalDirectoryUrls();
-            myLscu.localDirectoryUrls.Add(
+            lscu.localDirectoryUrls = new LocalDirectoryUrls();
+            lscu.localDirectoryUrls.Add(
                 "citysearch",
                 new DirectoryUrls
                 {
                     url = null,
                     include = "yes"
                 });
-            myLscu.localDirectoryUrls.Add(
+            lscu.localDirectoryUrls.Add(
                 "dexknows",
                 new DirectoryUrls
                 {
@@ -45,32 +45,32 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var lscuService = new LscuService();
 
-            BlSuccess newLscu = lscuService.Create(myLscu);
+            BlSuccess newLscu = lscuService.Create(lscu);
 
             return newLscu;
         }
 
         public static BlSuccess Update()
         {
-            UpdateLscuOptions myLscu = new UpdateLscuOptions();
-            myLscu.reportId = 1;
-            myLscu.reportName = "Sample SEO Chek-Up Report";
-            myLscu.businessNames = JsonConvert.SerializeObject(new List<string>() { "Le Bernardin", "Le Bernardin Cafe" });
-            myLscu.websiteAddress = "le-bernardin.com";
-            myLscu.address1 = "155 Weest 51st Street";
-            myLscu.address2 = "";
-            myLscu.city = "New York";
-            myLscu.stateCode = "NY";
-            myLscu.postcode = "10019";
-            myLscu.telephone = "+1 212-554-1515";
-            myLscu.country = "USA";
-            myLscu.businessCategory = "Restaurant";
-            myLscu.primaryBusinessLocation = "NY, New York";
-            myLscu.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });
+            UpdateLscuOptions lscu = new UpdateLscuOptions();
+            lscu.reportId = 1;
+            lscu.reportName = "Sample SEO Chek-Up Report";
+            lscu.businessNames = JsonConvert.SerializeObject(new List<string>() { "Le Bernardin", "Le Bernardin Cafe" });
+            lscu.websiteAddress = "le-bernardin.com";
+            lscu.address1 = "155 Weest 51st Street";
+            lscu.address2 = "";
+            lscu.city = "New York";
+            lscu.stateCode = "NY";
+            lscu.postcode = "10019";
+            lscu.telephone = "+1 212-554-1515";
+            lscu.country = "USA";
+            lscu.businessCategory = "Restaurant";
+            lscu.primaryBusinessLocation = "NY, New York";
+            lscu.searchTerms = JsonConvert.SerializeObject(new List<string>() { "restaurant manhattan", "cafe new york" });
 
             var lscuService = new LscuService();
 
-            BlSuccess updateLscu = lscuService.Update(myLscu);
+            BlSuccess updateLscu = lscuService.Update(lscu);
 
             return updateLscu;
         }
