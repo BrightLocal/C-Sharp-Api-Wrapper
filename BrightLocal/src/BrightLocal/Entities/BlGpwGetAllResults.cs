@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BrightLocal
 {
-    public class BrightLocalGpwGetAllResults
+    public class BlGpwGetAllResults
     {
         public GpwResponse response { get; set; }
     }

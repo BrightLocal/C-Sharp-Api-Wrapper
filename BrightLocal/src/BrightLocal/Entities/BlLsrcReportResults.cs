@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BrightLocal
 {
-    public class BrightLocalLsrcReportResults
+    public class BlLsrcReportResults
     {
         public LsrcResultResponse response { get; set; }
     }

@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace BrightLocal
 {
-    public class LocationService: BrightLocalService
+    public class LocationService: BlService
     {
         public LocationService(string apiKey = null, string apiSecret = null) : base(apiKey, apiSecret) { }
 
-        BrightLocalRequestor request = new BrightLocalRequestor();
+        BlRequestor request = new BlRequestor();
 
         public virtual BlSuccess Create(LocationOptions createOptions)
         {
@@ -35,22 +35,22 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
 
-        public virtual BrightLocalLocation Get(int locationId)
+        public virtual BlLocation Get(int locationId)
         {
             var url = string.Format(Urls.Locations + "{0}", locationId);
             var parameters = new Parameters.requestParameters();
             var success = request.Get(url, parameters, this.api_key, this.api_secret);
             JObject o = JObject.Parse(success.Content);
-            return JsonConvert.DeserializeObject<BrightLocalLocation>(o.SelectToken("location").ToString());            
+            return JsonConvert.DeserializeObject<BlLocation>(o.SelectToken("location").ToString());            
         }
 
-        public virtual BrightLocalLocationSearch Search(string query)
+        public virtual BlLocationSearch Search(string query)
         {
             var url = string.Format(Urls.Locations + "search");
             var parameters = new Parameters.requestParameters();
             parameters.Add("q", query);
             var results = request.Get(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalLocationSearch>(results.Content);
+            return JsonConvert.DeserializeObject<BlLocationSearch>(results.Content);
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BrightLocal
 {
-    public class BrightLocalLscu
+    public class BlLscu
     {
         [JsonProperty("report-id")]
         public string reportId { get; set; }

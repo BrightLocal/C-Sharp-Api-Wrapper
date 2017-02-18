@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BrightLocal
 {
-    public class BrightLocalRfDirectories
+    public class BlRfDirectories
     {
         public bool success { get; set; }
         public RflowDirectories directories { get; set; }

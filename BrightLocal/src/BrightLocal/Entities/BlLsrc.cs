@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BrightLocal
 {
-    public class BrightLocalLsrc
+    public class BlLsrc
     {
         [JsonProperty("campaign-id")]
         public string campaignId { get; set; }       

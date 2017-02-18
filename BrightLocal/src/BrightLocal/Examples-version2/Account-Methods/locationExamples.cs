@@ -55,21 +55,21 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return deleteLocation;
         }
 
-        public static BrightLocalLocation Get()
+        public static BlLocation Get()
         {
             var locationId = 1;
             var locationService = new LocationService();
 
-            BrightLocalLocation getLocation = locationService.Get(locationId);
+            BlLocation getLocation = locationService.Get(locationId);
             return getLocation;
         }
 
-        public static BrightLocalLocationSearch Search()
+        public static BlLocationSearch Search()
         {
             var searchQuery = "le-bernardin";
             var locationService = new LocationService();
 
-            BrightLocalLocationSearch results = locationService.Search(searchQuery);
+            BlLocationSearch results = locationService.Search(searchQuery);
             return results;
         }
     }

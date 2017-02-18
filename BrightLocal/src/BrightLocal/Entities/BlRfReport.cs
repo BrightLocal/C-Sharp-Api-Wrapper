@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BrightLocal
 {
-    public class BrightLocalRfReport
+    public class BlRfReport
     {
         public bool success { get; set; }
         public RfReport report { get; set; }

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace BrightLocal
 {
-    public class BatchRankingsService : BrightLocalService
+    public class BatchRankingsService : BlService
     {
         public BatchRankingsService(string apiKey = null, string apiSecret = null) : base(apiKey, apiSecret) { }
 
-        BrightLocalBatchRequestor batchRequest = new BrightLocalBatchRequestor();
+        BlBatchRequestor batchRequest = new BlBatchRequestor();
 
-        BrightLocalRequestor request = new BrightLocalRequestor();
+        BlRequestor request = new BlRequestor();
         public virtual BlBatchSuccess Search(RankingsSearchOptions searchOptions)
         {
             BlBatchSuccess ids = new BlBatchSuccess();

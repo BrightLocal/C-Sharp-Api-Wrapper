@@ -2,7 +2,7 @@
 
 namespace BrightLocal
 {
-    public class BrightLocalRfReviews
+    public class BlRfReviews
     {
         public bool success { get; set; }
         public List<Review> reviews { get; set; }

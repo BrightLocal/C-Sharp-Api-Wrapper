@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BrightLocal
 {
-    public class BrightLocalCtGetAllResults
+    public class BlCtGetAllResults
     {
         public CtGetAllResponse response { get; set; }
     }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BrightLocal
 {
-    public class BrightLocalLocation
+    public class BlLocation
     {
         [JsonProperty("location-name")]
         public string locationName { get; set; }

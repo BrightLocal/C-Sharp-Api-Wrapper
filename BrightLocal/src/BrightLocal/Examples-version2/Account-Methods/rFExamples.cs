@@ -76,12 +76,12 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return updateReviewReport;
         }
 
-        public static BrightLocalRfReport GetReport()
+        public static BlRfReport GetReport()
         {
             int reportId = 1;
             var rfService = new ReviewFlowService();
 
-            BrightLocalRfReport reviewReport = rfService.Get(reportId);
+            BlRfReport reviewReport = rfService.Get(reportId);
             return reviewReport;
         }
 
@@ -94,30 +94,30 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return deleteReport;
         }
 
-        public static BrightLocalRfGetAll GetAllReports()
+        public static BlRfGetAll GetAllReports()
         {           
             var rfService = new ReviewFlowService();
 
-            BrightLocalRfGetAll results = rfService.GetAll();
+            BlRfGetAll results = rfService.GetAll();
             return results;
         }
 
-        public static BrightLocalRfGetAll SearchReport()
+        public static BlRfGetAll SearchReport()
         {
             string query = "New York";
             var rfService = new ReviewFlowService();
 
-            BrightLocalRfGetAll results = rfService.Search(query);
+            BlRfGetAll results = rfService.Search(query);
             return results;
         }
 
-        public static BrightLocalRfReviews GetReviews()
+        public static BlRfReviews GetReviews()
         {
             var myReviewReport = new RfGetReviewsOptions();
             myReviewReport.reportId = 1;
             var rfService = new ReviewFlowService();
 
-            BrightLocalRfReviews reviews = rfService.GetReviews(myReviewReport);
+            BlRfReviews reviews = rfService.GetReviews(myReviewReport);
             return reviews;
         }
 
@@ -139,12 +139,12 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return reviewGrowth;
         }
 
-        public static BrightLocalRfDirectories GetDirectories()
+        public static BlRfDirectories GetDirectories()
         {
             int reportId = 1;
             var rfService = new ReviewFlowService();
 
-            BrightLocalRfDirectories reviewDirectories = rfService.GetDirectories(reportId);
+            BlRfDirectories reviewDirectories = rfService.GetDirectories(reportId);
             return reviewDirectories;
         }
 

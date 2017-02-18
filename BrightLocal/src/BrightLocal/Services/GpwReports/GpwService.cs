@@ -3,11 +3,11 @@ using Newtonsoft.Json;
 
 namespace BrightLocal
 {
-    public class GpwService : BrightLocalService
+    public class GpwService : BlService
     {
         public GpwService(string apiKey = null, string apiSecret = null) : base(apiKey, apiSecret) { }
 
-        BrightLocalRequestor request = new BrightLocalRequestor();
+        BlRequestor request = new BlRequestor();
 
         public virtual BlSuccess Create(GpwOptions createOptions)
         {
@@ -25,12 +25,12 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
 
-        public virtual BrightLocalGpwReport Get(int reportId)
+        public virtual BlGpwReport Get(int reportId)
         {
             var url = string.Format(Urls.Gpw + "{0}", reportId);
             var parameters = new Parameters.requestParameters();
             var success = request.Get(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalGpwReport>(success.Content);
+            return JsonConvert.DeserializeObject<BlGpwReport>(success.Content);
         }
 
         public virtual BlSuccess Delete(int reportId)
@@ -41,19 +41,19 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
 
-        public virtual BrightLocalGpwGetAllResults GetAll()
+        public virtual BlGpwGetAllResults GetAll()
         {
             var parameters = new Parameters.requestParameters();
             var success = request.Get(Urls.Gpw, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalGpwGetAllResults>(success.Content);
+            return JsonConvert.DeserializeObject<BlGpwGetAllResults>(success.Content);
         }
 
-        public virtual BrightLocalGpwGetAllResults GetAll(int locationId)
+        public virtual BlGpwGetAllResults GetAll(int locationId)
         {
             var parameters = new Parameters.requestParameters();
             parameters.Add("location-id", locationId);
             var success = request.Get(Urls.Gpw, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalGpwGetAllResults>(success.Content);
+            return JsonConvert.DeserializeObject<BlGpwGetAllResults>(success.Content);
         }
 
         public virtual BlSuccess Run(int reportId)
@@ -65,12 +65,12 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
 
-        public virtual BrightLocalGpwReportResults GetReportResults(int reportId)
+        public virtual BlGpwReportResults GetReportResults(int reportId)
         {
             var url = string.Format(Urls.Gpw + "{0}", reportId + "/results");
             var parameters = new Parameters.requestParameters();            
             var success = request.Get(Urls.Gpw, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalGpwReportResults>(success.Content);
+            return JsonConvert.DeserializeObject<BlGpwReportResults>(success.Content);
         }
     }
 }

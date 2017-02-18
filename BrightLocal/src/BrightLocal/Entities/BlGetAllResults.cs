@@ -2,7 +2,7 @@
 
 namespace BrightLocal
 {
-    public class BrightLocalGetAllResults
+    public class BlGetAllResults
     {
         public LsrcGetAllResponse response { get; set; }        
     }

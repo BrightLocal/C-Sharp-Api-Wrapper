@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BrightLocal
 {
-    public class BrightLocalBatchRequestor
+    public class BlBatchRequestor
     {
         private static readonly System.Uri baseUrl = new System.Uri(Urls.BaseUrl);
         private static readonly string url = "/v4/batch";
@@ -52,7 +52,7 @@ namespace BrightLocal
 
         public IRestResponse Call(Method method, string apiKey, Parameters.requestParameters apiParameters)
         {
-            apiKey = apiKey ?? BrightLocalConfiguration.GetApiKey();
+            apiKey = apiKey ?? BlConfiguration.GetApiKey();
             
             // create sxpires variable
             

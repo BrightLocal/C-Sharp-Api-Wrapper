@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BrightLocal
 {
-    public class BrightLocalLscuSearch
+    public class BlLscuSearch
     {
         [JsonProperty("success")]
         public bool success { get; set; }

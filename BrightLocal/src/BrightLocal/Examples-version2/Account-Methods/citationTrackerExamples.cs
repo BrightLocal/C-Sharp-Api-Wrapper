@@ -41,13 +41,13 @@
             return updateCt;
         }
 
-        public static BrightLocalCitationTrackerReport Get()
+        public static BlCitationTrackerReport Get()
         {
             int reportId = 682;
 
             var citationTrackerService = new CitationTrackerService();
 
-            BrightLocalCitationTrackerReport myCt = citationTrackerService.Get(reportId);
+            BlCitationTrackerReport myCt = citationTrackerService.Get(reportId);
 
             return myCt;
         }
@@ -74,22 +74,22 @@
             return myCt;
         }
 
-        public static BrightLocalCtGetAllResults GetAll()
+        public static BlCtGetAllResults GetAll()
         {
             
             var citationTrackerService = new CitationTrackerService();
 
-            BrightLocalCtGetAllResults ctResults = citationTrackerService.GetAll();
+            BlCtGetAllResults ctResults = citationTrackerService.GetAll();
 
             return ctResults;
         }
 
-        public static BrightLocalCitationTrackerResults GetReportResults()
+        public static BlCitationTrackerResults GetReportResults()
         {
             var reportId = 1;
             var citationTrackerService = new CitationTrackerService();
 
-            BrightLocalCitationTrackerResults ctResults = citationTrackerService.GetReportResults(reportId);
+            BlCitationTrackerResults ctResults = citationTrackerService.GetReportResults(reportId);
 
             return ctResults;
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BrightLocal
 {
-    public class BrightLocalRfGetAll
+    public class BlRfGetAll
     {
         public bool success { get; set; }
         public List<RfReports> reports { get; set; }

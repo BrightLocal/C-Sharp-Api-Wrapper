@@ -2,11 +2,11 @@
 
 namespace BrightLocal
 {
-    public class CitationBurstService : BrightLocalService
+    public class CitationBurstService : BlService
     {
         public CitationBurstService(string apiKey = null, string apiSecret = null) : base(apiKey, apiSecret) { }
 
-        BrightLocalRequestor request = new BrightLocalRequestor();
+        BlRequestor request = new BlRequestor();
 
         public virtual BlSuccess Create(CitationBurstOptions createOptions)
         {

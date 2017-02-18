@@ -6,7 +6,7 @@ using System.Configuration;
 
 namespace BrightLocal
 {
-    public static class BrightLocalConfiguration
+    public static class BlConfiguration
     {
         // Decalre Variables
         private static string api_key;

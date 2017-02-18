@@ -2,7 +2,7 @@
 
 namespace BrightLocal
 {
-    public class BrightLocalClient
+    public class BlClient
     {
         [JsonProperty("client-id")]
         public int clientId { get; set; }        

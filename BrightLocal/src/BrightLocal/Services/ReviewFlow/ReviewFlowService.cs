@@ -2,11 +2,11 @@
 
 namespace BrightLocal
 {
-    public class ReviewFlowService : BrightLocalService
+    public class ReviewFlowService : BlService
     {
         public ReviewFlowService(string apiKey = null, string apiSecret = null) : base(apiKey, apiSecret) { }
 
-        BrightLocalRequestor request = new BrightLocalRequestor();
+        BlRequestor request = new BlRequestor();
 
         public virtual BlSuccess Create(ReviewFlowOptions createOptions)
         {
@@ -24,12 +24,12 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
 
-        public virtual BrightLocalRfReport Get(int reportId)
+        public virtual BlRfReport Get(int reportId)
         {
             var url = string.Format(Urls.ReviewFlow + "{0}", reportId);
             var parameters = new Parameters.requestParameters();
             var success = request.Get(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalRfReport>(success.Content);
+            return JsonConvert.DeserializeObject<BlRfReport>(success.Content);
         }
 
         public virtual BlSuccess Delete(int reportId)
@@ -40,38 +40,38 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
 
-        public virtual BrightLocalRfGetAll GetAll()
+        public virtual BlRfGetAll GetAll()
         {
             var url = string.Format(Urls.ReviewFlow);
             var parameters = new Parameters.requestParameters();
             var success = request.Get(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalRfGetAll>(success.Content);
+            return JsonConvert.DeserializeObject<BlRfGetAll>(success.Content);
         }
 
-        public virtual BrightLocalRfGetAll GetAll(int locationId)
+        public virtual BlRfGetAll GetAll(int locationId)
         {
             var url = string.Format(Urls.ReviewFlow);
             var parameters = new Parameters.requestParameters();
             parameters.Add("location-id", locationId);
             var success = request.Get(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalRfGetAll>(success.Content);
+            return JsonConvert.DeserializeObject<BlRfGetAll>(success.Content);
         }
 
-        public virtual BrightLocalRfGetAll Search(string query)
+        public virtual BlRfGetAll Search(string query)
         {
             var url = string.Format(Urls.ReviewFlow + "{0}", "search");
             var parameters = new Parameters.requestParameters();
             parameters.Add("q", query);
             var success = request.Get(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalRfGetAll>(success.Content);
+            return JsonConvert.DeserializeObject<BlRfGetAll>(success.Content);
         }
 
-        public virtual BrightLocalRfReviews GetReviews(RfGetReviewsOptions getReviews)
+        public virtual BlRfReviews GetReviews(RfGetReviewsOptions getReviews)
         {
             var url = string.Format(Urls.ReviewFlow + "{0}" + "/reviews", getReviews.reportId);
             var parameters = Parameters.convertListToParameters(getReviews);            
             var success = request.Get(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalRfReviews>(success.Content);
+            return JsonConvert.DeserializeObject<BlRfReviews>(success.Content);
         }
 
         public virtual BlSuccess GetReviewCount(int reportId)
@@ -90,12 +90,12 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
 
-        public virtual BrightLocalRfDirectories GetDirectories(int reportId)
+        public virtual BlRfDirectories GetDirectories(int reportId)
         {
             var url = string.Format(Urls.ReviewFlow + "{0}" + "/directories", reportId);
             var parameters = new Parameters.requestParameters();
             var success = request.Get(url, parameters, this.api_key, this.api_secret);
-            return JsonConvert.DeserializeObject<BrightLocalRfDirectories>(success.Content);
+            return JsonConvert.DeserializeObject<BlRfDirectories>(success.Content);
         }
 
         public virtual BrightLocalRfDirectoryStats GetDirectoryStats(int reportId)

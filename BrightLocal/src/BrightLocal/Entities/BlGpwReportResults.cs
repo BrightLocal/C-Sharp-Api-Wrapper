@@ -2,7 +2,7 @@
 
 namespace BrightLocal
 {
-    public class BrightLocalGpwReportResults
+    public class BlGpwReportResults
     {
         public bool success { get; set; }
         public GpwReportResults results { get; set; }

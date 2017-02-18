@@ -2,7 +2,7 @@
 
 namespace BrightLocal
 {
-    public class BrightLocalCitationTracker
+    public class BlCitationTracker
     {
         [JsonProperty("report-id")]
         public int reportId { get; set; }

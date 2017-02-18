@@ -75,12 +75,12 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return updateLscu;
         }
 
-        public static BrightLocalLscuReport Get()
+        public static BlLscuReport Get()
         {
             var reportId = 1;
             var lscuService = new LscuService();
 
-            BrightLocalLscuReport lscuReport = lscuService.Get(reportId);
+            BlLscuReport lscuReport = lscuService.Get(reportId);
             return lscuReport;
 
         }
@@ -103,12 +103,12 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return success;
         }
 
-        public static BrightLocalLscuSearch Search()
+        public static BlLscuSearch Search()
         {
             var searchQuery = "Bodega Wine Bar";
             var lscuService = new LscuService();
 
-            BrightLocalLscuSearch lscuSearch = lscuService.Search(searchQuery);
+            BlLscuSearch lscuSearch = lscuService.Search(searchQuery);
             return lscuSearch;
         }
     }

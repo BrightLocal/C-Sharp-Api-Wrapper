@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BrightLocal
 {
-    public class BrightLocalRequestor
+    public class BlRequestor
     {
         private static readonly System.Uri baseUrl = new System.Uri(Urls.BaseUrl);
        
@@ -47,8 +47,8 @@ namespace BrightLocal
         // Function that creates and sends the actual request.
         public IRestResponse Call(Method method, string endPoint, Dictionary<string, object> apiParameters, string apiKey, string apiSecret)
         {
-            apiKey = apiKey ?? BrightLocalConfiguration.GetApiKey();
-            apiSecret = apiSecret ?? BrightLocalConfiguration.GetApiSecret();
+            apiKey = apiKey ?? BlConfiguration.GetApiKey();
+            apiSecret = apiSecret ?? BlConfiguration.GetApiSecret();
             // create sxpires variable
             var expires = CreateExpiresParameter();
             // set base url   

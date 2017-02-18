@@ -38,7 +38,7 @@ Next you will need to provide BrightLocal with your API key & API secret. There 
 2) In your application initialization, call this method (this is a programmatic way, but you only have to do it once during startup)
 
 ```csharp
-	BrightLocalConfiguration.SetApiCredentials("[your API key here]", "[your api secret here]");
+	BlConfiguration.SetApiCredentials("[your API key here]", "[your api secret here]");
 ```
 
 3) In any of the service constructors, you can optionally pass the API key & API secret (will be assigned that apikey for the life of the service instance).
@@ -60,10 +60,10 @@ Clients
 
     var clientService = new ClientService();
 
-    BrightLocalSuccess newClient = clientService.Create(myClient);
+    BlSuccess newClient = clientService.Create(myClient);
 ```
 
-The returned BrightLocalSuccess entity above will have a client-id. You will want to persist this for later. When you create a location you will be able to optionally assign it to a client ID.
+The returned BlSuccess entity above will have a client-id. You will want to persist this for later. When you create a location you will be able to optionally assign it to a client ID.
 
 ### Update Client
 
@@ -76,7 +76,7 @@ The returned BrightLocalSuccess entity above will have a client-id. You will wan
 
     var clientService = new ClientService();
 
-    BrightLocalSuccess updateClient = clientService.Update(myClient);
+    BlSuccess updateClient = clientService.Update(myClient);
 ```
 
 ### Delete Client
@@ -85,7 +85,7 @@ The returned BrightLocalSuccess entity above will have a client-id. You will wan
 	var clientId = 1;
     var clientService = new ClientService();
 
-    BrightLocalSuccess deleteClient = clientService.Delete(clientId);
+    BlSuccess deleteClient = clientService.Delete(clientId);
 ```
 
 ### Get Client
@@ -94,7 +94,7 @@ The returned BrightLocalSuccess entity above will have a client-id. You will wan
 	var clientId = 1;
     var clientService = new ClientService();
 
-    BrightLocalClient client = clientService.Get(clientId);
+    BlClient client = clientService.Get(clientId);
 ```
 
 ### Search Clients
@@ -103,7 +103,7 @@ The returned BrightLocalSuccess entity above will have a client-id. You will wan
 	var searchQuery = "le-bernardin";
     var clientService = new ClientService();
 
-    BrightLocalClientSearch results = clientService.Search(searchQuery);
+    BlClientSearch results = clientService.Search(searchQuery);
 ```
 
 
@@ -127,10 +127,10 @@ Locations
 
     var locationService = new LocationService();
 
-    var BrightLocalSuccess = locationService.Create(myLocation);
+    var BlSuccess = locationService.Create(myLocation);
 ```
 
-The returned BrightLocalSuccess entity above will have a location-id. You will want to persist this for later. When you create a report you will be able to optionally assign it to a location id.
+The returned BlSuccess entity above will have a location-id. You will want to persist this for later. When you create a report you will be able to optionally assign it to a location id.
 
 ### Update Location
 
@@ -150,7 +150,7 @@ The returned BrightLocalSuccess entity above will have a location-id. You will w
 
 	var locationService = new LocationService();
 
-	BrightLocalSuccess updateLocation = locationService.Update(myLocation);
+	BlSuccess updateLocation = locationService.Update(myLocation);
 ```
 
 ### Delete Location
@@ -159,7 +159,7 @@ The returned BrightLocalSuccess entity above will have a location-id. You will w
 	var locationId = 1;
     var locationService = new LocationService();
 
-    BrightLocalSuccess deleteLocation = locationService.Delete(locationId);          
+    BlSuccess deleteLocation = locationService.Delete(locationId);          
 ```
 
 ### Get Location
@@ -168,7 +168,7 @@ The returned BrightLocalSuccess entity above will have a location-id. You will w
 	var locationId = 1;
     var locationService = new LocationService();
 
-    BrightLocalLocation getLocation = locationService.Get(locationId);
+    BlLocation getLocation = locationService.Get(locationId);
 ```
 
 ### Search Locations
@@ -177,7 +177,7 @@ The returned BrightLocalSuccess entity above will have a location-id. You will w
 	var searchQuery = "le-bernardin";
     var locationService = new LocationService();
 
-    BrightLocalLocationSearch results = locationService.Search(searchQuery); 
+    BlLocationSearch results = locationService.Search(searchQuery); 
 ```
 
 Local Search Rank Checker
@@ -195,10 +195,10 @@ Local Search Rank Checker
           
     var lsrcService = new LsrcService();
 
-    BrightLocalSuccess newLsrc = lsrcService.Create(myLsrc);
+    BlSuccess newLsrc = lsrcService.Create(myLsrc);
 ```
 
-The returned BrightLocalSuccess entity above will have a campaign-id. You will want to persist this for later in order to run and fetch the report.
+The returned BlSuccess entity above will have a campaign-id. You will want to persist this for later in order to run and fetch the report.
 
 ### Update Report
 
@@ -213,7 +213,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
 
     var lsrcService = new LsrcService();
 
-    BrightLocalSuccess updatedLsrc = lsrcService.Update(myLsrc);
+    BlSuccess updatedLsrc = lsrcService.Update(myLsrc);
 ```
 
 ### Delete Report
@@ -222,7 +222,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
 	var campaignId = 1;           
     var lsrcService = new LsrcService();
 
-    BrightLoBrightLocalSuccesscalLsrc deletedLsrc = lsrcService.Delete(campaignId);
+    BrightLoBlSuccesscalLsrc deletedLsrc = lsrcService.Delete(campaignId);
 ```
 
 ### Get Reports
@@ -230,7 +230,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
 ```csharp
 	var lsrcService = new LsrcService();
 
-    BrightLocalGetAllResults lsrcList = lsrcService.GetAll();;
+    BlGetAllResults lsrcList = lsrcService.GetAll();;
 ```
 
 ### Get Report
@@ -239,7 +239,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
 	var campaignId = 1;
     var lsrcService = new LsrcService();
 
-    BrightLocalLsrcReport myLsrc = lsrcService.Get(campaignId);
+    BlLsrcReport myLsrc = lsrcService.Get(campaignId);
 ```
 
 ### Run Report
@@ -248,7 +248,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
 	var campaignId = 1;
     var lsrcService = new LsrcService();
 
-    BrightLocalLsrc myLsrc = lsrcService.Run(campaignId);
+    BlLsrc myLsrc = lsrcService.Run(campaignId);
 ```
 
 ### Get Report History
@@ -257,7 +257,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
 	var campaignId = 1;
     var lsrcService = new LsrcService();
 
-    BrightLocalLsrcHistory lsrcHistory = lsrcService.GetHistory(campaignId);
+    BlLsrcHistory lsrcHistory = lsrcService.GetHistory(campaignId);
 ```
 
 ### Get Report Results
@@ -268,7 +268,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
             
 	var lsrcService = new LsrcService();
 
-	BrightLocalLsrcReportResults lsrcResults = lsrcService.GetResults(myLsrc);
+	BlLsrcReportResults lsrcResults = lsrcService.GetResults(myLsrc);
 ```
 
 
@@ -295,10 +295,10 @@ Local SEO Check-up
 
     var lscuService = new LscuService();
 
-    BrightLocalSuccess newLscu = lscuService.Create(myLscu);
+    BlSuccess newLscu = lscuService.Create(myLscu);
 ```
 
-The returned BrightLocalSuccess entity above will have a report-id. You will want to persist this for later when you get and run a report.
+The returned BlSuccess entity above will have a report-id. You will want to persist this for later when you get and run a report.
 
 ### Supplying Local Directory URLs (see local-directory-urls parameter)
 
@@ -341,7 +341,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 
     var lscuService = new LscuService();
 
-    BrightLocalSuccess updateLscu = lscuService.Update(myLscu);
+    BlSuccess updateLscu = lscuService.Update(myLscu);
 ```
 
 ### Get Report
@@ -350,7 +350,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 	var reportId = 1;
     var lscuService = new LscuService();
 
-    BrightLocalLscuReport lscuReport = lscuService.Get(reportId);
+    BlLscuReport lscuReport = lscuService.Get(reportId);
 ```
 
 ### Run Report
@@ -359,7 +359,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 	var reportId = 1;
     var lscuService = new LscuService();
 
-    BrightLocalSuccess success = lscuService.Run(reportId);
+    BlSuccess success = lscuService.Run(reportId);
 ```
 The returned success entity above is of type string. Success or Failure with errors.
 
@@ -369,7 +369,7 @@ The returned success entity above is of type string. Success or Failure with err
 	var reportId = 1;
     var lscuService = new LscuService();
 
-    BrightLocalSuccess success = lscuService.Delete(reportId);
+    BlSuccess success = lscuService.Delete(reportId);
 ```
 The returned success entity above is of type string. Success or Failure with errors.
 
@@ -379,7 +379,7 @@ The returned success entity above is of type string. Success or Failure with err
 	var searchQuery = "Bodega Wine Bar";
     var lscuService = new LscuService();
 
-    BrightLocalLscuSearch lscuSearch = lscuService.Search(searchQuery);
+    BlLscuSearch lscuSearch = lscuService.Search(searchQuery);
 ```
 
 Citation Tracker
@@ -400,9 +400,9 @@ Citation Tracker
 
     var citationTrackerService = new CitationTrackerService();
 
-    BrightLocalSuccess newCt = citationTrackerService.Create(myCt);
+    BlSuccess newCt = citationTrackerService.Create(myCt);
 ```
-The returned BrightLocalSuccess entity above will have a report-id. You will want to persist this for later in order to run and get the report.
+The returned BlSuccess entity above will have a report-id. You will want to persist this for later in order to run and get the report.
 
 ### Update Report
 
@@ -420,7 +420,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 
     var citationTrackerService = new CitationTrackerService();
 
-    BrightLocalSuccess updateCt = citationTrackerService.Update(myCt);
+    BlSuccess updateCt = citationTrackerService.Update(myCt);
 ```
 
 ### Get Report
@@ -430,7 +430,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 
     var citationTrackerService = new CitationTrackerService();
 
-    BrightLocalCitationTrackerReport myCt = citationTrackerService.Get(reportId);
+    BlCitationTrackerReport myCt = citationTrackerService.Get(reportId);
 ```
 
 ### Run Report
@@ -440,7 +440,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 
     var citationTrackerService = new CitationTrackerService();
 
-    BrightLocalSuccess myCt = citationTrackerService.Run(reportId);
+    BlSuccess myCt = citationTrackerService.Run(reportId);
 ```
 
 ### Delete Report
@@ -450,7 +450,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 
     var citationTrackerService = new CitationTrackerService();
 
-    BrightLocalSuccess myCt = citationTrackerService.Delete(reportId);
+    BlSuccess myCt = citationTrackerService.Delete(reportId);
 ```
 
 ### Get Reports
@@ -458,7 +458,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 ```csharp	
     var citationTrackerService = new CitationTrackerService();
 
-    BrightLocalCtGetAllResults ctResults = citationTrackerService.GetAll();
+    BlCtGetAllResults ctResults = citationTrackerService.GetAll();
 ```
 
 ### Get Report Results
@@ -467,7 +467,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     var reportId = 1;
     var citationTrackerService = new CitationTrackerService();
 
-    BrightLocalCitationTrackerResults ctResults = citationTrackerService.GetReportResults(reportId);
+    BlCitationTrackerResults ctResults = citationTrackerService.GetReportResults(reportId);
 ```
 
 Citation Burst
@@ -517,9 +517,9 @@ Citation Burst
 
     var citationBurstService = new CitationBurstService();
 
-    BrightLocalSuccess newCb = citationBurstService.Create(myCb);
+    BlSuccess newCb = citationBurstService.Create(myCb);
 ```
-The returned BrightLocalSuccess entity above will have a campaign-id. You will want to persist this for later in order to get citations, confirm & pay, etc.
+The returned BlSuccess entity above will have a campaign-id. You will want to persist this for later in order to get citations, confirm & pay, etc.
 
 ### Update Campaign
 
@@ -566,7 +566,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
 
     var citationBurstService = new CitationBurstService();
 
-    BrightLocalSuccess newCb = citationBurstService.Update(myCb);
+    BlSuccess newCb = citationBurstService.Update(myCb);
 ```
 
 ### Upload Image
@@ -579,7 +579,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
 
     var citationBurstService = new CitationBurstService();
 
-    BrightLocalSuccess cbImage = citationBurstService.UploadImage(image);
+    BlSuccess cbImage = citationBurstService.UploadImage(image);
 ```
 
 ### Get Citations
@@ -588,19 +588,19 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
 	int campaingId = 1;
     var citationBurstService = new CitationBurstService();
 
-    BrightLocalCitations citations = citationBurstService.GetCitations(campaingId);
+    BlCitations citations = citationBurstService.GetCitations(campaingId);
 ```
 
 ### Confirm & Pay for Citation Campaign
 
 ```csharp
-	BrightLocalCbPayOptions confirmPay = new BrightLocalCbPayOptions();
+	BlCbPayOptions confirmPay = new BlCbPayOptions();
     confirmPay.campaign_id = 1;
     confirmPay.package_id = "cb15";
 
     var citationBurstService = new CitationBurstService();
 
-    BrightLocalSuccess confirm = citationBurstService.ConfirmAndPay(confirmPay);
+    BlSuccess confirm = citationBurstService.ConfirmAndPay(confirmPay);
 ```
 
 ### Getting All Campaigns
@@ -608,7 +608,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
 ```csharp	
     var citationBurstService = new CitationBurstService();
 
-    BrightLocalCbAllCampaigns results = citationBurstService.GetCampaigns();
+    BlCbAllCampaigns results = citationBurstService.GetCampaigns();
 ```
 
 ### Get Campaign Details
@@ -617,7 +617,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
     int campaignId = 1;
     var citationBurstService = new CitationBurstService();
 
-    BrightLocalCbCampaign results = citationBurstService.GetCampaign(campaignId);
+    BlCbCampaign results = citationBurstService.GetCampaign(campaignId);
 ```
 
 ### Get Credits Balance
@@ -625,7 +625,7 @@ The returned BrightLocalSuccess entity above will have a campaign-id. You will w
 ```csharp	
     var citationBurstService = new CitationBurstService();
 
-    BrightLocalSuccess credits = citationBurstService.GetCredits();
+    BlSuccess credits = citationBurstService.GetCredits();
 ```
 
 ReviewFLow Reports
@@ -662,11 +662,11 @@ ReviewFLow Reports
 
     var rfService = new ReviewFlowService();
 
-    BrightLocalSuccess newReviewReport = rfService.Create(myReviewReport);
+    BlSuccess newReviewReport = rfService.Create(myReviewReport);
     return newReviewReport;
 ```
 
-The returned BrightLocalSuccess entity above will have a report-id. You will want to persist this for later when you get a report.
+The returned BlSuccess entity above will have a report-id. You will want to persist this for later when you get a report.
 
 ### Update Report
 
@@ -700,7 +700,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 
     var rfService = new ReviewFlowService();
 
-    BrightLocalSuccess updateReviewReport = rfService.Update(myReviewReport);
+    BlSuccess updateReviewReport = rfService.Update(myReviewReport);
 ```
 
 ### Get Report
@@ -709,7 +709,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 	int reportId = 1;
     var rfService = new ReviewFlowService();
 
-    BrightLocalRfReport reviewReport = rfService.Get(reportId);
+    BlRfReport reviewReport = rfService.Get(reportId);
 ```
 
 ### Delete Report
@@ -718,7 +718,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 	int reportId = 1;
     var rfService = new ReviewFlowService();
 
-    BrightLocalSuccess deleteReport = rfService.Delete(reportId);
+    BlSuccess deleteReport = rfService.Delete(reportId);
 ```
 
 ### Get All Reports
@@ -726,7 +726,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 ```csharp
 	var rfService = new ReviewFlowService();
 
-    BrightLocalRfGetAll results = rfService.GetAll();
+    BlRfGetAll results = rfService.GetAll();
 ```
 
 ### Search Reports
@@ -735,7 +735,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 	string query = "New York";
     var rfService = new ReviewFlowService();
 
-    BrightLocalRfGetAll results = rfService.Search(query);
+    BlRfGetAll results = rfService.Search(query);
 ```
 
 ### Get Reviews
@@ -745,7 +745,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     myReviewReport.reportId = 1;
     var rfService = new ReviewFlowService();
 
-    BrightLocalRfReviews reviews = rfService.GetReviews(myReviewReport);
+    BlRfReviews reviews = rfService.GetReviews(myReviewReport);
 ```
 
 ### Get Review Counts
@@ -754,7 +754,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 	int reportId = 1;
     var rfService = new ReviewFlowService();
 
-    BrightLocalSuccess reviewCount = rfService.GetReviewCount(reportId);
+    BlSuccess reviewCount = rfService.GetReviewCount(reportId);
 ```
 
 ### Get Growth
@@ -763,7 +763,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 	int reportId = 1;
     var rfService = new ReviewFlowService();
 
-    BrightLocalSuccess reviewGrowth = rfService.GetGrowth(reportId);
+    BlSuccess reviewGrowth = rfService.GetGrowth(reportId);
 ```
 
 ### Get Directories
@@ -772,7 +772,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 	int reportId = 1;
     var rfService = new ReviewFlowService();
 
-    BrightLocalRfDirectories reviewDirectories = rfService.GetDirectories(reportId);
+    BlRfDirectories reviewDirectories = rfService.GetDirectories(reportId);
 ```
 
 ### Get Directory Stats
@@ -781,7 +781,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 	int reportId = 1;
     var rfService = new ReviewFlowService();
 
-    BrightLocalRfDirectoryStats reviewDirectoryStats = rfService.GetDirectoryStats(reportId);
+    BlRfDirectoryStats reviewDirectoryStats = rfService.GetDirectoryStats(reportId);
 ```
 
 ### Get Star Counts
@@ -790,7 +790,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     int reportId = 1;
     var rfService = new ReviewFlowService();
 
-    BrightLocalRfStarCounts reviewStarCount = rfService.GetStarCount(reportId);
+    BlRfStarCounts reviewStarCount = rfService.GetStarCount(reportId);
 ```
 
 Google Plus Local Wizard Reports
@@ -816,9 +816,9 @@ Google Plus Local Wizard Reports
 
     var gpwService = new GpwService();
 
-    BrightLocalSuccess gpwReport = gpwService.Create(myGpwReport);
+    BlSuccess gpwReport = gpwService.Create(myGpwReport);
 ```
-The returned BrightLocalSuccess entity above will have a report-id. You will want to persist this for later in order to run and get the report.
+The returned BlSuccess entity above will have a report-id. You will want to persist this for later in order to run and get the report.
 
 ### Update Report
 
@@ -841,7 +841,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 
     var gpwService = new GpwService();
 
-    BrightLocalSuccess gpwReport = gpwService.Update(myGpwReport);
+    BlSuccess gpwReport = gpwService.Update(myGpwReport);
 ```
 
 ### Get Report
@@ -850,7 +850,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 	var reportId = 1;
     var gpwService = new GpwService();
 
-    BrightLocalGpwReport gpwReport = gpwService.Get(reportId);
+    BlGpwReport gpwReport = gpwService.Get(reportId);
 ```
 
 ### Delete Report
@@ -859,7 +859,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 	var reportId = 1;
     var gpwService = new GpwService();
 
-    BrightLocalSuccess gpwReport = gpwService.Delete(reportId);
+    BlSuccess gpwReport = gpwService.Delete(reportId);
 ```
 
 ### Get All Reports
@@ -867,7 +867,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 ```csharp	
     var gpwService = new GpwService();
 
-	BrightLocalGpwGetAllResults gpwGetAllResults = gpwService.GetAll();
+	BlGpwGetAllResults gpwGetAllResults = gpwService.GetAll();
 ```
 
 ### Run Report
@@ -876,7 +876,7 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
 	var reportId = 1;
     var gpwService = new GpwService();
 
-    BrightLocalSuccess gpwReport = gpwService.Run(reportId);
+    BlSuccess gpwReport = gpwService.Run(reportId);
 ```
 
 ### Get Report Results
@@ -885,5 +885,5 @@ The returned BrightLocalSuccess entity above will have a report-id. You will wan
     var reportId = 1;
     var gpwService = new GpwService();
 
-    BrightLocalGpwReportResults gpwReport = gpwService.GetReportResults(reportId);
+    BlGpwReportResults gpwReport = gpwService.GetReportResults(reportId);
 ```

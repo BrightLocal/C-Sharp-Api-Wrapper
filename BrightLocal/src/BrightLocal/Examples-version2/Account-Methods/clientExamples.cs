@@ -41,21 +41,21 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return deleteClient;
         }
 
-        public static BrightLocalClient Get()
+        public static BlClient Get()
         {
             var clientId = 1;
             var clientService = new ClientService();
 
-            BrightLocalClient client = clientService.Get(clientId);
+            BlClient client = clientService.Get(clientId);
             return client;
         }
 
-        public static BrightLocalClientSearch Search()
+        public static BlClientSearch Search()
         {
             var searchQuery = "le-bernardin";
             var clientService = new ClientService();
 
-            BrightLocalClientSearch results = clientService.Search(searchQuery);
+            BlClientSearch results = clientService.Search(searchQuery);
             return results;
         }
     }

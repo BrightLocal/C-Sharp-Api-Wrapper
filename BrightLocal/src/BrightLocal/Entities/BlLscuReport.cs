@@ -2,7 +2,7 @@
 
 namespace BrightLocal
 {
-    public class BrightLocalLscuReport
+    public class BlLscuReport
     {
         public bool success { get; set; }
         public LscuReport report { get; set; }       

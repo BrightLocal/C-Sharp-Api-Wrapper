@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BrightLocal
 {
-    public class BrightLocalLsrcReport
+    public class BlLsrcReport
     {
         public LsrcResponse response { get; set; }
     }

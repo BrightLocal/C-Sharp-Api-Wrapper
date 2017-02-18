@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BrightLocal
 {
-    public class BrightLocalCitationTrackerResults
+    public class BlCitationTrackerResults
     {
         public CtResponse response { get; set; }        
     }

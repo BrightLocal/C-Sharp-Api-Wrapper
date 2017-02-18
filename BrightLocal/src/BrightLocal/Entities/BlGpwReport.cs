@@ -3,7 +3,7 @@
 
 namespace BrightLocal
 {
-    public class BrightLocalGpwReport
+    public class BlGpwReport
     {
         public bool success { get; set; }
         public GpwReport report { get; set; }

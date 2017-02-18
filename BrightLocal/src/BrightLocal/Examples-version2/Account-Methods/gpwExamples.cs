@@ -55,12 +55,12 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return gpwReport;
         }
 
-        public static BrightLocalGpwReport Get()
+        public static BlGpwReport Get()
         {
             var reportId = 1;
             var gpwService = new GpwService();
 
-            BrightLocalGpwReport gpwReport = gpwService.Get(reportId);
+            BlGpwReport gpwReport = gpwService.Get(reportId);
             return gpwReport;
         }
 
@@ -73,11 +73,11 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return gpwReport;
         }
 
-        public static BrightLocalGpwGetAllResults GetAll()
+        public static BlGpwGetAllResults GetAll()
         {
             var gpwService = new GpwService();
 
-            BrightLocalGpwGetAllResults gpwGetAllResults = gpwService.GetAll();
+            BlGpwGetAllResults gpwGetAllResults = gpwService.GetAll();
             return gpwGetAllResults;
         }
 
@@ -90,12 +90,12 @@ namespace BrightLocal.Examples_version2.Account_Methods
             return gpwReport;
         }
 
-        public static BrightLocalGpwReportResults GetResults()
+        public static BlGpwReportResults GetResults()
         {
             var reportId = 1;
             var gpwService = new GpwService();
 
-            BrightLocalGpwReportResults gpwReport = gpwService.GetReportResults(reportId);
+            BlGpwReportResults gpwReport = gpwService.GetReportResults(reportId);
             return gpwReport;
         }
     }
