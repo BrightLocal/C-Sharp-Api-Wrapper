@@ -3,10 +3,13 @@ using System.Collections.Generic;
 
 namespace BrightLocal
 {
-    public class UpdateReviewFlowOptions
+    public class ReviewFlow
     {
-        [JsonProperty("report-id")]
-        public int reportId { get; set; }
+        public ReviewFlow()
+        {
+            directories = new RFDirectoryUrls();
+        }
+           
         [JsonProperty("report-name")]
         public string reportName { get; set; }
         [JsonProperty("location-id")]
@@ -16,11 +19,11 @@ namespace BrightLocal
         [JsonProperty("business-name")]
         public string businessName { get; set; }
         [JsonProperty("contact-telephone")]
-        public string contactTelephone { get; set; }
+        public string contactTelephone { get; set; }        
         [JsonProperty("address1")]
         public string address1 { get; set; }
         [JsonProperty("address2")]
-        public string address2 { get; set; }
+        public string address2 { get; set; }        
         [JsonProperty("city")]
         public string city { get; set; }
         [JsonProperty("postcode")]
@@ -30,11 +33,11 @@ namespace BrightLocal
         [JsonProperty("schedule")]
         public string schedule { get; set; }
         [JsonProperty("run-on")]
-        public int runOn { get; set; }
+        public int runOn { get; set; }        
         [JsonProperty("receive-email-alerts")]
         public string receiveEmailAlerts { get; set; }
         [JsonProperty("email-addresses")]
-        public List<string> emailAddresses { get; set; }
+        public List<string> emailAddresses { get; set; }        
         [JsonProperty("is-public")]
         public string isPublic { get; set; }
         [JsonProperty("directories")]
@@ -42,6 +45,15 @@ namespace BrightLocal
         [JsonProperty("run-report")]
         public string runReport { get; set; }
     }
- 
-}
 
+    public class RFDirectoryUrls : Dictionary<string, Directories>
+    {
+
+    }
+
+    public class Directories
+    {
+        public string url { get; set; }
+        public bool include { get; set; }
+    }
+}

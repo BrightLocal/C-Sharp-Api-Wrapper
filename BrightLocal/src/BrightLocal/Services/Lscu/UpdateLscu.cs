@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BrightLocal
 {
-    public class UpdateLscuOptions
+    public class UpdateLscu
     {
         [JsonProperty("report-id")]
         public int reportId { get; set; }

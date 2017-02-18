@@ -7,7 +7,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
     {
         public static BlSuccess Create()
         {
-            var location = new LocationOptions();
+            var location = new Location();
             location.name = "Le Bernardin";
             location.url = "le-bernardin.com";
             location.businessCategoryId = 791;
@@ -27,7 +27,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
         public static BlSuccess Update()
         {
-            var location = new UpdateLocationOptions();
+            var location = new UpdateLocation();
             location.locationId = 1;
             location.name = "Le Bernardin";
             location.url = "le-bernardin.com";

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 
 namespace BrightLocal
 {
-    public class GpwOptions
+    public class UpdateGpw
     {
+        [JsonProperty("report-ID")]
+        public int reportId { get; set; }
         [JsonProperty("report_name")]
         public string reportName { get; set; }
         [JsonProperty("location_id")]
@@ -21,7 +23,7 @@ namespace BrightLocal
         public string reportType { get; set; }
         [JsonProperty("address1")]
         public string address1 { get; set; }
-        [JsonProperty("address2")]        
+        [JsonProperty("address2")]
         public string address2 { get; set; }
         [JsonProperty("profile_url")]
         public string profileUrl { get; set; }
@@ -38,13 +40,13 @@ namespace BrightLocal
         [JsonProperty("search_terms")]
         public string searchTerms { get; set; }
         [JsonProperty("notify")]
-        public string notify { get; set; }        
+        public string notify { get; set; }
         [JsonProperty("email-addresses")]
         public string emailAddresses { get; set; }
         [JsonProperty("google_location")]
         public string googleLocation { get; set; }
         [JsonProperty("is_public")]
-        public string isPublic { get; set; }       
+        public string isPublic { get; set; }
         [JsonProperty("run")]
         public string run { get; set; }
     }

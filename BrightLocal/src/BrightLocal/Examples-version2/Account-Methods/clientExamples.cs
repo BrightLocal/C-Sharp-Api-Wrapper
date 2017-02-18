@@ -7,7 +7,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
     {
         public static BlSuccess Create()
         {
-            var client = new ClientOptions();
+            var client = new Client();
             client.name = "Le Bernardin";
             client.companyUrl = "le-bernardin.com";
             client.businessCategoryId = 791;
@@ -20,7 +20,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
         public static BlSuccess Update()
         {
-            var client = new UpdateClientOptions();
+            var client = new UpdateClient();
             client.clientId = 36447;
             client.name = "Le Bernardin";
             client.companyUrl = "le-bernardin.com";

@@ -11,8 +11,8 @@ namespace BrightLocal.Examples_version2.Batch_Methods
     {
         public static BlSuccess Create()
         {                           
-            RankingsSearchOptions searchOptions = new RankingsSearchOptions();
-            searchOptions.searches.Add(new SearchOptions()
+            RankingsSearchOptions search = new RankingsSearchOptions();
+            search.searches.Add(new SearchOptions()
             {
                 searchEngine = "google",
                 country = "USA",
@@ -21,7 +21,7 @@ namespace BrightLocal.Examples_version2.Batch_Methods
                 urls = JsonConvert.SerializeObject(new List<string>() { "le-bernardin.com" }),
                 businessNames = JsonConvert.SerializeObject(new List<string> { "Le Bernardin" })
             });
-            searchOptions.searches.Add(new SearchOptions()
+            search.searches.Add(new SearchOptions()
             {
                 searchEngine = "yahoo",
                 country = "USA",
@@ -32,7 +32,7 @@ namespace BrightLocal.Examples_version2.Batch_Methods
             });
 
             var batchRankingService = new BatchRankingsService();
-            BlBatchSuccess newBatchRankings = batchRankingService.Search(searchOptions);
+            BlBatchSuccess newBatchRankings = batchRankingService.Search(search);
 
             var rankingsResults = batchRankingService.GetSearchResults(newBatchRankings.batchId);
 

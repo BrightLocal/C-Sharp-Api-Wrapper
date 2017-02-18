@@ -3,7 +3,7 @@
 
 namespace BrightLocal
 {
-    public class GetResultsLsrcOptions
+    public class GetResultsLsrc
     {
         [JsonProperty("campaign-id")]
         public int campaignId { get; set; }

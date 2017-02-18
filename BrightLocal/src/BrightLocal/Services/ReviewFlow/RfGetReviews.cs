@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BrightLocal
 {
-    public class RfGetReviewsOptions
+    public class RfGetReviews
     {
         public int reportId { get; set; }
         public string directory { get; set; }

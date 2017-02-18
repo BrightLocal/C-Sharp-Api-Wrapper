@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BrightLocal
 {
-    public class CitationTrackerOptions
+    public class CitationTracker
     {
         [JsonProperty("location-id")]
         public int locationId { get; set; }

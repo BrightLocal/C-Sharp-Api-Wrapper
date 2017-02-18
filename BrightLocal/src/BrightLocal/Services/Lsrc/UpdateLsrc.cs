@@ -3,8 +3,10 @@ using System.Collections.Generic;
 
 namespace BrightLocal
 {
-    public class LsrcOptions
+    public class UpdateLsrc
     {
+        [JsonProperty("campaign-id")]
+        public int campaignId { get; set; }
         [JsonProperty("name")]
         public string name { get; set; }
         [JsonProperty("schedule")]
@@ -47,10 +49,9 @@ namespace BrightLocal
         public string includeLocalDirectoryResults { get; set; }
         [JsonProperty("notify")]
         public string notify { get; set; }
-        [JsonProperty("email-addresses")]
+        [JsonProperty("emailAddresses")]
         public string emailAddresses { get; set; }
         [JsonProperty("is-public")]
         public string isPublic { get; set; }
     }
 }
-

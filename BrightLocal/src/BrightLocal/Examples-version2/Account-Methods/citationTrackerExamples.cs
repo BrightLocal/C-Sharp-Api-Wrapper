@@ -4,7 +4,7 @@
     {
         public static BlSuccess Create()
         {
-            CitationTrackerOptions ct = new CitationTrackerOptions();
+            CitationTracker ct = new CitationTracker();
             ct.reportName = "Sample Citation Tracker Report";
             ct.businessName = "Le Bernardin";
             ct.website = "le-bernardin.com";
@@ -23,7 +23,7 @@
 
         public static BlSuccess Update()
         {
-            UpdateCitationTrackerOptions ct = new UpdateCitationTrackerOptions();
+            UpdateCitationTracker ct = new UpdateCitationTracker();
             ct.reportId = 682;
             ct.reportName = "Sample Citation Tracker Report";
             ct.businessName = "Le Bernardin";

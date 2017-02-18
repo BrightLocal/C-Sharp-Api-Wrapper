@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BrightLocal
 {
-    public class CitationBurstOptions
+    public class CitationBurst
     {
         [JsonProperty("location_id")]
         public int locationId { get; set; }       

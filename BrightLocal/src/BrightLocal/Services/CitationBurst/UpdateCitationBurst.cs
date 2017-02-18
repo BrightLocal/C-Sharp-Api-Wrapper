@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BrightLocal
 {
-    public class UpdateCitationBurstOptions
+    public class UpdateCitationBurst
     {
         
         public int campaignId { get; set; }

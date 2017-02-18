@@ -11,39 +11,39 @@ namespace BrightLocal
 
         BlRequestor request = new BlRequestor();
 
-        public virtual BlSuccess Create(LsrcOptions createOptions)
+        public virtual BlSuccess Create(Lsrc create)
         {
             var url = string.Format(Urls.Lsrc + "{0}", "add");
-            createOptions.searchTerms = Parameters.convertToNewline(createOptions.searchTerms);
-            if(createOptions.businessNames != null)
+            create.searchTerms = Parameters.convertToNewline(create.searchTerms);
+            if(create.businessNames != null)
             {
-                createOptions.businessNames = Parameters.convertToNewline(createOptions.businessNames);
+                create.businessNames = Parameters.convertToNewline(create.businessNames);
             }
-            if (createOptions.emailAddresses != null)
+            if (create.emailAddresses != null)
             {
-                createOptions.emailAddresses = Parameters.convertToNewline(createOptions.emailAddresses);
+                create.emailAddresses = Parameters.convertToNewline(create.emailAddresses);
             }
-            var parameters = Parameters.convertListToParameters(createOptions);
+            var parameters = Parameters.convertListToParameters(create);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
 
-        public virtual BlSuccess Update(UpdateLsrcOptions updateOptions)
+        public virtual BlSuccess Update(UpdateLsrc update)
         {
             var url = string.Format(Urls.Lsrc + "{0}", "update");
-            if (updateOptions.searchTerms != null)
+            if (update.searchTerms != null)
             {
-                updateOptions.searchTerms = Parameters.convertToNewline(updateOptions.searchTerms);
+                update.searchTerms = Parameters.convertToNewline(update.searchTerms);
             }
-            if (updateOptions.businessNames != null)
+            if (update.businessNames != null)
             {
-                updateOptions.businessNames = Parameters.convertToNewline(updateOptions.businessNames);
+                update.businessNames = Parameters.convertToNewline(update.businessNames);
             }
-            if (updateOptions.emailAddresses != null)
+            if (update.emailAddresses != null)
             {
-                updateOptions.emailAddresses = Parameters.convertToNewline(updateOptions.emailAddresses);
+                update.emailAddresses = Parameters.convertToNewline(update.emailAddresses);
             }
-            var parameters = Parameters.convertListToParameters(updateOptions);
+            var parameters = Parameters.convertListToParameters(update);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
@@ -108,10 +108,10 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BlLsrcHistory>(results.Content);           
         }
 
-        public virtual BlLsrcReportResults GetResults(GetResultsLsrcOptions lsrcOptions)
+        public virtual BlLsrcReportResults GetResults(GetResultsLsrc lsrc)
         {
             var url = string.Format(Urls.Lsrc + "{0}", "results/get");
-            var parameters = Parameters.convertListToParameters(lsrcOptions);
+            var parameters = Parameters.convertListToParameters(lsrc);
            
             var results = request.Get(url, parameters, this.api_key, this.api_secret);
             var report = JsonConvert.DeserializeObject<BlLsrcReportResults>(results.Content);

@@ -9,10 +9,10 @@ namespace BrightLocal
         [JsonProperty("success")]
         public bool success { get; set; }
         [JsonProperty("locations")]
-        public List<Location> locations { get; set; }
+        public List<LocationSearch> locations { get; set; }
     }
 
-    public class Location
+    public class LocationSearch
     {
         [JsonProperty("location-id")]
         public int locationId { get; set; }

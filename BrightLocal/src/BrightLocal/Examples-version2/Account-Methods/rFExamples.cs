@@ -9,7 +9,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
     {
         public static BlSuccess Create()
         {
-            var reviewReport = new ReviewFlowOptions();            
+            var reviewReport = new ReviewFlow();            
             reviewReport.reportName = "Sample Citation Tracker Report";
             reviewReport.businessName = "Le Bernardin";
             reviewReport.contactTelephone = "+1 212-554-1515";
@@ -43,7 +43,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
         public static BlSuccess Update()
         {
-            var reviewReport = new UpdateReviewFlowOptions();
+            var reviewReport = new UpdateReviewFlow();
             reviewReport.reportId = 1;
             reviewReport.reportName = "Sample Citation Tracker Report";
             reviewReport.businessName = "Le Bernardin";
@@ -113,7 +113,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
         public static BlRfReviews GetReviews()
         {
-            var reviewReport = new RfGetReviewsOptions();
+            var reviewReport = new RfGetReviews();
             reviewReport.reportId = 1;
             var rfService = new ReviewFlowService();
 

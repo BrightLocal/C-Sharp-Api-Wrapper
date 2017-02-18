@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BrightLocal
 {
-    public class UpdateCitationTrackerOptions
+    public class UpdateCitationTracker
     {
         [JsonProperty("report-id")]
         public int reportId { get; set; }

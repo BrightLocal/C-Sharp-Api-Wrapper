@@ -10,7 +10,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
     {
         public static BlSuccess Create()
         {
-            var lsrc = new LsrcOptions();
+            var lsrc = new Lsrc();
             lsrc.name = "Le Bernardin";
             lsrc.websiteAddresses = JsonConvert.SerializeObject(new List<string>() {"le-bernardin.com", "www.le-bernadin.com"});
             lsrc.searchTerms = "Restaurant, food+nyc, delivery+midtown+manhattan";
@@ -25,7 +25,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
         public static BlSuccess Update()
         {
-            var lsrc = new UpdateLsrcOptions();
+            var lsrc = new UpdateLsrc();
             lsrc.campaignId = 1;
             lsrc.name = "Le Bernardin";
             lsrc.websiteAddresses = JsonConvert.SerializeObject(new List<string>() { "le-bernardin.com", "www.le-bernadin.com" });
@@ -85,7 +85,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
         public static BlLsrcReportResults GetReportResults()
         {
-            var lsrc = new GetResultsLsrcOptions();
+            var lsrc = new GetResultsLsrc();
             lsrc.campaignId = 1;
             
             var lsrcService = new LsrcService();

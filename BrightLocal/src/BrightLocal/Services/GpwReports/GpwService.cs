@@ -9,18 +9,18 @@ namespace BrightLocal
 
         BlRequestor request = new BlRequestor();
 
-        public virtual BlSuccess Create(GpwOptions createOptions)
+        public virtual BlSuccess Create(Gpw create)
         {
             var url = string.Format(Urls.Gpw + "{0}", "add");
-            var parameters = Parameters.convertListToParameters(createOptions);
+            var parameters = Parameters.convertListToParameters(create);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
 
-        public virtual BlSuccess Update(UpdateGpwOptions updateOptions)
+        public virtual BlSuccess Update(UpdateGpw update)
         {
-            var url = string.Format(Urls.Gpw + "{0}", updateOptions.reportId);
-            var parameters = Parameters.convertListToParameters(updateOptions);
+            var url = string.Format(Urls.Gpw + "{0}", update.reportId);
+            var parameters = Parameters.convertListToParameters(update);
             var success = request.Put(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }

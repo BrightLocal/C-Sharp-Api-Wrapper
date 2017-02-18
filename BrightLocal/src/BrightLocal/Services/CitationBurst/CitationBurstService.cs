@@ -8,26 +8,26 @@ namespace BrightLocal
 
         BlRequestor request = new BlRequestor();
 
-        public virtual BlSuccess Create(CitationBurstOptions createOptions)
+        public virtual BlSuccess Create(CitationBurst create)
         {
             var url = string.Format(Urls.CitationBurst + "{0}", "create");
-            var parameters = Parameters.convertListToParameters(createOptions);
+            var parameters = Parameters.convertListToParameters(create);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
 
-        public virtual BlSuccess Update(UpdateCitationBurstOptions updateOptions)
+        public virtual BlSuccess Update(UpdateCitationBurst update)
         {
-            var url = string.Format(Urls.CitationBurst + "{0}", updateOptions.campaignId);
-            var parameters = Parameters.convertListToParameters(updateOptions);
+            var url = string.Format(Urls.CitationBurst + "{0}", update.campaignId);
+            var parameters = Parameters.convertListToParameters(update);
             var success = request.Put(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
 
-        public virtual BlSuccess UploadImage(CbUploadImage imageOptions)
+        public virtual BlSuccess UploadImage(CbUploadImage image)
         {
-            var url = string.Format(Urls.CitationBurst + "{0}" + "/{1}", imageOptions.campaignId, imageOptions.imageType);
-            var parameters = Parameters.convertListToParameters(imageOptions.file);
+            var url = string.Format(Urls.CitationBurst + "{0}" + "/{1}", image.campaignId, image.imageType);
+            var parameters = Parameters.convertListToParameters(image.file);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
@@ -41,10 +41,10 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BlCitations>(success.Content);
         }
 
-        public virtual BlSuccess ConfirmAndPay(BrightLocalCbPayOptions payOptions)
+        public virtual BlSuccess ConfirmAndPay(BrightLocalCbPay pay)
         {
             var url = string.Format(Urls.CitationBurst + "{0}", "confirm-and-pay");
-            var parameters = Parameters.convertListToParameters(payOptions);
+            var parameters = Parameters.convertListToParameters(pay);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }

@@ -8,18 +8,18 @@ namespace BrightLocal
 
         BlRequestor request = new BlRequestor();
 
-        public virtual BlSuccess Create(ReviewFlowOptions createOptions)
+        public virtual BlSuccess Create(ReviewFlow create)
         {
             var url = string.Format(Urls.ReviewFlow + "{0}", "add");
-            var parameters = Parameters.convertListToParameters(createOptions);
+            var parameters = Parameters.convertListToParameters(create);
             var success = request.Post(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
 
-        public virtual BlSuccess Update(UpdateReviewFlowOptions updateOptions)
+        public virtual BlSuccess Update(UpdateReviewFlow update)
         {
-            var url = string.Format(Urls.ReviewFlow + "{0}", updateOptions.reportId);
-            var parameters = Parameters.convertListToParameters(updateOptions);
+            var url = string.Format(Urls.ReviewFlow + "{0}", update.reportId);
+            var parameters = Parameters.convertListToParameters(update);
             var success = request.Put(url, parameters, this.api_key, this.api_secret);
             return JsonConvert.DeserializeObject<BlSuccess>(success.Content);
         }
@@ -66,7 +66,7 @@ namespace BrightLocal
             return JsonConvert.DeserializeObject<BlRfGetAll>(success.Content);
         }
 
-        public virtual BlRfReviews GetReviews(RfGetReviewsOptions getReviews)
+        public virtual BlRfReviews GetReviews(RfGetReviews getReviews)
         {
             var url = string.Format(Urls.ReviewFlow + "{0}" + "/reviews", getReviews.reportId);
             var parameters = Parameters.convertListToParameters(getReviews);            

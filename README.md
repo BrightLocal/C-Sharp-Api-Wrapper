@@ -53,7 +53,7 @@ Clients
 ### Add Client
 
 ```csharp
-	var client = new ClientOptions();
+	var client = new Client();
     client.name = "Le Bernardin";
     client.companyUrl = "le-bernardin.com";
     client.businessCategoryId = 791;
@@ -68,7 +68,7 @@ The returned BlSuccess entity above will have a client-id. You will want to pers
 ### Update Client
 
 ```csharp
-	var client = new UpdateClientOptions();
+	var client = new UpdateClient();
     client.clientId = 36447;
     client.name = "Le Bernardin";
     client.companyUrl = "le-bernardin.com";
@@ -113,7 +113,7 @@ Locations
 ### Add Location
 
 ```csharp
-	var location = new LocationOptions();
+	var location = new Location();
     location.name = "Le Bernardin";
     location.url = "le-bernardin.com";
     location.businessCategoryId = 791;
@@ -135,7 +135,7 @@ The returned BlSuccess entity above will have a location-id. You will want to pe
 ### Update Location
 
 ```csharp
-	var location = new UpdateLocationOptions();
+	var location = new UpdateLocation();
 	location.locationId = 1;
 	location.name = "Le Bernardin";
 	location.url = "le-bernardin.com";
@@ -186,7 +186,7 @@ Local Search Rank Checker
 ### Add Report
 
 ```csharp
-	var lsrc = new LsrcOptions();
+	var lsrc = new Lsrc();
     lsrc.name = "Le Bernardin";
     lsrc.websiteAddresses = JsonConvert.SerializeObject(new List<string>() {"le-bernardin.com", "www.le-bernadin.com"});
     lsrc.searchTerms = "Restaurant, food+nyc, delivery+midtown+manhattan";
@@ -203,7 +203,7 @@ The returned BlSuccess entity above will have a campaign-id. You will want to pe
 ### Update Report
 
 ```csharp
-	var lsrc = new UpdateLsrcOptions();
+	var lsrc = new UpdateLsrc();
     lsrc.campaignId = 1;
     lsrc.name = "Le Bernardin";
     lsrc.websiteAddresses = JsonConvert.SerializeObject(new List<string>() { "le-bernardin.com", "www.le-bernadin.com" });
@@ -263,7 +263,7 @@ The returned BlSuccess entity above will have a campaign-id. You will want to pe
 ### Get Report Results
 
 ```csharp
-	var lsrc = new GetResultsLsrcOptions();
+	var lsrc = new GetResultsLsrc();
 	lsrc.campaignId = 1;
             
 	var lsrcService = new LsrcService();
@@ -278,7 +278,7 @@ Local SEO Check-up
 ### Add Report
 
 ```csharp
-	LscuOptions lscu = new LscuOptions();
+	Lscu lscu = new Lscu();
     lscu.reportName = "Sample SEO Chek-Up Report";
     lscu.businessNames = JsonConvert.SerializeObject(new List<string>() {"Le Bernardin", "Le Bernardin Cafe"});
     lscu.websiteAddress = "le-bernardin.com";
@@ -323,7 +323,7 @@ The returned BlSuccess entity above will have a report-id. You will want to pers
 ### Update Report
 
 ```csharp
-	UpdateLscuOptions lscu = new UpdateLscuOptions();
+	UpdateLscu lscu = new UpdateLscu();
 	lscu.reportId = 1;
     lscu.reportName = "Sample SEO Chek-Up Report";
     lscu.businessNames =  JsonConvert.SerializeObject(new List<string>() { "Le Bernardin", "Le Bernardin Cafe" });
@@ -388,7 +388,7 @@ Citation Tracker
 ### Add Report
 
 ```csharp
-	CitationTrackerOptions ct = new CitationTrackerOptions();
+	CitationTracker ct = new CitationTracker();
     ct.reportName = "Sample Citation Tracker Report";
     ct.businessName = "Le Bernardin";
     ct.website = "le-bernardin.com";
@@ -407,7 +407,7 @@ The returned BlSuccess entity above will have a report-id. You will want to pers
 ### Update Report
 
 ```csharp
-	UpdateCitationTrackerOptions ct = new UpdateCitationTrackerOptions();
+	UpdateCitationTracker ct = new UpdateCitationTracker();
     ct.reportId = 682;
     ct.reportName = "Sample Citation Tracker Report";
     ct.businessName = "Le Bernardin";
@@ -479,7 +479,7 @@ Citation Burst
 	string brief_description = "Born in Paris in 1972 by sibling duo Maguy and Gilbert Le Coze, Le Bernardin only served fish: Fresh, simple and prepared with respect. After receiving its first Michelin star in 1976, and two more in 1980, the Le Cozes set to open Le Bernardin in New York in 1986.";
     string full_description = "The restaurant has held three stars from the Michelin Guide since its 2005 New York launch and currently ranks 24 on the Worlds 50 Best Restaurants list. The New York Zagat Guide has recognized Le Bernardin as top rated in the category of Best Food for the last nine consecutive years, and in 2015 was rated by the guide as New York Citys top restaurant for food and service.  Le Bernardin has earned seven James Beard Awards since 1998 including Outstanding Restaurant of the Year, Top Chef in New York City, Outstanding Service, Outstanding Chef in the United States, Outstanding Pastry Chef, Outstanding Wine Service, and Best Restaurant Design in 2012. Most recently, the Foundation named Maguy Le Coze as Outstanding.";
 
-    CitationBurstOptions cb = new CitationBurstOptions();            
+    CitationBurst cb = new CitationBurst();            
     cb.businessName = "Le Bernardin";
     cb.campaignName = "Sample Citation Burst Campaign";
     cb.websiteAddress = "le-bernardin.com";
@@ -515,9 +515,9 @@ Citation Burst
     cb.workingHoursSunEnd = 2400;
     cb.paymentMethods = "Cash|Visa";
 
-    var citationBurstService = new CitationBurstService();
+    var CitationBurstService = new CitationBurstService();
 
-    BlSuccess newCb = citationBurstService.Create(cb);
+    BlSuccess newCb = CitationBurstService.Create(cb);
 ```
 The returned BlSuccess entity above will have a campaign-id. You will want to persist this for later in order to get citations, confirm & pay, etc.
 
@@ -527,7 +527,7 @@ The returned BlSuccess entity above will have a campaign-id. You will want to pe
 	string brief_description = "Born in Paris in 1972 by sibling duo Maguy and Gilbert Le Coze, Le Bernardin only served fish: Fresh, simple and prepared with respect. After receiving its first Michelin star in 1976, and two more in 1980, the Le Cozes set to open Le Bernardin in New York in 1986.";
     string full_description = "The restaurant has held three stars from the Michelin Guide since its 2005 New York launch and currently ranks 24 on the Worlds 50 Best Restaurants list. The New York Zagat Guide has recognized Le Bernardin as top rated in the category of Best Food for the last nine consecutive years, and in 2015 was rated by the guide as New York Citys top restaurant for food and service.  Le Bernardin has earned seven James Beard Awards since 1998 including Outstanding Restaurant of the Year, Top Chef in New York City, Outstanding Service, Outstanding Chef in the United States, Outstanding Pastry Chef, Outstanding Wine Service, and Best Restaurant Design in 2012. Most recently, the Foundation named Maguy Le Coze as Outstanding.";
 
-    UpdateCitationBurstOptions cb = new UpdateCitationBurstOptions();
+    UpdateCitationBurst cb = new UpdateCitationBurst();
     cb.campaignId = 1;
     cb.businessName = "Le Bernardin";
     cb.campaignName = "Sample Citation Burst Campaign";
@@ -564,9 +564,9 @@ The returned BlSuccess entity above will have a campaign-id. You will want to pe
     cb.workingHoursSunEnd = 2400;
     cb.paymentMethods = "Cash|Visa";
 
-    var citationBurstService = new CitationBurstService();
+    var CitationBurstService = new CitationBurstService();
 
-    BlSuccess newCb = citationBurstService.Update(cb);
+    BlSuccess newCb = CitationBurstService.Update(cb);
 ```
 
 ### Upload Image
@@ -577,55 +577,55 @@ The returned BlSuccess entity above will have a campaign-id. You will want to pe
     image.file = "/path/to/image.jpg";
     image.imageType = "logo";
 
-    var citationBurstService = new CitationBurstService();
+    var CitationBurstService = new CitationBurstService();
 
-    BlSuccess cbImage = citationBurstService.UploadImage(image);
+    BlSuccess cbImage = CitationBurstService.UploadImage(image);
 ```
 
 ### Get Citations
 
 ```csharp
 	int campaingId = 1;
-    var citationBurstService = new CitationBurstService();
+    var CitationBurstService = new CitationBurstService();
 
-    BlCitations citations = citationBurstService.GetCitations(campaingId);
+    BlCitations citations = CitationBurstService.GetCitations(campaingId);
 ```
 
 ### Confirm & Pay for Citation Campaign
 
 ```csharp
-	BlCbPayOptions confirmPay = new BlCbPayOptions();
+	BlCbPay confirmPay = new BlCbPay();
     confirmPay.campaign_id = 1;
     confirmPay.package_id = "cb15";
 
-    var citationBurstService = new CitationBurstService();
+    var CitationBurstService = new CitationBurstService();
 
-    BlSuccess confirm = citationBurstService.ConfirmAndPay(confirmPay);
+    BlSuccess confirm = CitationBurstService.ConfirmAndPay(confirmPay);
 ```
 
 ### Getting All Campaigns
 
 ```csharp	
-    var citationBurstService = new CitationBurstService();
+    var CitationBurstService = new CitationBurstService();
 
-    BlCbAllCampaigns results = citationBurstService.GetCampaigns();
+    BlCbAllCampaigns results = CitationBurstService.GetCampaigns();
 ```
 
 ### Get Campaign Details
 
 ```csharp	
     int campaignId = 1;
-    var citationBurstService = new CitationBurstService();
+    var CitationBurstService = new CitationBurstService();
 
-    BlCbCampaign results = citationBurstService.GetCampaign(campaignId);
+    BlCbCampaign results = CitationBurstService.GetCampaign(campaignId);
 ```
 
 ### Get Credits Balance
 
 ```csharp	
-    var citationBurstService = new CitationBurstService();
+    var CitationBurstService = new CitationBurstService();
 
-    BlSuccess credits = citationBurstService.GetCredits();
+    BlSuccess credits = CitationBurstService.GetCredits();
 ```
 
 ReviewFLow Reports
@@ -634,7 +634,7 @@ ReviewFLow Reports
 ### Add Report
 
 ```csharp
-	var reviewReport = new ReviewFlowOptions();            
+	var reviewReport = new ReviewFlow();            
     reviewReport.reportName = "Sample Citation Tracker Report";
     reviewReport.businessName = "Le Bernardin";
     reviewReport.contactTelephone = "+1 212-554-1515";
@@ -671,7 +671,7 @@ The returned BlSuccess entity above will have a report-id. You will want to pers
 ### Update Report
 
 ```csharp
-	var reviewReport = new UpdateReviewFlowOptions();
+	var reviewReport = new UpdateReviewFlow();
     reviewReport.reportId = 1;
     reviewReport.reportName = "Sample Citation Tracker Report";
     reviewReport.businessName = "Le Bernardin";
@@ -741,7 +741,7 @@ The returned BlSuccess entity above will have a report-id. You will want to pers
 ### Get Reviews
 
 ```csharp
-	var reviewReport = new RfGetReviewsOptions();
+	var reviewReport = new RfGetReviews();
     reviewReport.reportId = 1;
     var rfService = new ReviewFlowService();
 
@@ -799,7 +799,7 @@ Google Plus Local Wizard Reports
 ### Add Report
 
 ```csharp
-	var gpwReport = new GpwOptions();
+	var gpwReport = new Gpw();
     gpwReport.reportName = "Sample Citation Tracker Report";
     gpwReport.businessNames = "Le Bernardin";
     gpwReport.schedule = "Adhoc";
@@ -823,7 +823,7 @@ The returned BlSuccess entity above will have a report-id. You will want to pers
 ### Update Report
 
 ```csharp
-	var gpwReport = new UpdateGpwOptions();
+	var gpwReport = new UpdateGpw();
     gpwReport.reportId = 1;
     gpwReport.reportName = "Sample Citation Tracker Report";
     gpwReport.businessNames = "Le Bernardin";

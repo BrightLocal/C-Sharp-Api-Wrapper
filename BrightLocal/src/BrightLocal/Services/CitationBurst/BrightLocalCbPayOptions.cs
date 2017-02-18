@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BrightLocal
 {
-    public class BrightLocalCbPayOptions
+    public class BrightLocalCbPay
     {
         public int campaign_id { get; set; }
         public string package_id { get; set; }

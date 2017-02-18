@@ -1,21 +1,17 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
 
-
 namespace BrightLocal
 {
-    public class UpdateLocationOptions
+    public class Location
     {
-        [JsonRequired]
-        [JsonProperty("location-id")]
-        public int locationId { get; set; }
         [JsonProperty("name")]
         public string name { get; set; }
         [JsonProperty("client-id")]
         public int clientId { get; set; }
         [JsonProperty("url")]
         public string url { get; set; }
-        [JsonProperty("business-category-id")]
+        [JsonProperty("business-category-id")]     
         public int businessCategoryId { get; set; }
         [JsonProperty("country")]
         public string country { get; set; }
@@ -60,6 +56,6 @@ namespace BrightLocal
         [JsonProperty("long-description")]
         public string longDescription { get; set; }
         [JsonProperty("services-of-products")]
-        public JsonArray servicesOfProducts { get; set; }
+        public JsonArray servicesOfProducts { get; set; }        
     }
 }

@@ -10,7 +10,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
     {
         public static BlSuccess Create()
         {
-            LscuOptions lscu = new LscuOptions();
+            Lscu lscu = new Lscu();
             lscu.reportName = "Sample SEO Chek-Up Report";
             lscu.businessNames = JsonConvert.SerializeObject(new List<string>() {"Le Bernardin", "Le Bernardin Cafe"});
             lscu.websiteAddress = "le-bernardin.com";
@@ -52,7 +52,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
         public static BlSuccess Update()
         {
-            UpdateLscuOptions lscu = new UpdateLscuOptions();
+            UpdateLscu lscu = new UpdateLscu();
             lscu.reportId = 1;
             lscu.reportName = "Sample SEO Chek-Up Report";
             lscu.businessNames = JsonConvert.SerializeObject(new List<string>() { "Le Bernardin", "Le Bernardin Cafe" });

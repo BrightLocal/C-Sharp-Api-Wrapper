@@ -10,7 +10,7 @@ namespace BrightLocal.Examples_version2.Account_Methods
     {
         public static BlSuccess Create()
         {
-            var gpwReport = new GpwOptions();
+            var gpwReport = new Gpw();
             gpwReport.reportName = "Sample Citation Tracker Report";
             gpwReport.businessNames = "Le Bernardin";
             gpwReport.schedule = "Adhoc";
@@ -27,13 +27,13 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var gpwService = new GpwService();
 
-            BlSuccess gpwReport = gpwService.Create(gpwReport);
-            return gpwReport;
+            BlSuccess gpwReportResults = gpwService.Create(gpwReport);
+            return gpwReportResults;
         }
 
         public static BlSuccess Update()
         {
-            var gpwReport = new UpdateGpwOptions();
+            var gpwReport = new UpdateGpw();
             gpwReport.reportId = 1;
             gpwReport.reportName = "Sample Citation Tracker Report";
             gpwReport.businessNames = "Le Bernardin";
@@ -51,8 +51,8 @@ namespace BrightLocal.Examples_version2.Account_Methods
 
             var gpwService = new GpwService();
 
-            BlSuccess gpwReport = gpwService.Update(gpwReport);
-            return gpwReport;
+            BlSuccess gpwReportResults = gpwService.Update(gpwReport);
+            return gpwReportResults;
         }
 
         public static BlGpwReport Get()
