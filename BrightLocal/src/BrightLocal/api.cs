@@ -35,8 +35,7 @@ namespace BrightLocal
             {
                 byte[] hashmessage = hmacsha1.ComputeHash(messageBytes);
                 var signature = Convert.ToBase64String(hashmessage);
-                var sig = HttpUtility.UrlEncode(signature);
-                return signature;
+                return HttpUtility.UrlEncode(signature);
             }
 
         }
