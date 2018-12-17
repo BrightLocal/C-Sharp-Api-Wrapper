@@ -1,19 +1,18 @@
-﻿{
-  "version": "1.0.5-*",
+{
+  "version": "2.0.0-*",
   "id": "BrightLocal",
   "description": "A c# wrapper class for consuming The Bright Local api. Automatically generates the proper authentication, with the siganture and expires parameter. Avoid the need to generate your own authentication signature. See documentation for examples.",
   "dependencies": {
-    "Newtonsoft.Json": "9.0.1"
-
+    "Newtonsoft.Json": "9.0.1"   
   },
 
   "frameworks": {
-
-    "net451": {
+    "net452": {
       "dependencies": {
         "RestSharp": "105.2.3"
       },
       "frameworkAssemblies": {
+        "System.Configuration": "4.0.0.0",
         "System.Web": "4.0.0.0"
       }
     },
@@ -22,6 +21,7 @@
         "RestSharp": "105.2.3"
       },
       "frameworkAssemblies": {
+        "System.Configuration": "4.0.0.0",
         "System.Web": "4.0.0.0"
       }
     }
@@ -31,7 +31,7 @@
       "dotnet pack --no-build --output bin\\Debug --configuration %compile:Configuration%"
     ]
   },
-  "packOptions": {
+  "pack": {
     "summary": "A c# wrapper class for consuming The Bright Local api. Automatically generates the proper authentication, with the siganture and expires parameter. Avoid the need to generate your own authentication signature. See documentation for examples.",
     "tags": [ "BrightLocal.com", "Bright Local Api", "C# wrapper", "SEO Tools" ],
     "owners": [ "BrightLocal" ],

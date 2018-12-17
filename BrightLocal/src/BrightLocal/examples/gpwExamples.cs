@@ -25,7 +25,7 @@ namespace BrightLocal.examples
             parameters.Add("postcode", "10019");
             parameters.Add("phone_number", "+1 212-554-1515");
             parameters.Add("country", "USA");
-            parameters.Add("business-category", "Restaurant");
+            
             parameters.Add("search-terms", "['restaurant manhattan', 'cafe new york']");
 
             var success = request.Post("v4/gpw/add", parameters);
